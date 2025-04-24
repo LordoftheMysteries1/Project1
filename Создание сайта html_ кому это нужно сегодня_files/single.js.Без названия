@@ -1,0 +1,131 @@
+window.addEventListener('load', () => {
+    rLinkBanner()
+    initBlogWebinarSlider()
+    topicList()
+    initReadMoreSlider()
+});
+
+function rLinkBanner() {
+    let rLinks = document.querySelectorAll('.r-link')
+    if (rLinks) {
+        rLinks.forEach(banner => {
+            banner.addEventListener("mouseover", () => {
+                document.querySelector('.r-link__title').style.color = "#6F63E9";
+            });
+            banner.addEventListener("mouseout", () => {
+                document.querySelector('.r-link__title').style.color = "";
+            });
+        })
+    }
+}
+
+function initBlogWebinarSlider() {
+    $('.blog-webinars-slider').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        dots: false,
+        focusOnSelect: true,
+        arrows: true,
+        prevArrow: '.blog-webinars-slider__prev',
+        nextArrow: '.blog-webinars-slider__next',
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+}
+
+function initReadMoreSlider() {
+    $('.slider-read-more').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        dots: false,
+        focusOnSelect: true,
+        arrows: true,
+        prevArrow: '.slider-read-more__prev',
+        nextArrow: '.slider-read-more__next',
+        responsive: [
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+}
+
+function topicList() {
+    let headers = document.querySelectorAll('.blog-content h2')
+    let sidebar = document.querySelector('.blog-sidebar .sticky-block')
+    let list =  document.createElement('div')
+    list.classList.add('topic-list')
+    if (window.innerWidth < 1200) {
+        document.querySelector('.topic-list__mob').appendChild(list)
+    } else {
+        sidebar.appendChild(list)
+    }
+
+    const changeNav = (entries, observer) => {
+        entries.forEach((entry) => {
+            // чекаем, то элемент пересекает наблюдаемую область более, чем на 55%
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+                // удаляем активный класс у элемента меню
+                list.querySelector('.active').classList.remove('active');
+                // получаем ID секции, которая текущая
+                let id = entry.target.getAttribute('id');
+                // обращаемся к ссылке меню, у которой href равен ID секции
+                let newLink = list.querySelector(`[href="#${id}"]`).classList.add('active');
+            }
+        });
+    }
+
+// обратите внимание на значение опции threshold
+    const options = {
+        threshold: 0.55
+    }
+
+    const observer = new IntersectionObserver(changeNav, options);
+
+    headers.forEach((header, index) => {
+        header.id = index
+        let a = document.createElement('a')
+        a.href = `#${index}`
+        a.innerText = header.innerText
+        if (index === 0) {
+            a.classList.add('active')
+        }
+        list.appendChild(a)
+        observer.observe(header);
+    })
+
+}
+
+$('.topic-list__mob span').click(function () {
+    $('.topic-list__mob .topic-list').toggleClass('open');
+    $('.topic-list__mob span svg').toggleClass('open');
+});

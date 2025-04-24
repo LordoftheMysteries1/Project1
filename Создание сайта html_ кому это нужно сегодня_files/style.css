@@ -1,0 +1,37 @@
+/*
+Theme Name: Reboot Child
+Theme URI: https://wpshop.ru/themes/reboot
+Author: WPShop.biz
+Author URI: http://wpshop.biz/
+Template: reboot
+Version: 1.0.0
+*/
+
+/* Below you can add your CSS styles */
+/* Ниже Вы можете добавить свои CSS стили */
+
+/* Add fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@300;400;600;700&family=Inter:wght@400&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.pc {
+    display: flex;
+}
+.mob {
+    display: none;
+}
+@media screen and (max-width:1024px) {
+    .pc {
+        display: none;
+    }
+    .mob {
+        display: flex;
+    }
+}
