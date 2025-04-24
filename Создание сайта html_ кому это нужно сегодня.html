@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async="" src="./Создание сайта html_ кому это нужно сегодня_files/saved_resource"></script><script async="" src="./Создание сайта html_ кому это нужно сегодня_files/r2"></script><script async="" src="./Создание сайта html_ кому это нужно сегодня_files/saved_resource(1)"></script><script async="" src="./Создание сайта html_ кому это нужно сегодня_files/saved_resource(2)"></script><script async="" src="./Создание сайта html_ кому это нужно сегодня_files/saved_resource(3)"></script><script async="" src="./Создание сайта html_ кому это нужно сегодня_files/analytics"></script><script async="" src="./Создание сайта html_ кому это нужно сегодня_files/saved_resource(4)"></script><script async="" src="./Создание сайта html_ кому это нужно сегодня_files/container_v2.min.js.Без названия"></script><script async="" src="./Создание сайта html_ кому это нужно сегодня_files/saved_resource(5)"></script><script type="text/javascript" async="" src="./Создание сайта html_ кому это нужно сегодня_files/analytics.js.Без названия"></script><script async="" src="./Создание сайта html_ кому это нужно сегодня_files/tag.js.Без названия"></script><script data-cfasync="false" data-no-defer="1" data-no-minify="1" data-no-optimize="1">var ewww_webp_supported=!1;function check_webp_feature(A,e){var w;e=void 0!==e?e:function(){},ewww_webp_supported?e(ewww_webp_supported):((w=new Image).onload=function(){ewww_webp_supported=0<w.width&&0<w.height,e&&e(ewww_webp_supported)},w.onerror=function(){e&&e(!1)},w.src="data:image/webp;base64,"+{alpha:"UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA=="}[A])}check_webp_feature("alpha");</script><script data-cfasync="false" data-no-defer="1" data-no-minify="1" data-no-optimize="1">var Arrive=function(c,w){"use strict";if(c.MutationObserver&&"undefined"!=typeof HTMLElement){var r,a=0,u=(r=HTMLElement.prototype.matches||HTMLElement.prototype.webkitMatchesSelector||HTMLElement.prototype.mozMatchesSelector||HTMLElement.prototype.msMatchesSelector,{matchesSelector:function(e,t){return e instanceof HTMLElement&&r.call(e,t)},addMethod:function(e,t,r){var a=e[t];e[t]=function(){return r.length==arguments.length?r.apply(this,arguments):"function"==typeof a?a.apply(this,arguments):void 0}},callCallbacks:function(e,t){t&&t.options.onceOnly&&1==t.firedElems.length&&(e=[e[0]]);for(var r,a=0;r=e[a];a++)r&&r.callback&&r.callback.call(r.elem,r.elem);t&&t.options.onceOnly&&1==t.firedElems.length&&t.me.unbindEventWithSelectorAndCallback.call(t.target,t.selector,t.callback)},checkChildNodesRecursively:function(e,t,r,a){for(var i,n=0;i=e[n];n++)r(i,t,a)&&a.push({callback:t.callback,elem:i}),0<i.childNodes.length&&u.checkChildNodesRecursively(i.childNodes,t,r,a)},mergeArrays:function(e,t){var r,a={};for(r in e)e.hasOwnProperty(r)&&(a[r]=e[r]);for(r in t)t.hasOwnProperty(r)&&(a[r]=t[r]);return a},toElementsArray:function(e){return e=void 0!==e&&("number"!=typeof e.length||e===c)?[e]:e}}),e=(l.prototype.addEvent=function(e,t,r,a){a={target:e,selector:t,options:r,callback:a,firedElems:[]};return this._beforeAdding&&this._beforeAdding(a),this._eventsBucket.push(a),a},l.prototype.removeEvent=function(e){for(var t,r=this._eventsBucket.length-1;t=this._eventsBucket[r];r--)e(t)&&(this._beforeRemoving&&this._beforeRemoving(t),(t=this._eventsBucket.splice(r,1))&&t.length&&(t[0].callback=null))},l.prototype.beforeAdding=function(e){this._beforeAdding=e},l.prototype.beforeRemoving=function(e){this._beforeRemoving=e},l),t=function(i,n){var o=new e,l=this,s={fireOnAttributesModification:!1};return o.beforeAdding(function(t){var e=t.target;e!==c.document&&e!==c||(e=document.getElementsByTagName("html")[0]);var r=new MutationObserver(function(e){n.call(this,e,t)}),a=i(t.options);r.observe(e,a),t.observer=r,t.me=l}),o.beforeRemoving(function(e){e.observer.disconnect()}),this.bindEvent=function(e,t,r){t=u.mergeArrays(s,t);for(var a=u.toElementsArray(this),i=0;i<a.length;i++)o.addEvent(a[i],e,t,r)},this.unbindEvent=function(){var r=u.toElementsArray(this);o.removeEvent(function(e){for(var t=0;t<r.length;t++)if(this===w||e.target===r[t])return!0;return!1})},this.unbindEventWithSelectorOrCallback=function(r){var a=u.toElementsArray(this),i=r,e="function"==typeof r?function(e){for(var t=0;t<a.length;t++)if((this===w||e.target===a[t])&&e.callback===i)return!0;return!1}:function(e){for(var t=0;t<a.length;t++)if((this===w||e.target===a[t])&&e.selector===r)return!0;return!1};o.removeEvent(e)},this.unbindEventWithSelectorAndCallback=function(r,a){var i=u.toElementsArray(this);o.removeEvent(function(e){for(var t=0;t<i.length;t++)if((this===w||e.target===i[t])&&e.selector===r&&e.callback===a)return!0;return!1})},this},i=new function(){var s={fireOnAttributesModification:!1,onceOnly:!1,existing:!1};function n(e,t,r){return!(!u.matchesSelector(e,t.selector)||(e._id===w&&(e._id=a++),-1!=t.firedElems.indexOf(e._id)))&&(t.firedElems.push(e._id),!0)}var c=(i=new t(function(e){var t={attributes:!1,childList:!0,subtree:!0};return e.fireOnAttributesModification&&(t.attributes=!0),t},function(e,i){e.forEach(function(e){var t=e.addedNodes,r=e.target,a=[];null!==t&&0<t.length?u.checkChildNodesRecursively(t,i,n,a):"attributes"===e.type&&n(r,i)&&a.push({callback:i.callback,elem:r}),u.callCallbacks(a,i)})})).bindEvent;return i.bindEvent=function(e,t,r){t=void 0===r?(r=t,s):u.mergeArrays(s,t);var a=u.toElementsArray(this);if(t.existing){for(var i=[],n=0;n<a.length;n++)for(var o=a[n].querySelectorAll(e),l=0;l<o.length;l++)i.push({callback:r,elem:o[l]});if(t.onceOnly&&i.length)return r.call(i[0].elem,i[0].elem);setTimeout(u.callCallbacks,1,i)}c.call(this,e,t,r)},i},o=new function(){var a={};function i(e,t){return u.matchesSelector(e,t.selector)}var n=(o=new t(function(){return{childList:!0,subtree:!0}},function(e,r){e.forEach(function(e){var t=e.removedNodes,e=[];null!==t&&0<t.length&&u.checkChildNodesRecursively(t,r,i,e),u.callCallbacks(e,r)})})).bindEvent;return o.bindEvent=function(e,t,r){t=void 0===r?(r=t,a):u.mergeArrays(a,t),n.call(this,e,t,r)},o};d(HTMLElement.prototype),d(NodeList.prototype),d(HTMLCollection.prototype),d(HTMLDocument.prototype),d(Window.prototype);var n={};return s(i,n,"unbindAllArrive"),s(o,n,"unbindAllLeave"),n}function l(){this._eventsBucket=[],this._beforeAdding=null,this._beforeRemoving=null}function s(e,t,r){u.addMethod(t,r,e.unbindEvent),u.addMethod(t,r,e.unbindEventWithSelectorOrCallback),u.addMethod(t,r,e.unbindEventWithSelectorAndCallback)}function d(e){e.arrive=i.bindEvent,s(i,e,"unbindArrive"),e.leave=o.bindEvent,s(o,e,"unbindLeave")}}(window,void 0),ewww_webp_supported=!1;function check_webp_feature(e,t){var r;ewww_webp_supported?t(ewww_webp_supported):((r=new Image).onload=function(){ewww_webp_supported=0<r.width&&0<r.height,t(ewww_webp_supported)},r.onerror=function(){t(!1)},r.src="data:image/webp;base64,"+{alpha:"UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==",animation:"UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA"}[e])}function ewwwLoadImages(e){if(e){for(var t=document.querySelectorAll(".batch-image img, .image-wrapper a, .ngg-pro-masonry-item a, .ngg-galleria-offscreen-seo-wrapper a"),r=0,a=t.length;r<a;r++)ewwwAttr(t[r],"data-src",t[r].getAttribute("data-webp")),ewwwAttr(t[r],"data-thumbnail",t[r].getAttribute("data-webp-thumbnail"));for(var i=document.querySelectorAll(".rev_slider ul li"),r=0,a=i.length;r<a;r++){ewwwAttr(i[r],"data-thumb",i[r].getAttribute("data-webp-thumb"));for(var n=1;n<11;)ewwwAttr(i[r],"data-param"+n,i[r].getAttribute("data-webp-param"+n)),n++}for(r=0,a=(i=document.querySelectorAll(".rev_slider img")).length;r<a;r++)ewwwAttr(i[r],"data-lazyload",i[r].getAttribute("data-webp-lazyload"));for(var o=document.querySelectorAll("div.woocommerce-product-gallery__image"),r=0,a=o.length;r<a;r++)ewwwAttr(o[r],"data-thumb",o[r].getAttribute("data-webp-thumb"))}for(var l=document.querySelectorAll("video"),r=0,a=l.length;r<a;r++)ewwwAttr(l[r],"poster",e?l[r].getAttribute("data-poster-webp"):l[r].getAttribute("data-poster-image"));for(var s,c=document.querySelectorAll("img.ewww_webp_lazy_load"),r=0,a=c.length;r<a;r++)e&&(ewwwAttr(c[r],"data-lazy-srcset",c[r].getAttribute("data-lazy-srcset-webp")),ewwwAttr(c[r],"data-srcset",c[r].getAttribute("data-srcset-webp")),ewwwAttr(c[r],"data-lazy-src",c[r].getAttribute("data-lazy-src-webp")),ewwwAttr(c[r],"data-src",c[r].getAttribute("data-src-webp")),ewwwAttr(c[r],"data-orig-file",c[r].getAttribute("data-webp-orig-file")),ewwwAttr(c[r],"data-medium-file",c[r].getAttribute("data-webp-medium-file")),ewwwAttr(c[r],"data-large-file",c[r].getAttribute("data-webp-large-file")),null!=(s=c[r].getAttribute("srcset"))&&!1!==s&&s.includes("R0lGOD")&&ewwwAttr(c[r],"src",c[r].getAttribute("data-lazy-src-webp"))),c[r].className=c[r].className.replace(/\bewww_webp_lazy_load\b/,"");for(var w=document.querySelectorAll(".ewww_webp"),r=0,a=w.length;r<a;r++)e?(ewwwAttr(w[r],"srcset",w[r].getAttribute("data-srcset-webp")),ewwwAttr(w[r],"src",w[r].getAttribute("data-src-webp")),ewwwAttr(w[r],"data-orig-file",w[r].getAttribute("data-webp-orig-file")),ewwwAttr(w[r],"data-medium-file",w[r].getAttribute("data-webp-medium-file")),ewwwAttr(w[r],"data-large-file",w[r].getAttribute("data-webp-large-file")),ewwwAttr(w[r],"data-large_image",w[r].getAttribute("data-webp-large_image")),ewwwAttr(w[r],"data-src",w[r].getAttribute("data-webp-src"))):(ewwwAttr(w[r],"srcset",w[r].getAttribute("data-srcset-img")),ewwwAttr(w[r],"src",w[r].getAttribute("data-src-img"))),w[r].className=w[r].className.replace(/\bewww_webp\b/,"ewww_webp_loaded");window.jQuery&&jQuery.fn.isotope&&jQuery.fn.imagesLoaded&&(jQuery(".fusion-posts-container-infinite").imagesLoaded(function(){jQuery(".fusion-posts-container-infinite").hasClass("isotope")&&jQuery(".fusion-posts-container-infinite").isotope()}),jQuery(".fusion-portfolio:not(.fusion-recent-works) .fusion-portfolio-wrapper").imagesLoaded(function(){jQuery(".fusion-portfolio:not(.fusion-recent-works) .fusion-portfolio-wrapper").isotope()}))}function ewwwWebPInit(e){ewwwLoadImages(e),ewwwNggLoadGalleries(e),document.arrive(".ewww_webp",function(){ewwwLoadImages(e)}),document.arrive(".ewww_webp_lazy_load",function(){ewwwLoadImages(e)}),document.arrive("videos",function(){ewwwLoadImages(e)}),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",ewwwJSONParserInit):("undefined"!=typeof galleries&&ewwwNggParseGalleries(e),ewwwWooParseVariations(e))}function ewwwAttr(e,t,r){null!=r&&!1!==r&&e.setAttribute(t,r)}function ewwwJSONParserInit(){"undefined"!=typeof galleries&&check_webp_feature("alpha",ewwwNggParseGalleries),check_webp_feature("alpha",ewwwWooParseVariations)}function ewwwWooParseVariations(e){if(e)for(var t=document.querySelectorAll("form.variations_form"),r=0,a=t.length;r<a;r++){var i=t[r].getAttribute("data-product_variations"),n=!1;try{for(var o in i=JSON.parse(i))void 0!==i[o]&&void 0!==i[o].image&&(void 0!==i[o].image.src_webp&&(i[o].image.src=i[o].image.src_webp,n=!0),void 0!==i[o].image.srcset_webp&&(i[o].image.srcset=i[o].image.srcset_webp,n=!0),void 0!==i[o].image.full_src_webp&&(i[o].image.full_src=i[o].image.full_src_webp,n=!0),void 0!==i[o].image.gallery_thumbnail_src_webp&&(i[o].image.gallery_thumbnail_src=i[o].image.gallery_thumbnail_src_webp,n=!0),void 0!==i[o].image.thumb_src_webp&&(i[o].image.thumb_src=i[o].image.thumb_src_webp,n=!0));n&&ewwwAttr(t[r],"data-product_variations",JSON.stringify(i))}catch(e){}}}function ewwwNggParseGalleries(e){if(e)for(var t in galleries){var r=galleries[t];galleries[t].images_list=ewwwNggParseImageList(r.images_list)}}function ewwwNggLoadGalleries(e){e&&document.addEventListener("ngg.galleria.themeadded",function(e,t){window.ngg_galleria._create_backup=window.ngg_galleria.create,window.ngg_galleria.create=function(e,t){var r=$(e).data("id");return galleries["gallery_"+r].images_list=ewwwNggParseImageList(galleries["gallery_"+r].images_list),window.ngg_galleria._create_backup(e,t)}})}function ewwwNggParseImageList(e){for(var t in e){var r=e[t];if(void 0!==r["image-webp"]&&(e[t].image=r["image-webp"],delete e[t]["image-webp"]),void 0!==r["thumb-webp"]&&(e[t].thumb=r["thumb-webp"],delete e[t]["thumb-webp"]),void 0!==r.full_image_webp&&(e[t].full_image=r.full_image_webp,delete e[t].full_image_webp),void 0!==r.srcsets)for(var a in r.srcsets)nggSrcset=r.srcsets[a],void 0!==r.srcsets[a+"-webp"]&&(e[t].srcsets[a]=r.srcsets[a+"-webp"],delete e[t].srcsets[a+"-webp"]);if(void 0!==r.full_srcsets)for(var i in r.full_srcsets)nggFSrcset=r.full_srcsets[i],void 0!==r.full_srcsets[i+"-webp"]&&(e[t].full_srcsets[i]=r.full_srcsets[i+"-webp"],delete e[t].full_srcsets[i+"-webp"])}return e}check_webp_feature("alpha",ewwwWebPInit);</script><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v21.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<!-- <title>Создание сайта html: кому это нужно сегодня</title>
+	<meta name="description" content="Создание сайта html многие воспринимают как отживший своё, никому не нужный анахронизм, ведь есть CMS, различные конструкторы. Блокнот, построчное написание кода, добавление стилей CSS, финальная верстка, публикация – всё это было актуально когда-то">
+	<link rel="canonical" href="https://gb.ru/blog/sozdanie-sajta-html/">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Создание сайта html: кому это нужно сегодня">
+	<meta property="og:description" content="Создание сайта html многие воспринимают как отживший своё, никому не нужный анахронизм, ведь есть CMS, различные конструкторы. Блокнот, построчное написание кода, добавление стилей CSS, финальная верстка, публикация – всё это было актуально когда-то">
+	<meta property="og:url" content="https://gb.ru/blog/sozdanie-sajta-html/">
+	<meta property="og:site_name" content="GeekBrains">
+	<meta property="article:published_time" content="2022-01-14T20:53:43+00:00">
+	<meta property="article:modified_time" content="2023-09-11T14:04:27+00:00">
+	<meta property="og:image" content="https://gb.ru/blog/wp-content/uploads/2022/01/Создание-сайта-html1.jpg">
+	<meta property="og:image:width" content="1920">
+	<meta property="og:image:height" content="550">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta name="author" content="Редакция сайта GeekBrains">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="Написано автором">
+	<meta name="twitter:data1" content="Редакция сайта GeekBrains">
+	<meta name="twitter:label2" content="Примерное время для чтения">
+	<meta name="twitter:data2" content="19 минут"> -->
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://gb.ru/blog/sozdanie-sajta-html/#article","isPartOf":{"@id":"https://gb.ru/blog/sozdanie-sajta-html/"},"author":{"name":"Редакция сайта GeekBrains","@id":"https://gb.ru/blog/#/schema/person/e9b3071edd75a1a0d6d909dc16f71289"},"headline":"Создание сайта html: кому это нужно сегодня","datePublished":"2022-01-14T20:53:43+00:00","dateModified":"2023-09-11T14:04:27+00:00","mainEntityOfPage":{"@id":"https://gb.ru/blog/sozdanie-sajta-html/"},"wordCount":3520,"commentCount":0,"publisher":{"@id":"https://gb.ru/blog/#organization"},"image":{"@id":"https://gb.ru/blog/sozdanie-sajta-html/#primaryimage"},"thumbnailUrl":"https://gb.ru/blog/wp-content/uploads/2022/01/Создание-сайта-html1.jpg","articleSection":["Программирование"],"inLanguage":"ru-RU","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https://gb.ru/blog/sozdanie-sajta-html/#respond"]}]},{"@type":"WebPage","@id":"https://gb.ru/blog/sozdanie-sajta-html/","url":"https://gb.ru/blog/sozdanie-sajta-html/","name":"Создание сайта html: кому это нужно сегодня","isPartOf":{"@id":"https://gb.ru/blog/#website"},"primaryImageOfPage":{"@id":"https://gb.ru/blog/sozdanie-sajta-html/#primaryimage"},"image":{"@id":"https://gb.ru/blog/sozdanie-sajta-html/#primaryimage"},"thumbnailUrl":"https://gb.ru/blog/wp-content/uploads/2022/01/Создание-сайта-html1.jpg","datePublished":"2022-01-14T20:53:43+00:00","dateModified":"2023-09-11T14:04:27+00:00","description":"Создание сайта html многие воспринимают как отживший своё, никому не нужный анахронизм, ведь есть CMS, различные конструкторы. Блокнот, построчное написание кода, добавление стилей CSS, финальная верстка, публикация – всё это было актуально когда-то","breadcrumb":{"@id":"https://gb.ru/blog/sozdanie-sajta-html/#breadcrumb"},"inLanguage":"ru-RU","potentialAction":[{"@type":"ReadAction","target":["https://gb.ru/blog/sozdanie-sajta-html/"]}]},{"@type":"ImageObject","inLanguage":"ru-RU","@id":"https://gb.ru/blog/sozdanie-sajta-html/#primaryimage","url":"https://gb.ru/blog/wp-content/uploads/2022/01/Создание-сайта-html1.jpg","contentUrl":"https://gb.ru/blog/wp-content/uploads/2022/01/Создание-сайта-html1.jpg","width":1920,"height":550,"caption":"Создание сайта html"},{"@type":"BreadcrumbList","@id":"https://gb.ru/blog/sozdanie-sajta-html/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная страница","item":"https://gb.ru/blog/"},{"@type":"ListItem","position":2,"name":"Создание сайта html: кому это нужно сегодня"}]},{"@type":"WebSite","@id":"https://gb.ru/blog/#website","url":"https://gb.ru/blog/","name":"GeekBrains","description":"Блог","publisher":{"@id":"https://gb.ru/blog/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://gb.ru/blog/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"ru-RU"},{"@type":"Organization","@id":"https://gb.ru/blog/#organization","name":"ООО «ГикБреинс»","url":"https://gb.ru/blog/","logo":{"@type":"ImageObject","inLanguage":"ru-RU","@id":"https://gb.ru/blog/#/schema/logo/image/","url":"https://gb.ru/blog/wp-content/uploads/2021/10/Logo-geekbrains.png","contentUrl":"https://gb.ru/blog/wp-content/uploads/2021/10/Logo-geekbrains.png","width":234,"height":29,"caption":"ООО «ГикБреинс»"},"image":{"@id":"https://gb.ru/blog/#/schema/logo/image/"}},{"@type":"Person","@id":"https://gb.ru/blog/#/schema/person/e9b3071edd75a1a0d6d909dc16f71289","name":"Редакция сайта GeekBrains","image":{"@type":"ImageObject","inLanguage":"ru-RU","@id":"https://gb.ru/blog/#/schema/person/image/","url":"https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png","contentUrl":"https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png","caption":"Редакция сайта GeekBrains"},"description":"Шеф-редактор раздела Программирование","url":"https://gb.ru/blog/author/admin/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+<link rel="alternate" type="application/rss+xml" title="GeekBrains » Лента комментариев к «Создание сайта html: кому это нужно сегодня»" href="https://gb.ru/blog/sozdanie-sajta-html/feed/">
+<link rel="stylesheet" id="wp-block-library-css" href="./Создание сайта html_ кому это нужно сегодня_files/style.min.css" media="all">
+<style id="wp-block-library-theme-inline-css" type="text/css">
+.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-bottom:4px solid;border-top:4px solid;color:currentColor;margin-bottom:1.75em}.wp-block-pullquote cite,.wp-block-pullquote footer,.wp-block-pullquote__citation{color:currentColor;font-size:.8125em;font-style:normal;text-transform:uppercase}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;font-style:normal;position:relative}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote.is-style-plain{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:0 0 1em}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video{margin:0 0 1em}.wp-block-template-part.has-background{margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+</style>
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 19.5px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36.5px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 22px;--wp--preset--font-size--huge: 49.5px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="cld-font-awesome-css" href="./Создание сайта html_ кому это нужно сегодня_files/all.min.css" media="all">
+<link rel="stylesheet" id="cld-frontend-css" href="./Создание сайта html_ кому это нужно сегодня_files/cld-frontend.css" media="all">
+<link rel="stylesheet" id="gpemo-front-style-css" href="./Создание сайта html_ кому это нужно сегодня_files/gpemo-front-style.css" media="all">
+<link rel="stylesheet" id="reboot-style-css" href="./Создание сайта html_ кому это нужно сегодня_files/style(1).min.css" media="all">
+<link rel="stylesheet" id="reboot-style-child-css" href="./Создание сайта html_ кому это нужно сегодня_files/style.css" media="all">
+<link rel="stylesheet" id="header-css-css" href="./Создание сайта html_ кому это нужно сегодня_files/header.css" media="all">
+<link rel="stylesheet" id="footer-css-css" href="./Создание сайта html_ кому это нужно сегодня_files/footer.css" media="all">
+<link rel="stylesheet" id="slick-css-css" href="./Создание сайта html_ кому это нужно сегодня_files/slick.css" media="all">
+<link rel="stylesheet" id="intlTelInput-css-css" href="./Создание сайта html_ кому это нужно сегодня_files/intlTelInput.css" media="all">
+<link rel="stylesheet" id="custom-css-css" href="./Создание сайта html_ кому это нужно сегодня_files/custom.css" media="all">
+<link rel="stylesheet" id="single-css-css" href="./Создание сайта html_ кому это нужно сегодня_files/single.css" media="all">
+
+<script type="text/javascript" src="./Создание сайта html_ кому это нужно сегодня_files/cld-frontend.js.Без названия" id="cld-frontend-js"></script>
+<link rel="https://api.w.org/" href="https://gb.ru/blog/wp-json/"><link rel="alternate" type="application/json" href="https://gb.ru/blog/wp-json/wp/v2/posts/2615"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://gb.ru/blog/xmlrpc.php?rsd">
+<link rel="shortlink" href="https://gb.ru/blog/?p=2615">
+<link rel="alternate" type="application/json+oembed" href="https://gb.ru/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fgb.ru%2Fblog%2Fsozdanie-sajta-html%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://gb.ru/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fgb.ru%2Fblog%2Fsozdanie-sajta-html%2F&amp;format=xml">
+<style>a.cld-like-dislike-trigger {color: #afafaf;}a.cld-prevent.cld-undo-trigger  {color: #6f63e9;}</style><link rel="preload" href="https://gb.ru/blog/wp-content/themes/reboot/assets/fonts/wpshop-core.ttf" as="font" crossorigin=""><link rel="preload" href="https://gb.ru/blog/wp-content/uploads/2022/01/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%81%D0%B0%D0%B9%D1%82%D0%B0-html1.jpg" as="image" crossorigin=""><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><script src="./Создание сайта html_ кому это нужно сегодня_files/utm_3.min.js.Без названия"></script><link rel="icon" type="image/x-icon" href="https://gb.ru/favicon.ico"><script src="./Создание сайта html_ кому это нужно сегодня_files/code" type="text/javascript" defer="" async=""></script><script src="./Создание сайта html_ кому это нужно сегодня_files/config" type="text/javascript" defer="" async=""></script><script src="./Создание сайта html_ кому это нужно сегодня_files/dsp" type="text/javascript" defer="" async=""></script><script src="./Создание сайта html_ кому это нужно сегодня_files/init" type="text/javascript" defer="" async=""></script></head>
+<body class="post-template-default single single-post postid-2615 single-format-standard wp-embed-responsive sidebar-right webp-support">
+<script data-cfasync="false" data-no-defer="1" data-no-minify="1" data-no-optimize="1">if(typeof ewww_webp_supported==="undefined"){var ewww_webp_supported=!1}if(ewww_webp_supported){document.body.classList.add("webp-support")}</script>
+
+
+<style>
+    .widget-dynamic {
+        font-family: Arial, sans-serif;
+        background-color: #6f64e9;
+        left: 1%;
+        right: auto;
+        border-radius: 5px !important;
+        bottom: 15px;
+        color: #fff;
+        display: none;
+        font-size: 12px;
+        line-height: 16px;
+        position: fixed;
+        /*padding: 10px 10px 15px;*/
+        padding: 22px 20px;
+        text-align: left;
+        text-shadow: none;
+        width: 300px;
+        z-index: 9999999;
+    }
+    .widget-dynamic__link{
+         width: 100%;
+         height: 100%;
+         display: block;
+         position: absolute;
+         left: 0;
+         top: 0;
+     }
+    .widget-dynamic__photo {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        /*height: 45px;*/
+        /*width: 45px;*/
+        /*border-radius: 50%;*/
+        /*float: left;*/
+        /*overflow: hidden;*/
+        /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);*/
+    }
+    .widget-dynamic__photo img{
+        border-radius: 50%;
+        display: block;
+        /*width: 45px;*/
+        width: 40px;
+        /*height: 45px;*/
+        height: 40px;
+        /*margin: 0;*/
+        margin: 0 10px 0 0;
+    }
+    .widget-dynamic__close{
+        position: absolute;
+         cursor: pointer;
+         font-weight: 700;
+         /*height: 15px;*/
+         height: 12px;
+         /*width: 15px;*/
+         width: 12px;
+         line-height: 12px;
+         margin: -1px -1px 0 0;
+         /*opacity: .5;*/
+         right:18px;
+         top: 19px;
+         text-align: center;
+         transition: opacity .15s ease-in-out;
+     }
+    .widget-dynamic__name{
+         /*font-size: 14px;*/
+         /*font-weight: 700;*/
+         /*line-height: 14px;*/
+         /*margin: 0 30px 5px 55px;*/
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 17px;
+        color: #FFFFFF;
+     }
+
+    .widget-dynamic__message-wrapper {
+        align-items: flex-start;
+        background: #584FC7;
+        border-radius: 0 20px 20px 20px;
+        display: flex;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 17px;
+        color: #FFFFFF;
+        flex-direction: column;
+        justify-content: center;
+        margin: 10px auto;
+        padding: 15px 20px;
+    }
+    /*.widget-dynamic__message {*/
+    /*    margin-left: 55px;*/
+    /*}*/
+    .widget-dynamic a{
+        color: #fff;
+    }
+
+    .widget-dynamic__typing {
+         display: none;
+         background: url("https://gb.ru/blog/wp-content/themes/reboot-child/assets/images/lead-catcher/typing.gif") 0 10px no-repeat;
+         margin-left: 50px;
+         padding: 8px 0 3px 20px;
+    }
+    .widget-dynamic__typing.active{
+        display: block;
+    }
+    .widget-dynamic-btn {
+        background: #000000;
+        border-radius: 10px;
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+        padding: 16px 20px;
+        width: 100%;
+        /*background: transparent;*/
+        /*border: 0;*/
+        /*color: #fff;*/
+        /*cursor: pointer;*/
+        /*margin: 20px 0 0;*/
+        /*padding: 0;*/
+        /*text-align: left;*/
+        /*text-decoration: underline;*/
+    }
+    .widget-dynamic-btn {
+        display: block;
+    }
+    .widget-dynamic-btn:focus {
+        outline: 0;
+    }
+
+    @media screen (max-width:600px) {
+        .widget-dynamic {
+            left: 50%;
+            margin-left: -150px;
+        }
+    }
+</style>
+
+<style>
+    .pk,
+    .pc {
+        display: flex
+    }
+
+    .tab {
+        display: none
+    }
+
+    .mob {
+        display: none
+    }
+
+    .top_bar {
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        cursor: pointer;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-style: normal;
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        padding: 10px 0;
+        top: -2px;
+        left: 0;
+        width: 100%;
+        z-index: 9999999;
+    }
+
+    /*.top_bar.custom_link {*/
+    /*    cursor: default;*/
+    /*}*/
+
+    .top_bar + #header-monolit {
+        margin-top: 40px;
+    }
+
+    .top_bar.active + #header-monolit {
+        margin-top: 71px;
+    }
+
+    body.admin-bar .top_bar {
+        top: 30px;
+    }
+
+    body.admin-bar .top_bar.active + #header-monolit {
+        margin-top: 71px;
+    }
+
+    .new_profession__container {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1230px;
+        margin: auto;
+        padding: 0;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .new_profession__sale {
+        align-items: center;
+        display: flex;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 23px;
+        color: #0F0F0F;
+        margin-left: 10px;
+    }
+
+    .new_profession__sale span {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 23px;
+    }
+
+    .new_profession__sale img {
+        height: 36px;
+        margin-right: 20px;
+        width: 36px;
+    }
+
+    .new_top_bar__countdown {
+        display: none;
+        background: #FFFFFF;
+        border-radius: 6px;
+        color: #000000;
+        font-family: 'IBM Plex Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 23px;
+        min-width: 270px;
+        padding: 12px 20px;
+        text-align: center;
+    }
+
+    .active_countdown {
+        display: block;
+    }
+
+    .new_profession__title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 23px;
+        color: #0F0F0F;
+    }
+
+    .new_profession__title span {
+        font-size: inherit;
+        line-height: inherit
+    }
+
+    .new_profession__title strong {
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    .new_profession__close img {
+        height: 20px;
+        margin-left: 15px;
+        width: 20px;
+        vertical-align: top;
+    }
+
+    .new_profession__btn {
+        background: linear-gradient(0deg, #8D46F6, #8D46F6), linear-gradient(88.53deg, #71E76E 2.59%, #71E76E 97.49%, #FF8800 97.49%);
+        border: 1px solid #000000;
+        border-right: 3px solid #000;
+        border-bottom: 3px solid #000;
+        box-shadow: 1.73684px 2px 0px #000000;
+        border-radius: 6px;
+        padding: 15px;
+        width: max-content;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 21px;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .new_profession .image_bg {
+        height: 70px;
+        object-fit: cover;
+        position: fixed;
+        width: 100%;
+        z-index: -1;
+    }
+
+    @media screen and (max-width: 1200px) {
+        .new_profession {
+            padding: 10px;
+        }
+
+        .new_profession__sale {
+            display: none;
+        }
+
+        .new_profession__btn {
+            margin-top: 0;
+            padding: 5px;
+            width: 100%;
+        }
+
+        .new_profession__container {
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .new_profession__title span {
+            display: none;
+        }
+
+        .new_profession__action img {
+            height: 17px;
+            margin-left: 5px;
+        }
+
+        .new_profession__close {
+            cursor: pointer;
+            height: 10px;
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            width: 10px;
+            z-index: 999;
+        }
+
+        .new_profession__close img {
+            height: 10px;
+            margin: 0;
+            width: 10px;
+        }
+
+        .top_bar + #header-monolit {
+            margin-top: 0;
+        }
+
+        .top_bar.active + #header-monolit {
+            margin-top: 100px;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        .pk,
+        .pc {
+            display: none
+        }
+
+        .tab {
+            display: flex
+        }
+
+        .mob {
+            display: none
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .pk,
+        .pc {
+            display: none
+        }
+
+        .tab {
+            display: none
+        }
+
+        .mob {
+            display: flex
+        }
+
+        .new_profession__date span {
+            display: none;
+        }
+
+        .new_profession__title span {
+            font-size: 10px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .top_bar.active + #header-monolit {
+            margin-top: 70px;
+        }
+
+        .new_profession__sale span {
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            margin-left: 5px;
+        }
+
+        .new_profession__sale img {
+            width: 20px;
+        }
+
+        .new_profession__title {
+            font-size: 11px;
+            line-height: 12px;
+        }
+
+        .new_profession__btn {
+            width: 100%;
+            margin-top: 10px;
+            font-size: 11px;
+            line-height: 14px;
+            padding: 5px;
+        }
+
+        .new_profession__close {
+            right: 0;
+            top: 0;
+        }
+    }
+
+    @media screen and (max-width: 360px) {
+        .new_profession__title {
+            font-size: 9px;
+        }
+
+        .new_profession__sale span {
+            font-size: 9px;
+        }
+    }
+</style>
+
+<style>
+    .strategy-of-beginners-new {
+        background: url(/blog/wp-content/themes/reboot-child/assets/images/incut-strategy-for-beginners-new-v2/bg-2.jpg) no-repeat;
+        padding: 40px 30px 50px 30px;
+        margin: 10px auto;
+    }
+    .strategy-of-beginners-new__date {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 23px;
+        color: #23242C;
+        position: relative;
+        margin-left: 20px;
+    }
+
+    .strategy-of-beginners-new__date:after {
+        content: '';
+        position: absolute;
+        background: url('/blog/wp-content/themes/reboot-child/assets/images/incut-strategy-for-beginners-new/date-1.png') no-repeat;
+        width: 209px;
+        height: 57px;
+        left: -20px;
+        top: -18px;
+    }
+
+    .strategy-of-beginners-new__title {
+        font-size: 30px;
+        line-height: 30px;
+        font-weight: 700;
+        color: #23242C;
+        margin-top: 17px;
+        max-width: 500px;
+    }
+
+    .strategy-of-beginners-new__title span {
+        font-size: 30px;
+        color: #8D46F6;
+        font-weight: 700;
+        line-height: 30px;
+    }
+
+    .strategy-of-beginners-new span {
+        font-family: 'IBM Plex Sans';
+    }
+
+    .strategy-of-beginners-new__list--title {
+        font-size: 16px;
+        font-weight: 500;
+        color: #23242C;
+        line-height: 16px;
+        margin-bottom: 19px;
+        max-width: 710px;
+    }
+
+    .strategy-of-beginners-new__list {
+        margin-top: 19px;
+    }
+
+    .strategy-of-beginners-new__list--item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #6654D9;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 16px;
+        text-decoration: underline;
+    }
+
+    .strategy-of-beginners-new__list--item:nth-child(3) {
+        margin: 8px 0;
+    }
+
+    .strategy-of-beginners-new__form {
+        margin-top: 10px;
+    }
+    .strategy-of-beginners-new__form-wrapper {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .strategy-of-beginners-new__form--input {
+        display: flex;
+        flex-direction: column;
+        min-width: 224px;
+        max-width: 224px;
+        position: relative;
+    }
+
+    .strategy-of-beginners-new__inputtip {
+        font-size: 11px;
+        color: #23242C;
+        line-height: 15px;
+        font-weight: 500;
+        margin-bottom: 6px;
+    }
+    .strategy-of-beginners-new__form--input input {
+        border: 0;
+        border-radius: 10px;
+        color: #828282;
+        font-size: 13px;
+        line-height: 17px;
+        margin-bottom: 0;
+        padding: 16px 15px;
+        width: -webkit-fill-available;
+    }
+    .strategy-of-beginners-new__form--input.input-tel-wrap {
+        margin-top: 10px;
+    }
+    .strategy-of-beginners-new__form--input span {
+        bottom: 0;
+        color: #f00;
+        display: none;
+        font-size: 8px;
+        line-height: 8px;
+        margin-bottom: -8px;
+        position: absolute;
+    }
+    .strategy-of-beginners-new__form--input.error span {
+        display: block;
+    }
+    .strategy-of-beginners-new__form--input.error input{
+        border: 1px solid #f00;
+    }
+
+    .strategy-of-beginners-new__inputtip .iti__selected-dial-code {
+        font-size: 13px;
+    }
+    .iti--separate-dial-code .iti__selected-flag {
+        background-color: transparent;
+    }
+
+    .strategy-of-beginners-new__form--input input::placeholder {
+        color: #828282;
+    }
+
+    button.strategy-of-beginners-new__submit {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        background: #24D086;
+        border-radius: 10px;
+        padding: 18px;
+        position: relative;
+        color: #fff;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .strategy-of-beginners-new__submit span {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -14px;
+        font-size: 14px;
+        line-height: 16px;
+        color: #0E0E0E;
+        background: #fff;
+        padding: 5px 15px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+
+    .strategy-of-beginners-new__download {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        min-width: 145px;
+        bottom: -30px;
+    }
+
+    .strategy-of-beginners-new__button--container {
+        position: relative;
+    }
+
+    .strategy-of-beginners-new__download span {
+        font-size: 12px;
+        line-height: 15px;
+        color: #23242C;
+        margin-left: 6px;
+        font-weight: 500;
+    }
+
+
+    .strategy-of-beginners-new__form .control--checkbox {
+        align-items: center;
+        color: #7D7D7D;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        margin-top: 17px;
+    }
+
+    .strategy-of-beginners-new__form .checked-suc {
+        height: 8px;
+        position: relative;
+        margin-right: 6px;
+        width: 8px;
+    }
+
+    .strategy-of-beginners-new__form .checked-suc:not(:checked):before {
+        background: #fff;
+        border-radius: 2px;
+        border: 1px solid #AB72FF;
+        content: '';
+        height: 10px;
+        margin: -1px 0 0 -1px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 10px;
+    }
+
+    .strategy-of-beginners-new__form .checked-suc:checked:before {
+        background: url('../images/popup/career-23/check.png') no-repeat center;
+        border-radius: 2px;
+        border: 1px solid #AB72FF;
+        content: '';
+        height: 10px;
+        margin: -1px 0 0 -1px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 10px;
+    }
+
+    .strategy-of-beginners-new__form .control-checkbox__text {
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+
+    .strategy-of-beginners-new__form .control-checkbox__text a:focus,
+    .strategy-of-beginners-new__form .control-checkbox__text a:active,
+    .strategy-of-beginners-new__form .control-checkbox__text a:visited,
+    .strategy-of-beginners-new__form .control-checkbox__text a:hover,
+    .strategy-of-beginners-new__form .control-checkbox__text a {
+        color: #AB72FF;
+        text-decoration: none;
+        outline: none;
+    }
+
+
+
+    @media (max-width: 1200px) {
+        .strategy-of-beginners-new {
+            padding: 24px 20px 147px 20px;
+            background: url(/blog/wp-content/themes/reboot-child/assets/images/incut-strategy-for-beginners-new-v2/bg-2-m.jpg) no-repeat;
+            background-size: cover;
+        }
+        .strategy-of-beginners-new__date {
+            font-size: 15px;
+        }
+        .strategy-of-beginners-new__date:after {
+            width: 185px;
+            height: 57px;
+            left: -21px;
+            top: -13px;
+            background-size: contain;
+        }
+        .strategy-of-beginners-new__title {
+            font-size: 18px;
+            line-height: 22px;
+            max-width: unset;
+            width: 100%;
+        }
+        .strategy-of-beginners-new__title span {
+            font-size: 18px;
+            line-height: 22px;
+        }
+        .strategy-of-beginners-new__list {
+            margin-top: 6px;
+        }
+        .strategy-of-beginners-new__list--title {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+        .strategy-of-beginners-new__list--item {
+            font-size: 13px;
+        }
+        .strategy-of-beginners-new__form {
+            margin-top: 13px;
+        }
+        .strategy-of-beginners-new__form-wrapper {
+            flex-direction: column;
+        }
+        .strategy-of-beginners-new__form--input {
+            min-width: 100%;
+            max-width: 100%;
+        }
+        #strategyForBeginnersNewTel {
+            width: 100%;
+        }
+        .strategy-of-beginners-new__button--container {
+            width: 100%;
+            margin-top: 10px;
+        }
+        button.strategy-of-beginners-new__submit {
+            width: 100%;
+            font-size: 14px;
+            line-height: 16px;
+            padding: 22px;
+        }
+        .strategy-of-beginners-new__submit span {
+            bottom: -12px;
+        }
+        .strategy-of-beginners-new__download {
+            bottom: -32px;
+        }
+        .strategy-of-beginners-new__download span {
+            font-weight: 400;
+        }
+
+        .strategy-of-beginners-new__form .control--checkbox {
+            margin-top: 35px;
+        }
+        .strategy-of-beginners-new__form .control--checkbox label {
+            font-size: 9px;
+            line-height: 12px;
+        }
+
+    }
+    @media screen and (max-width: 320px) {
+        .strategy-of-beginners-new__title {
+            font-size: 16px;
+        }
+        .strategy-of-beginners-new__title span {
+            font-size: 16px;
+        }
+    }
+</style>
+
+<style>
+    .insert-bn {
+        align-items: flex-start;
+        border-radius: 20px;
+        background: #E7EDFB;
+        display: flex;
+        flex-direction: column;
+        font-family: 'IBM Plex Sans', sans-serif;
+        justify-content: flex-start;
+        margin: 40px auto;
+        padding: 44px 40px;
+        position: relative;
+        z-index: 1;
+    }
+    .insert-bn__content {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        max-width: 450px;
+    }
+    .insert-bn__content-title span,
+    .insert-bn__content-title {
+        color: #23242C;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 36px;
+        margin-bottom: 19px;
+        text-align: left;
+    }
+    .insert-bn__content-title span {
+        color: #8D46F6;
+    }
+    .insert-bn__content-desc strong,
+    .insert-bn__content-desc {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 23px;
+        margin-bottom: 44px;
+        text-align: left;
+    }
+    .insert-bn__content-desc strong{
+        font-weight: 500;
+    }
+    .insert-bn__content-btn:visited,
+    .insert-bn__content-btn:focus,
+    .insert-bn__content-btn:hover,
+    .insert-bn__content-btn {
+        background: #8D46F6;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        outline: none;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 16px;
+        padding: 25px 38px;
+    }
+    .insert-bn .image_bg {
+        border-radius: 20px;
+        background: #E7EDFB;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+    }
+    @media screen and (max-width: 768px) {
+        .insert-bn {
+            min-height: 525px;
+            padding: 28px 20px;
+        }
+        .insert-bn__content {
+            max-width: unset;
+            width: 100%;
+        }
+        .insert-bn__content-title span,
+        .insert-bn__content-title {
+            font-size: 24px;
+            line-height: normal;
+        }
+        .insert-bn__content-desc strong,
+        .insert-bn__content-desc {
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 30px;
+        }
+        .insert-bn__content-btn:visited,
+        .insert-bn__content-btn:focus,
+        .insert-bn__content-btn:hover,
+        .insert-bn__content-btn {
+            font-size: 20px;
+            line-height: 26px;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+    }
+</style>
+
+<style>
+    .banner-2__wrap {
+        background: url("https://gb.ru/blog/wp-content/uploads/2023/05/bg-programmer.png") no-repeat center;
+        background-size: cover;
+    }
+
+    @media (max-width: 800px) {
+        .banner-2__wrap {
+            background: url("https://gb.ru/blog/wp-content/uploads/2023/05/bg-programmer-mob.png") no-repeat center;
+            background-size: cover;
+        }
+    }
+</style>
+
+<style>
+    .checklist-download {
+        align-items: flex-start;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-left: 20px;
+    }
+    .checklist-download__icon {
+        height: 44px;
+        margin-right: 10px;
+        width: 34px;
+    }
+    .checklist-download__content {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        font-family: 'IBM Plex Sans', sans-serif;
+        justify-content: flex-start;
+    }
+    .checklist-download__content-title {
+        color: #0968ad;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 5px;
+        text-decoration: underline;
+        animation: text-pulse 2s ease-in-out infinite;
+    }
+    @keyframes text-pulse {
+      from {
+        transform: scale(.99);
+      }
+      50% {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(.99);
+      }
+    }
+    .checklist-download__content-title:hover {
+      color: #6654D9;
+    }
+    .checklist-download__content-desc {
+        font-style: italic;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        color: #636363;
+    }
+    @media screen and (max-width: 768px) {
+        .checklist-download__content {
+            margin-left: 10px;
+        }
+        .checklist-download__content-title {
+            font-size: 16px;
+            line-height: 21px;
+        }
+        .checklist-download__content-desc {
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+</style>
+
+
+<div class="blog-detail__breadcrumbs">
+    <span><a href="https://gb.ru/">Главная</a></span><span>▸</span><span>
+            <a href="https://gb.ru/blog/">Блог</a></span><span>▸</span><span>Создание сайта html: кому это нужно сегодня</span>
+</div>
+<div class="blog-wrap">
+
+    <div class="blog-wrap__content">
+        <div class="blog-body">
+            <div class="blog-wrap__img">
+                <img src="./Создание сайта html_ кому это нужно сегодня_files/Создание-сайта-html1.jpg.webp" alt="Создание сайта html" title="Создание сайта html" loading="lazy" data-src-img="https://gb.ru/blog/wp-content/uploads/2022/01/Создание-сайта-html1.jpg" data-src-webp="https://gb.ru/blog/wp-content/uploads/2022/01/Создание-сайта-html1.jpg.webp" data-eio="j" class="ewww_webp_loaded"><noscript><img src="https://gb.ru/blog/wp-content/uploads/2022/01/Создание-сайта-html1.jpg" alt="Создание сайта html" title="Создание сайта html"
+                     loading="lazy"></noscript>
+            </div>
+            <div class="header-wrap">
+                <div class="header-category">
+                    <a href="" class="link link_text">Программирование</a>                 </div>
+                <div class="header-title">
+                    <h1>Создание сайта html: кому это нужно сегодня</h1>
+                </div>
+                <div class="header-property__bottom">
+                    <div class="header-view"><img src="./Создание сайта html_ кому это нужно сегодня_files/view.svg" loading="lazy">
+                                             </div>
+                    <div class="header-time">Время чтения:
+                        16 минут                    </div>
+                </div>
+            </div>
+
+            <div class="blog-author">
+                <div>
+                    <b>Автор статьи:</b>
+                <img alt="" src="./Создание сайта html_ кому это нужно сегодня_files/avatar_user_1_1633701549.png.webp" class="avatar avatar-70 photo ewww_webp_loaded" height="70" width="70" decoding="async" data-src-img="https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png" data-src-webp="https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png.webp" data-srcset-webp="https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png.webp 2x" data-srcset-img="https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png 2x" data-eio="j" srcset="https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png.webp 2x"><noscript><img alt='' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  class="avatar avatar-70 photo ewww_webp" height='70' width='70' decoding='async' data-src-img="https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png" data-src-webp="https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png.webp" data-srcset-webp="https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png.webp 2x" data-srcset-img="https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png 2x" data-eio="j" /><noscript><img alt='' src='https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png' srcset='https://gb.ru/blog/wp-content/uploads/2021/10/avatar_user_1_1633701549.png 2x' class='avatar avatar-70 photo' height='70' width='70' decoding='async'/></noscript>
+                <div>
+                    <b>Устюгов Георгий Сергеевич 10А</b>
+                </div>
+            </a>                </div>
+            </div>
+
+            <div class="blog-content">
+                <div class="topic-list__mob">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M19.5 9L12 16.5L4.5 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        В статье рассказывается:
+                    </span>
+
+                </div>
+                <div class="topic-list"><b>В статье рассказывается:</b>&nbsp;&nbsp;
+
+<li>
+
+
+
+
+</li>
+</ol>
+<p>Создание сайта html многие воспринимают как отживший своё, никому не нужный анахронизм, ведь есть CMS, различные конструкторы. Блокнот, построчное написание кода, добавление стилей CSS, финальная верстка, публикация – всё это было актуально когда-то. Так ли это?</p>
+<p id="1">И да, и нет. Конечно, сейчас на чистом html создается куда меньше сайтов, чем это делалось в 90-х, 2000-х, но сам код остается актуальным, потому что это и есть код, на котором написан Интернет (если мы говорим про сайты). Да и по-прежнему остаются сферы, где html всё так же востребован. О современных трендах, возможностях трудоустройства со знаниями html вы узнаете из нашего материала.</p>
+</div>
+<h2 id="0">Что собой представляет язык HTML, CSS</h2>
+<p>HyperText Markup Language (HTML) – язык программирования, используемый для написания документов, которыми наполнены веб-сайты. Если вы проведете простые манипуляции по просмотру кода, открыв любой текст в интернете, то вероятно увидите, что абзац начинается с тега &lt;p&gt;…&lt;/p&gt;, а ссылка в тексте – с тега &lt;a&gt;…&lt;/a&gt;. Проще говоря, HTML – код для создания сайта. А когда вы открываете страницы в интернете, то попадаете в мир, написанный этим языком.</p>
+<div class="gray-bg-block border">Почему используется именно HTML-язык? Здесь все просто: если бы не придумали его, то пришлось бы изобретать аналогичный формат, пригодный для обмена документами в интернете. То есть в итоге был бы получен тот же язык, но, возможно, с другим названием.</div>
+<p>Сейчас многие в недоумении воскликнут: «О каком обмене документами идет речь? Я ни с кем ничем не меняюсь!»</p>
+<figure id="attachment_17" aria-describedby="caption-attachment-17" style="width: 800px" class="wp-caption alignnone"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" fetchpriority="high" decoding="async" class="alignnone size-full wp-image-2616 ewww_webp_loaded" src="./Создание сайта html_ кому это нужно сегодня_files/1-4.jpg.webp" alt="Что собой представляет язык HTML, CSS" width="800" height="320" sizes="(max-width: 800px) 100vw, 800px" data-src-img="https://gb.ru/blog/wp-content/uploads/2022/01/1-4.jpg" data-src-webp="https://gb.ru/blog/wp-content/uploads/2022/01/1-4.jpg.webp" data-srcset-webp="https://gb.ru/blog/wp-content/uploads/2022/01/1-4.jpg.webp 800w, https://gb.ru/blog/wp-content/uploads/2022/01/1-4-300x120.jpg.webp 300w, https://gb.ru/blog/wp-content/uploads/2022/01/1-4-768x307.jpg.webp 768w" data-srcset-img="https://gb.ru/blog/wp-content/uploads/2022/01/1-4.jpg 800w, https://gb.ru/blog/wp-content/uploads/2022/01/1-4-300x120.jpg 300w, https://gb.ru/blog/wp-content/uploads/2022/01/1-4-768x307.jpg 768w" data-eio="j" srcset="https://gb.ru/blog/wp-content/uploads/2022/01/1-4.jpg.webp 800w, https://gb.ru/blog/wp-content/uploads/2022/01/1-4-300x120.jpg.webp 300w, https://gb.ru/blog/wp-content/uploads/2022/01/1-4-768x307.jpg.webp 768w"><noscript><img itemprop="url image" fetchpriority="high" decoding="async" class="alignnone size-full wp-image-2616" src="https://gb.ru/blog/wp-content/uploads/2022/01/1-4.jpg" alt="Что собой представляет язык HTML, CSS" width="800" height="320" srcset="https://gb.ru/blog/wp-content/uploads/2022/01/1-4.jpg 800w, https://gb.ru/blog/wp-content/uploads/2022/01/1-4-300x120.jpg 300w, https://gb.ru/blog/wp-content/uploads/2022/01/1-4-768x307.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript><meta itemprop="width" content="800"><meta itemprop="height" content="320"></span><figcaption id="caption-attachment-17" class="wp-caption-text">Что собой представляет язык HTML, CSS</figcaption></figure>
+<p>Здесь вступает в силу терминология. Когда вы заходите в браузер и начинаете переходить по веб-страницам, то думаете, что просто открываете их. Однако с технической точки зрения вы скачиваете страницы.</p>
+<p>Вот что происходит на самом деле:</p>
+<ol class="content-list-number">
+<li>Вы запускаете браузер.</li>
+<li>В адресной строке вводите, например, «yandex.ru» или конкретный поисковый запрос.</li>
+<li>Серверы Яндекса формируют документ – стартовую страницу yandex.ru или же страницу на ваш поисковый запрос. Данный документ переправляется на ваш ПК.</li>
+<li>Открытый вами браузер принимает этот документ, написанный языком HTML, и трансформирует теги в визуальное отображение (текст, картинка и т.п.) при помощи пикселей. То есть это не вы «зашли» в Яндекс, это Яндекс прислал вам результат поиска в виде документа.</li>
+<li>Далее вы, например, нажимаете на ссылку, которая содержится в этом документе. В этот момент браузер вновь отправляет запрос на определенный сервер, а тот в ответ присылает новый документ в формате HTML.</li>
+<li>Принятый документ браузер открывает в новой вкладке.</li>
+<li>Это выглядит так, будто вы перешли на другой сайт, однако, технически, вы загрузили с этого веб-сайта документ, который имеет вид страницы.</li>
+</ol>
+
+
+
+<p>Другими словами, вы не посещаете сайты, а закачиваете документы, сформированные серверами различных организаций. А для написания всех этих документов использовался язык HTML.</p>
+<p id="2">Львиная доля современных сайтов функционирует с помощью связки HTML+ CSS. CSS (Cascading Style Sheets)</a></span> – это каскадные таблицы стилей, которые отвечают за внешний вид HTML-документов. Используя это язык, программисты составляют визуальный облик деталей веб-страницы.</p>
+<h2 id="1">Актуальность создания сайта на языке HTML</h2>
+<p>Потенциал CSS довольно обширен. Размещение элементов относительно друг друга, создание анимации, адаптирование страницы к определенным условиям просмотра – за все это отвечают каскадные таблицы стилей.</p>
+<div class="blue-bg-block border">В случае, когда CSS не применяются при создании страницы, браузер будет воссоздавать HTML-элементы, используя, так называемый дефолтный стиль – стиль по умолчанию. Он отвечает за базовое оформление веб-страницы, а определяют его разработчики соответствующих браузеров.</div>
+<p>Человек, который создает веб-страницы с использованием языков HTML и CSS, называется веб-дизайнером, от английского словосочетания «web design». На русский манер такой специалист называется «верстальщик», а процесс его работы – верстка сайта.</p>
+<p>Но это еще не все специальности, встречающиеся в IT-индустрии и связанные с созданием веб-сайта с помощью HTML и CSS языков. Например, можно встретить:</p>
+<ul>
+<li>дизайнер-верстальщик – специалист занимается и дизайном, и версткой веб-страницы. То есть, он выстраивает ее структуру и визуальную составляющую, а затем, прописывая коды на HTML и CSS, создает конечный продукт;</li>
+<li>фронтенд-разработчик – помимо верстки занимается еще и программированием веб-страницы, создает интерфейс, занимается созданием фронтенд-приложений. Такой специалист должен знать не только CSS и HTML, но и JavaScript;</li>
+<li>веб-разработчик – у этой специальности довольно широкий функционал, так как для веб-разработки требуются знания в фронтенд- и бэкенд-направлениях;</li>
+<li>бэкенд-разработчик – занимается внутренней разработкой ресурса, поэтому должен знать языки Python, PHP, JavaScript, Java и другие.</li>
+<li>фулстэк-разработчик – занимается и фронт- и бэкендом.</li>
+</ul>
+<p>В январе 2020 года креативное агентство We Are Social выяснило, что на тот момент пользователями интернета являлись 4,54 млрд людей, что составляло 59 % от общего числа всех жителей планеты. Соответственно, высока вероятность, что оставшийся 41 % рано или поздно также станет использовать ресурсы сети.</p>
+<p>Из этих предположений вытекают следующие допущения: интернет-индустрия не остановит своего развития, будут появляться все новые сайты, а для их реализации будут необходимы языки программирования. Логично, что HTML и CSS также будут прогрессировать.</p>
+<div class="gray-bg-block border">Во время работы с вопросами верстки в той или иной степени соприкасаются веб-, бэкенд- и фронтед-разработчики. Им не всегда нужно досконально знать практическую сторону этого процесса, но без теоретического понимания принципов обойтись невозможно.</div>
+<p>Пока интернет продолжает развиваться, профессия по созданию веб-сайтов на языке HTML и CSS не потеряет актуальности. Но это не говорит о том, что верстальщики могут не переживать по поводу своей востребованности на рынке труда. Наоборот, им следует задуматься о будущем.</p>
+<p>Дело в том, что к таким специалистам предъявляют меньше требований, чем к программистам. Для трудоустройства «чистым» верстальщикам нужно меньше знаний, поэтому конкуренция среди них очень высока. Чтобы выделиться на фоне других соискателей, нужно обладать дополнительными навыками, а для этого следует повышать свою квалификацию.</p>
+<p>Далее, сама верстка подразумевает монотонную работу с однотипными задачами, для которой необходима усидчивость и неослабевающая концентрация внимания. Не каждый может похвастаться такими способностями, поэтому с течением времени работа просто надоедает, к профессии теряется интерес, и человек выгорает. В итоге мало кто продолжает заниматься нелюбимым делом.</p>
+<figure id="attachment_17" aria-describedby="caption-attachment-17" style="width: 800px" class="wp-caption alignnone"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" decoding="async" class="alignnone size-full wp-image-2617 ewww_webp_loaded" src="./Создание сайта html_ кому это нужно сегодня_files/2-3.jpg.webp" alt="Актуальность создания сайта на языке HTML" width="800" height="534" sizes="(max-width: 800px) 100vw, 800px" data-src-img="https://gb.ru/blog/wp-content/uploads/2022/01/2-3.jpg" data-src-webp="https://gb.ru/blog/wp-content/uploads/2022/01/2-3.jpg.webp" data-srcset-webp="https://gb.ru/blog/wp-content/uploads/2022/01/2-3.jpg.webp 800w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-300x200.jpg.webp 300w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-768x513.jpg.webp 768w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-599x400.jpg.webp 599w" data-srcset-img="https://gb.ru/blog/wp-content/uploads/2022/01/2-3.jpg 800w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-300x200.jpg 300w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-768x513.jpg 768w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-599x400.jpg 599w" data-eio="j" srcset="https://gb.ru/blog/wp-content/uploads/2022/01/2-3.jpg.webp 800w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-300x200.jpg.webp 300w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-768x513.jpg.webp 768w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-599x400.jpg.webp 599w"><noscript><img itemprop="url image" decoding="async" class="alignnone size-full wp-image-2617" src="https://gb.ru/blog/wp-content/uploads/2022/01/2-3.jpg" alt="Актуальность создания сайта на языке HTML" width="800" height="534" srcset="https://gb.ru/blog/wp-content/uploads/2022/01/2-3.jpg 800w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-300x200.jpg 300w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-768x513.jpg 768w, https://gb.ru/blog/wp-content/uploads/2022/01/2-3-599x400.jpg 599w" sizes="(max-width: 800px) 100vw, 800px" /></noscript><meta itemprop="width" content="800"><meta itemprop="height" content="534"></span><figcaption id="caption-attachment-17" class="wp-caption-text">Актуальность создания сайта на языке HTML</figcaption></figure>
+<p>Последние годы все чаще поднимается тема о возможной замене «чистых» верстальщиков программами-конструкторами, которые позволят без знания HTML создавать сайты на основе макетов в формате psd. Это вряд ли произойдет в ближайшее время, однако нужно учитывать такой вариант развития событий.</p>
+<div class="blue-bg-border-block border">Но не стоит опускать руки и думать, что специальность верстальщика сайта не имеет перспектив. Ее можно использовать как шанс для вхождения в сферу веб-разработки. Подавляющая часть востребованных веб-программистов выросла именно из узкопрофильных специалистов верстки. Знание HTML и CSS помогают «влиться» в веб-индустрию, а затем расти в этом направлении, изучая программирование.</div>
+<p>Итак, подведем итоги:</p>
+<ul>
+<li>веб-разработка немыслима без HTML и CSS;</li>
+<li>понимание и навыки верстки дают возможность найти работу с достойной оплатой;</li>
+<li id="3">верстку можно рассматривать как первый шаг к специальности веб-программиста.</li>
+</ul>
+<h2 id="2">Преимущества и недостатки сайтов на HTML</h2>
+<p>Сайты, созданные с помощью HTML, представляют собой набор из статичных готовых страниц, которые написаны HTML-кодом и хранятся в завершенном виде на каком-либо сервере. Сайт, состоящий из динамичных страниц, использует систему CMS, которая формирует страницу, исходя из запросов пользователя. Другими словами, когда посетитель отправляет запрос, CMS-система собирает нужную информацию из базы данных сайта, и выдает сгенерированную страницу.</p>
+
+
+<a class="banner-2__download_file" href="https://gb.ru/blog/wp-content/themes/reboot-child/job_search_channels_in_a_crisis.pdf" download="">Скачать
+    файл</a>
+
+
+<p>У обоих видов сайта есть и преимущества, и недостатки. Что именно использовать – HTML или CMS – зависит от задач проекта.</p>
+<p>Рассмотрим основные достоинства сайтов, созданных через HTML, по сравнению с аналогами, в основе которых лежит CMS.</p>
+<ul>
+<li>HTML-сайты меньше «весят»;</li>
+<li>функционирование и загрузка сайта происходят намного быстрее, а ресурсов сервера на это требуется намного меньше;</li>
+<li>отсутствие «мусорного кода», характерного для большинства CMS-систем;</li>
+<li>HTML-сайты не нуждаются в обновлении движка и отдельных модулей, тогда как для CMS эти процессы нужно проводить регулярно и в обязательном порядке;</li>
+<li>операция резервного копирования сайта имеет упрощенную форму – достаточно сделать копию файлов из главной папки (родительской директории). Это относится и к процедуре переноса сайта на другой хостинг;</li>
+<li>процесс верстки макета HTML-сайта прост. А для перевода сайта на CMS-систему, его нужно предварительно сверстать в HTML, то есть в создании CMS-сайта присутствует как минимум один лишний этап;</li>
+<li>с финансовой точки зрения создание HTML-сайта с нуля обходится дешевле, чем разработка CMS-сайта;</li>
+<li>для HTML-сайтов часто используют хостинг с низкой стоимостью аренды;</li>
+<li>в силу того, что информация HTML-страницы хранится в ее файле, контент имеет высокую степень сохранности. В случае CMS информация содержится в базе данных, и ее повреждение может парализовать работу всего сайта;</li>
+<li>сайты со статичными страницами стабильны в своей работе. Если необходимо отредактировать информацию, то это можно сделать постранично. А если где-то закралась ошибка, то она затронет только одну страницу. В CMS-сайтах допущенная ошибка сказывается на работоспособности всего сайта;</li>
+<li>поддержка не требует глубоких знаний – проекты может обслуживать любой человек, понимающий основы HTML-языка. Система CMS, наоборот, требует опытного специалиста, так как в работе существуют разные подходы и очередность действий.</li>
+</ul>
+<p>В качестве недостатков web-сайтов, созданных на языке HTML, следует выделить несколько пунктов, которые могут иметь первостепенную важность в некоторых ситуациях:</p>
+<ul>
+<li>трудоемкость процесса редактирования, если его необходимо провести на всех страницах или на большем их количестве. Подобная информация может носить справочный характер: номера телефонов, адреса, пункты меню, акции и прочее. Так как эти данные необходимо менять вручную на каждой странице, а их на сайте содержится, например, несколько сотен, то процедура займет немало времени;</li>
+<li>у HTML-сайта нет админ-панели, с помощью которой можно было бы управлять им и его наполнением в упрощенной форме;</li>
+<li id="4">для обслуживания, наполнения и поддержки сайта, нужно понимать основы HTM.</li>
+</ul>
+<h2 id="3">Основные теги для создания сайта на HTML</h2>
+<p>Рассмотрим ключевые теги, применяемые в&nbsp;HTML:</p>
+<ul>
+<li><b>&lt;head&gt;…&lt;/head&gt;</b>— содержимое тега не отображается на странице (кроме элемента <b><em>title</em></b>), но в нем хранятся те элементы, которые влияют на взаимодействие страницы и браузера;</li>
+<li><b>&lt;title&gt;…&lt;/title&gt;</b>— расположен внутри <b><em>head</em></b>. Отвечает за заголовок документа. Написанный внутри него текст будет воссоздаваться в названии вкладки и в закладках браузера;</li>
+<li><b>&lt;body&gt;…&lt;/body&gt;</b>— хранит в себе видимую часть страницы: текст, картинки, таблицы и т.д.;</li>
+<li><b>&lt;h1&gt;…&lt;/h1&gt;, &lt;h2&gt;…&lt;/h2&gt;</b> и&nbsp;так далее&nbsp;— теги заголовков различного уровня;</li>
+<li><b>&lt;p&gt;…&lt;/p&gt;</b>— определяет текстовый абзац;</li>
+<li><b>&lt;</b><b>a</b> <b>href</b><b>=»…»&gt;…&lt;/</b><b>a</b><b>&gt;</b>— тег, определяющий ссылку. Атрибут <b><em>href</em></b> задает адрес документа, по которому пользователь может перейти;</li>
+<li><b>&lt;img src=»…»&gt;</b>— тег, отвечающий за изображение. Атрибут <b><em>src</em></b> важен и обязателен, так как содержит путь к картинке, по которому браузер может запросить, скачать и показать объект на экране.</li>
+<li><b>&lt;</b><b>ul</b><b>&gt;&lt;</b><b>li</b><b>&gt;…&lt;/</b><b>li</b><b>&gt;&lt;/</b><b>ul</b><b>&gt;</b>— маркированный список с одним компонентом внутри. Для увеличения числа компонентов нужно добавить <b><em>&lt;li&gt;…&lt;/li&gt;</em></b> в <b><em>&lt;ul&gt;…&lt;/ul&gt;;</em></b></li>
+<li><b>&lt;ol&gt;&lt;li&gt;…&lt;/li&gt;&lt;/ol&gt;</b>— тег для создания нумерованного списка;</li>
+<li><b>&lt;div&gt;…&lt;/div&gt;</b>— блочный элемент, свойства которого можно прописать различными каскадными таблицами, получив в итоге, например, кнопку подтверждения или всплывающее окно;</li>
+<li><b>&lt;span&gt;…&lt;/span&gt;</b>— этот тег позволяет изменить вид части текста. Например, сделать буквы синими;</li>
+<li><b>&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;…&lt;/td&gt;&lt;td&gt;…&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</b>— минимальный список тегов для создания таблицы. <b><em>tr</em></b> используется только внутри таблиц и определяет количество строк (table row), <b><em>td</em></b> – создает ячейки в строке (table division). Выстраивание таблицы происходит путем вкладывания одних тегов в другие: ячейки в строки, далее в <b><em>&lt;tbody&gt;,</em></b> а затем в <b><em>&lt;table&gt;.</em></b> Существует еще тег <b><em>&lt;th&gt;,</em></b> который создает в таблице одну ячейку, являющуюся заголовочной. Обычно текст в такой ячейки отображается по центру и жирным шрифтом.</li>
+</ul>
+<figure id="attachment_17" aria-describedby="caption-attachment-17" style="width: 800px" class="wp-caption alignnone"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" decoding="async" class="alignnone size-full wp-image-2618 ewww_webp_loaded" src="./Создание сайта html_ кому это нужно сегодня_files/3-4.jpg.webp" alt="Основные теги для создания сайта на HTML" width="800" height="526" sizes="(max-width: 800px) 100vw, 800px" data-src-img="https://gb.ru/blog/wp-content/uploads/2022/01/3-4.jpg" data-src-webp="https://gb.ru/blog/wp-content/uploads/2022/01/3-4.jpg.webp" data-srcset-webp="https://gb.ru/blog/wp-content/uploads/2022/01/3-4.jpg.webp 800w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-300x197.jpg.webp 300w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-768x505.jpg.webp 768w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-608x400.jpg.webp 608w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-335x220.jpg.webp 335w" data-srcset-img="https://gb.ru/blog/wp-content/uploads/2022/01/3-4.jpg 800w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-300x197.jpg 300w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-768x505.jpg 768w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-608x400.jpg 608w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-335x220.jpg 335w" data-eio="j" srcset="https://gb.ru/blog/wp-content/uploads/2022/01/3-4.jpg.webp 800w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-300x197.jpg.webp 300w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-768x505.jpg.webp 768w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-608x400.jpg.webp 608w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-335x220.jpg.webp 335w"><noscript><img itemprop="url image" decoding="async" class="alignnone size-full wp-image-2618" src="https://gb.ru/blog/wp-content/uploads/2022/01/3-4.jpg" alt="Основные теги для создания сайта на HTML" width="800" height="526" srcset="https://gb.ru/blog/wp-content/uploads/2022/01/3-4.jpg 800w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-300x197.jpg 300w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-768x505.jpg 768w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-608x400.jpg 608w, https://gb.ru/blog/wp-content/uploads/2022/01/3-4-335x220.jpg 335w" sizes="(max-width: 800px) 100vw, 800px" /></noscript><meta itemprop="width" content="800"><meta itemprop="height" content="526"></span><figcaption id="caption-attachment-17" class="wp-caption-text">Основные теги для создания сайта на HTML</figcaption></figure>
+<p>В настоящее время на просторах интернета можно найти много исчерпывающей информации и пошаговых инструкций по созданию HTML-сайтов. Они позволяют не тратить время на заучивание большого объема данных. Однако, если вы будете заниматься версткой на регулярной основе, то многие шаги запомнятся и будут использоваться на автоматизме.<br>
+
+
+<div id="5">Тем не менее этот язык несложно освоить и начать применять. Пока он актуален, с помощью него можно зарабатывать вполне неплохие деньги. В любом случае резкий отказ от HTML-языка невозможен, а значит в запасе будет время для перестройки навыков.</div>
+<h2 id="4">Этапы подготовки к созданию сайта на HTML</h2>
+<p>В работе необходимо выделить несколько этапов.</p>
+<ul>
+<li>Разработка макета, который позволит визуализировать будущий сайт при помощи растровых графических редакторов или обычных рисунков на бумаге.</li>
+<li>Верстка из макета psd. Макет, созданный в программе Photoshop, верстают, затем адаптируют под мобильные гаджеты, а далее тестируют, добиваясь корректного отображения сайта во всех браузерах.</li>
+<li>Последующая верстка HTML-макета под систему управления сайтом или PHP-язык, делая ресурс динамичным.</li>
+</ul>
+<div class="green-bg-border-block border">Макет рекомендуется делать в таких графических редакторах, как Adobe Photoshop. Создайте в нем новый документ и присвойте ему имя «MySite». Оптимальными настройками отображения будут: по ширине – 1170 px, по высоте – 880 px.</div>
+<p>Активируйте изображение линейками и направляющими, привязывая их к границам создаваемого документа. Для того чтобы создать продуманный и детализированный макет, используйте инструменты «Форма», «Текст», «Раскройка», «Прямая» и прочие.</p>
+<p>Дальнейшая верстка заключается в том, что в текстовом файле index.html. размещают блоки макета. Первой строчкой в документе укажите &lt;!DOCTYPE html&gt; – это поможет браузеру понять, каким образом обрабатывать содержимое. Далее припишите теги, которые будут содержать скрытый и видимый для пользователя материал.</p>
+<div class="gray-bg-block border">Важно помнить, что информацию, указанную между тегами &lt;head&gt;…&lt;/head&gt;, пользователь не увидит.</div>
+<p>Структурирование текста производится с помощью тегов:</p>
+<ul>
+<li>&lt;div&gt;…&lt;/div&gt; – блочный элемент;</li>
+<li>&lt;p&gt;…&lt;/p&gt; – абзац;</li>
+<li>&lt;table&gt;…&lt;/table&gt; – таблица:</li>
+<li>&lt;ul&gt;&lt;li&gt;…&lt;/li&gt;&lt;/ul&gt; – списки.</li>
+</ul>
+<p>
+
+<br>
+Для всех элементов, которые располагаются на сайте, задайте формат отображения. Это можно сделать с помощью HTML-тегов или CSS-таблицами. Последний вариант более предпочтителен, так как позволяет воспользоваться стилями компонентов во второй и последующий раз.
+<div class="gray-bg-block border">Еще один важный момент – таблицу можно прописать внутри &lt;head&gt;, но, как правило, ее задают в файле style.css, ссылку на который размещают внутри тегов.</div>
+<p id="6">Пример такого размещения: &lt;link href=”style.css” type=”text/css” rel=”stylesheet”&gt;.</p>
+<h2 id="5">Пример пошагового создания сайта на HTML в блокноте</h2>
+<p><b>Шаг 1.</b> Создание страницы сайта HTML</p>
+<p>Откройте «Блокнот» Windows или другой доступный текстовый редактор (например, Sublime Text). Сразу же сохраните документ через меню «Файл»: в появившемся окне сохранения измените «Кодировку» с ANSI на UTF-8 – это позволит русским буквам правильно отображаться в браузере. Также укажите название страницы, изменив расширение на .html. Нажмите «Сохранить».</p>
+
+        <div class="popular-articles">
+            <div class="popular-articles__main-title">Популярные статьи</div>
+           <div class="popular-articles__item">
+                <div class="popular-articles__img">
+                    <a href="https://gb.ru/blog/vysokooplachivaemye-professii/">
+                           <img decoding="async" src="./Создание сайта html_ кому это нужно сегодня_files/popular-articles-img.png" loading="lazy">
+                    </a>
+                </div>
+                <div class="popular-articles__title">
+                    <a href="https://gb.ru/blog/vysokooplachivaemye-professii/">Высокооплачиваемые профессии сегодня и в ближайшем будущем</a>
+                </div>
+            </div>
+           <div class="popular-articles__item">
+                <div class="popular-articles__img">
+                    <a href="https://gb.ru/blog/dop-zarabotok-v-internete/">
+                           <img decoding="async" src="./Создание сайта html_ кому это нужно сегодня_files/popular-2.png" loading="lazy">
+                    </a>
+                </div>
+                <div class="popular-articles__title">
+                    <a href="https://gb.ru/blog/dop-zarabotok-v-internete/">Дополнительный заработок в Интернете: варианты для новичков и специалистов</a>
+                </div>
+            </div>
+           <div class="popular-articles__item">
+                <div class="popular-articles__img">
+                    <a href="https://gb.ru/blog/vostrebovannye-udalennye-professii/">
+                           <img decoding="async" src="./Создание сайта html_ кому это нужно сегодня_files/popular-3.png" loading="lazy">
+                    </a>
+                </div>
+                <div class="popular-articles__title">
+                    <a href="https://gb.ru/blog/vostrebovannye-udalennye-professii/">Востребованные удаленные профессии: зарабатывайте, не выходя из дома</a>
+                </div>
+            </div>
+           <div class="popular-articles__item">
+                <div class="popular-articles__img">
+                    <a href="https://gb.ru/blog/razrabotchik-igr/">
+                           <img decoding="async" src="./Создание сайта html_ кому это нужно сегодня_files/popular-4.png" loading="lazy">
+                    </a>
+                </div>
+                <div class="popular-articles__title">
+                    <a href="https://gb.ru/blog/razrabotchik-igr/">Разработчик игр: чем занимается, сколько зарабатывает и где учится</a>
+                </div>
+            </div>
+           <div class="popular-articles__item">
+                <div class="popular-articles__img">
+                    <a href="https://gb.ru/blog/kak-vybrat-professiyu/">
+                           <img decoding="async" src="./Создание сайта html_ кому это нужно сегодня_files/popular-5.png" loading="lazy">
+                    </a>
+                </div>
+                <div class="popular-articles__title">
+                    <a href="https://gb.ru/blog/kak-vybrat-professiyu/">Как выбрать профессию по душе: детальное руководство + ценные советы</a>
+                </div>
+            </div>
+         </div>
+<p><b>Шаг 2. </b>Добавление разметки страницы</p>
+<p>Редактирование файла начните с внесения стандартной части кода, которая помогает браузерам идентифицировать контент, вписанный во внутренние теги. Просто скопируйте следующие строки и вставьте в документ:</p>
+<ol class="content-list-number">
+<li>&lt;!DOCTYPE html PUBLIC»-//W3C//DTD HTML 4.01 Transitional//EN»&gt;</li>
+<li>&lt;html&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&lt;meta http-equiv=»Content-Type» content=»text/html; charset=UTF-8″&gt;</li>
+<li>&lt;title&gt;Топовый сайт новичка&lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&lt;h1&gt;Это тег заголовка первого уровня для содержимого страницы&lt;/h1&gt;</li>
+<li>&lt;p&gt;Первый абзац&lt;/p&gt;</li>
+<li>&lt;p&gt;Второй абзац&lt;/p&gt;</li>
+<li>&lt;p&gt;Третий абзац и т. д.&lt;/p&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
+</ol>
+<p>Это основные детали, которые размещаются на любых страницах каждого сайта.</p>
+<p><b>Шаг 3</b>. Работа со стилями CSS</p>
+<p>После того, как в абзацы добавлен какой-либо текст, ему следует задать стиль – шрифт, цвет фона, интервалы между строк, ширина страницы и т.д. Это может иметь следующий вид:</p>
+<ol class="content-list-number">
+<li>body {</li>
+<li>background: #F2F2F2;</li>
+<li>max-width: 900px;</li>
+<li>margin: 10px auto;</li>
+<li>padding: 30px;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>h1{</li>
+<li>color: #4C4C4C;</li>
+<li>padding-bottom: 20px;</li>
+<li>margin-bottom: 20px;</li>
+<li>border-bottom: 2px solid #BEBEBE;</li>
+<li>}</li>
+<li>p{</li>
+<li>font:italic;</li>
+<li>}</li>
+</ol>
+<figure id="attachment_17" aria-describedby="caption-attachment-17" style="width: 800px" class="wp-caption alignnone"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" decoding="async" class="alignnone size-full wp-image-2619 ewww_webp_loaded" src="./Создание сайта html_ кому это нужно сегодня_files/4-4.jpg.webp" alt="Этапы подготовки к созданию сайта на HTML" width="800" height="502" sizes="(max-width: 800px) 100vw, 800px" data-src-img="https://gb.ru/blog/wp-content/uploads/2022/01/4-4.jpg" data-src-webp="https://gb.ru/blog/wp-content/uploads/2022/01/4-4.jpg.webp" data-srcset-webp="https://gb.ru/blog/wp-content/uploads/2022/01/4-4.jpg.webp 800w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-300x188.jpg.webp 300w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-768x482.jpg.webp 768w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-637x400.jpg.webp 637w" data-srcset-img="https://gb.ru/blog/wp-content/uploads/2022/01/4-4.jpg 800w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-300x188.jpg 300w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-768x482.jpg 768w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-637x400.jpg 637w" data-eio="j" srcset="https://gb.ru/blog/wp-content/uploads/2022/01/4-4.jpg.webp 800w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-300x188.jpg.webp 300w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-768x482.jpg.webp 768w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-637x400.jpg.webp 637w"><noscript><img itemprop="url image" decoding="async" class="alignnone size-full wp-image-2619" src="https://gb.ru/blog/wp-content/uploads/2022/01/4-4.jpg" alt="Этапы подготовки к созданию сайта на HTML" width="800" height="502" srcset="https://gb.ru/blog/wp-content/uploads/2022/01/4-4.jpg 800w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-300x188.jpg 300w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-768x482.jpg 768w, https://gb.ru/blog/wp-content/uploads/2022/01/4-4-637x400.jpg 637w" sizes="(max-width: 800px) 100vw, 800px" /></noscript><meta itemprop="width" content="800"><meta itemprop="height" content="502"></span><figcaption id="caption-attachment-17" class="wp-caption-text">Этапы подготовки к созданию сайта на HTML</figcaption></figure>
+<p>Что видно из примера? То, что:</p>
+<ul>
+<li>фон (background) имеет цвет (#F2F2F2);</li>
+<li>ширина страница составляет 900 px;</li>
+<li>есть отступы, а заголовок имеет цвет;</li>
+<li>есть цветная граница в нижней части страницы (border-bottom) шириной 2 px.</li>
+</ul>
+<p>Готовая страница с текстом, разметкой и стилями выглядит следующим образом:</p>
+<ol class="content-list-number">
+<li>&lt;!DOCTYPE html PUBLIC»-//W3C//DTD HTML 4.01 Transitional//EN»&gt;</li>
+<li>&lt;html&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&lt;meta http-equiv=»Content-Type» content=»text/html; charset=UTF-8″&gt;</li>
+<li>&lt;title&gt;Топовый сайт новичка&lt;/title&gt;</li>
+<li>&lt;style&gt;</li>
+<li>body {</li>
+<li>background: #F2F2F2;</li>
+<li>max-width: 900px;</li>
+<li>margin: 10px auto;</li>
+<li>padding: 30px;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>h1{</li>
+<li>color: #4C4C4C;</li>
+<li>padding-bottom: 20px;</li>
+<li>margin-bottom: 20px;</li>
+<li>border-bottom: 2px solid #BEBEBE;</li>
+<li>}</li>
+<li>p{</li>
+<li>font:italic;</li>
+<li>}</li>
+<li>&lt;/style&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&lt;h1&gt;Это тег заголовка первого уровня для содержимого страницы&lt;/h1&gt;</li>
+<li>&lt;p&gt;Первый абзац&lt;/p&gt;</li>
+<li>&lt;p&gt;Второй абзац&lt;/p&gt;</li>
+<li>&lt;p&gt;Третий абзац и т. д.&lt;/p&gt;</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
+</ol>
+<p>Обратите внимание, что параметры CSS добавлены между <b><em>&lt;style&gt;&lt;/style&gt;. </em></b>Теперь, когда все внесено, сохраните результат. Если вы откроете полученный документ, то его запуск автоматически произойдет через браузер. То есть вы только что, буквально за пару минут, сделали простой сайт с помощью «Блокнота».</p>
+<p>Таким образом вы можете создать неограниченное количество страниц. Чтобы пользователь мог перемещаться между ними, они должны быть связаны друг с другом. Для этого требуется корректное указание ссылок.</p>
+<p>Например, вы создали две страницы: page1.html и page2.html. Пользователю нужно попадать с первой на вторую страницу. Для этого внутри page1 необходимо написать ссылку, по которой можно будет перейти на страницу page2. Это поможет осуществить тег с определенным атрибутом:</p>
+<p>&lt;a href=»page2.html»&gt;Нажмите для перехода на Страницу 2&lt;/a&gt;</p>
+<p>Учтите, что файл страницы page2.html должен находиться в одном каталоге с page1.html. При расположении страниц на разных сайтах понадобится указывать подробный путь или абсолютную ссылку.</p>
+<p>Если пользователю нужно будет возвращаться со 2-й страницы на 1-ю, то вам необходимо прописать внутри page2.html другой URL, отсылающий на page1.html.</p>
+<p>При этом число ссылок с одной страницы на другую не ограничено.</p>
+<p><b>Шаг 4</b>. Выгрузка сайта на хостинг</p>
+<p>Очевидно, что в предыдущих шагах был создан простой HTML-сайт, ради которого не стоит тратится на платный хостинг. Однако, если реализованный проект достоин публикации в веб-сети, то вам понадобится домен и хостинг.</p>
+<div class="blue-bg-block border">Выбор хостинга – это весьма ответственное задание. Для эффективной работы сайтам HTML не требуется специфических характеристик хостинга, но все же в приоритет стоит ставить качество.</div>
+<p>После того как хостинг определен, скопируйте файлы сайта в директорию с названием домена. Вы можете воспользоваться встроенным FTP-сервер или программой, подобной Filezilla, но тогда вам нужно будет настроить ее для взаимодействия с хостингом. База данных не требуется.</p>
+<p id="7">Такая пошаговая инструкция по созданию HTML-сайта позволяет получить довольно примитивный продукт. Если вы стремитесь создать сложную структуру, которая была бы в состоянии решать определенные задачи и иметь достойное визуальное оформление, то нужно получить более глубокие знания по HTML5 и CCS3. Информация, приведенная выше, предназначена для новичков, которые только начинают знакомиться с веб-разработкой.</p>
+<h2 id="6">Возможность трудоустройства верстальщиком</h2>
+<p>Сейчас выделяют три основных режима работы:</p>
+<ul>
+<li>полный рабочий день в офисе;</li>
+<li>полный рабочий день удаленно;</li>
+<li>фриланс (независимый сотрудник).</li>
+</ul>
+<p>Работая в офисе, вы сможете получать зарплату, отвечающую уровню ваших знаний на 100 %. При удаленном графике зарплата будет ниже и составит 65-75 %, а в качестве фрилансера вы будете зарабатывать 40-50 %.</p>
+<p>Если ваша цель – заработать больше, то устраивайтесь в качестве офисного сотрудника. Если для вас приоритетно отсутствие контроля со стороны руководства, то выбирайте путь фриланса.</p>
+<p>Это достаточно грубый пример, а чтобы оперировать более точными данными, зайдем на HH.ru и поищем вакансии, связанные с версткой. Помимо этого, оценим ситуацию на англо- и русскоязычных биржах фриланса.</p>
+
+<p>Итак, в первые дни декабря 2021 года HH.ru выдавал такие данные:</p>
+<ul>
+<li>верстальщик – 867 вакансий на всю Россию;</li>
+<li>фронтед-разработчик – свыше 4000 вакансий;</li>
+<li>веб-разработчик – свыше 4000 вакансий.</li>
+</ul>
+<p>Логично сделать вывод, что работодатель не заинтересован в «чистых» верстальщиках, однако нуждается в специалистах, умеющих верстать сайты и программировать фронтенд-приложения.</p>
+<figure id="attachment_17" aria-describedby="caption-attachment-17" style="width: 800px" class="wp-caption alignnone"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" decoding="async" class="alignnone size-full wp-image-2620 ewww_webp_loaded" src="./Создание сайта html_ кому это нужно сегодня_files/5-3.jpg.webp" alt="Возможность трудоустройства верстальщиком" width="800" height="280" sizes="(max-width: 800px) 100vw, 800px" data-src-img="https://gb.ru/blog/wp-content/uploads/2022/01/5-3.jpg" data-src-webp="https://gb.ru/blog/wp-content/uploads/2022/01/5-3.jpg.webp" data-srcset-webp="https://gb.ru/blog/wp-content/uploads/2022/01/5-3.jpg.webp 800w, https://gb.ru/blog/wp-content/uploads/2022/01/5-3-300x105.jpg.webp 300w, https://gb.ru/blog/wp-content/uploads/2022/01/5-3-768x269.jpg.webp 768w" data-srcset-img="https://gb.ru/blog/wp-content/uploads/2022/01/5-3.jpg 800w, https://gb.ru/blog/wp-content/uploads/2022/01/5-3-300x105.jpg 300w, https://gb.ru/blog/wp-content/uploads/2022/01/5-3-768x269.jpg 768w" data-eio="j" srcset="https://gb.ru/blog/wp-content/uploads/2022/01/5-3.jpg.webp 800w, https://gb.ru/blog/wp-content/uploads/2022/01/5-3-300x105.jpg.webp 300w, https://gb.ru/blog/wp-content/uploads/2022/01/5-3-768x269.jpg.webp 768w"><noscript><img itemprop="url image" decoding="async" class="alignnone size-full wp-image-2620" src="https://gb.ru/blog/wp-content/uploads/2022/01/5-3.jpg" alt="Возможность трудоустройства верстальщиком" width="800" height="280" srcset="https://gb.ru/blog/wp-content/uploads/2022/01/5-3.jpg 800w, https://gb.ru/blog/wp-content/uploads/2022/01/5-3-300x105.jpg 300w, https://gb.ru/blog/wp-content/uploads/2022/01/5-3-768x269.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript><meta itemprop="width" content="800"><meta itemprop="height" content="280"></span><figcaption id="caption-attachment-17" class="wp-caption-text">Возможность трудоустройства верстальщиком</figcaption></figure>
+<p>Для подтверждения такого вывода просмотрим требования к соискателям на вакансию «верстальщик». Основная доля объявлений говорит о том, что от кандидата ожидают не только навыков в верстке, но и знаний JavaScript.</p>
+<p>Изучение вакансий вскрывает еще один важный нюанс: под «верстальщиком» могут понимать сотрудника полиграфии. То есть реальных вакансий, связанных с версткой сайтов, меньше, чем казалось в начале исследования.</p>
+<p>Примерный перечень требований к соискателям со стороны работодателя таков:</p>
+<ul>
+<li>знание языков HTML и CSS, знание JavaScript и jQuery на базовом уровне;</li>
+<li>навыки адаптивной верстки. Умение верстать на флексах;</li>
+<li>навыки работы с препроцессорами, например, Sass/SCSS или Less;</li>
+<li>знание таких инструментов, как Photoshop, Webpack, Git, Figma и прочие.</li>
+</ul>
+<p>Вакансии открыты как для специалистов со стажем, так и для начинающих (джуниоров).</p>
+<p>Если проанализировать предлагаемую зарплату, то картина следующая – опытный специалист, знающий JavaScript, может рассчитывать максимум на 100 000 руб. «Чистым» верстальщикам могут предложить от 25 000 руб./месяц.</p>
+<p>Эта статья не охватывает абсолютно все нюансы создания HTML-сайта, однако она позволяет получить первичное понимание этого вопроса. Ведь при знакомстве с любым новым делом в начале важно получить основу и базовые знания.</p>
+                <div class="blog-author">
+                    <div>
+                        <b>Автор статьи:</b>
+                <div>
+                    <b>Устюгов Георгий Сергеевич 10А</b>
+                </div>
+            </a>                    </div>
+<!--                    <div class="blog-reviewer__wrap">-->
+<!--                        <b>Рецензент:</b>-->
+<!--                        <a href="#" class="blog-reviewer">-->
+<!--                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="reviewer" data-src-img="https://gb.ru/blog/wp-content/uploads/2023/12/seo1.jpeg" data-src-webp="https://gb.ru/blog/wp-content/uploads/2023/12/seo1.jpeg.webp" data-eio="j" class="ewww_webp"><noscript><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="reviewer" data-src-img="https://gb.ru/blog/wp-content/uploads/2023/12/seo1.jpeg" data-src-webp="https://gb.ru/blog/wp-content/uploads/2023/12/seo1.jpeg.webp" data-eio="j" class="ewww_webp"><noscript><img src="https://gb.ru/blog/wp-content/uploads/2023/12/seo1.jpeg" alt="reviewer"></noscript></noscript>-->
+<!--                            <div>-->
+<!--                                <b>Иван Иванов</b>-->
+<!--                                <span>Аналитик GeekBrains</span>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function initDynamicWidget() {
+        const widget = document.querySelector(".widget-dynamic");
+        if(widget && (widget.classList.contains('pc') && window.outerWidth > 768 )){
+            const widgetClose = document.querySelector(".widget-dynamic__close");
+            let widgetMessages = document.querySelectorAll(".widget-dynamic__message");
+            let widgetTyping = document.querySelector(".widget-dynamic__typing");
+            let messageBtn = document.querySelector(".widget-dynamic__message-btn");
+
+            // Метка ставится в файле - /reboot-child/assets/scripts/custom.js, функция goalCatcher()
+            // Ставим проверку на показ ловца лидов через 3 дня
+            if (!localStorage.getItem('goalCatcherDate') || new Date(localStorage.getItem('goalCatcherDate')) <= new Date()) {
+
+                setTimeout(function () {
+
+                    widget.style.display = 'block';
+
+                    widgetClose.addEventListener('click', function () {
+                        widget.style.display = 'none';
+                    });
+
+                    widgetMessages[0].innerHTML = `Привет! 👋🏻`;
+                    widgetTyping.classList.add('active');
+
+                    setTimeout(function () {
+                        widgetTyping.classList.remove('active');
+                        widgetMessages[1].innerHTML = `Geekbrains дарит подарки!🎉<br> Забирай 4 актуальных курса по ТОП профессиям 2023 бесплатно.`;
+                    }, 5000);
+
+                    setTimeout(function () {
+                        widgetTyping.classList.add('active');
+                    }, 7000);
+
+                    setTimeout(function () {
+                        widgetTyping.classList.remove('active');
+                        //widgetMessages[2].innerHTML = `<button class="widget-dynamic-btn">Регистрируйся бесплатно только до //</button>`;
+                        // widgetMessages[2].innerHTML = `<br><a class="widget-dynamic-btn" href="https://gb.ru/path-to-it/pro_free?from=blog_pro_20220707">Регистрируйся бесплатно</a>`;
+                        // widgetMessages[2].innerHTML = `<br><a class="widget-dynamic-btn" href="javascript:void(0);">Забрать подарки</a>`;
+                        messageBtn.innerHTML = `<a class="widget-dynamic-btn" href="javascript:void(0);">Забрать подарки</a>`;
+
+                    }, 9000);
+
+                    // Цель - показ виджета
+                    ym(40414440, 'reachGoal', 'blogpokazzahvatchika');
+
+                }, 70000);
+            }
+        }
+
+    }
+
+    addEventListener('DOMContentLoaded', (event) => {
+        initDynamicWidget();
+    });
+
+</script>
+
+<link href="./Создание сайта html_ кому это нужно сегодня_files/header(1).css" rel="stylesheet">
+<script src="./Создание сайта html_ кому это нужно сегодня_files/header.js.Без названия" defer=""></script>
+<link href="./Создание сайта html_ кому это нужно сегодня_files/footer(1).css" rel="stylesheet">
+<script src="./Создание сайта html_ кому это нужно сегодня_files/footer.js.Без названия" defer=""></script>
+
+
+
+<style>		.scrollTop{			display:none; z-index:999; position:fixed; bottom:30px; right:2%; width:70px; height:40px;transition: 0.6s;			background:url(../wp-content/themes/reboot-child/assets/images/arrow-article.svg) 0 0 no-repeat;		}		.scrollTop:hover{ background-position:0 -76px; transition: 0.6s; background:url(../wp-content/themes/reboot-child/assets/images/arrow-article-active.svg) 0 0 no-repeat;}	</style><div class="scrollTop" style="display: block; opacity: 1;"></div><div class="gb-outer-modal-overlay"><div class="gb-outer-modal"></div></div><img id="xcnt-img-0.9076820410257608" width="0" height="0" src="./Создание сайта html_ кому это нужно сегодня_files/saved_resource(6)" style="display: none !important; width: 0px !important; height: 0px !important;"><script id="xcnt-pars" async="" src="./Создание сайта html_ кому это нужно сегодня_files/gb.ru.js.Без названия"></script><script src="./Создание сайта html_ кому это нужно сегодня_files/data" defer="true" async="true" type="text/javascript"></script><script>
+(function(){
+var s = document.createElement("script");
+s.async = true; 
+s.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//webecyzo.com/";
+var a = document.getElementsByTagName("script")[0];
+a.parentNode.insertBefore(s, a);
+})();
+</script><script class="iti-load-utils" async="" src="./Создание сайта html_ кому это нужно сегодня_files/utils.min(1).js.Без названия"></script><script src="./Создание сайта html_ кому это нужно сегодня_files/analytics(1)" defer="true" async="true" type="text/javascript"></script><script src="./Создание сайта html_ кому это нужно сегодня_files/r22" defer="true" async="true" type="text/javascript"></script></body></html>
