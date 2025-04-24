@@ -1,0 +1,10 @@
+.custom-emoji {
+    height: 24px;
+    width: 24px;
+    vertical-align: text-bottom;
+}
+
+.custom-emoji img {
+    height: 24px;
+    width: 24px;
+}

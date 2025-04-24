@@ -1,0 +1,3825 @@
+let isMobile = window.innerWidth < 768;
+let check_autoload = true;
+let global_location = 'ru';
+
+let formCookie = gbGetCookie('gb_land_email');
+
+
+window.onload = function () {
+    initCommentSort()
+
+    const rLinkBtn = document.getElementById("rLinkBtn");
+    const SliderBtn = document.querySelectorAll(".rm-item__button");
+    const PopularPostBtn = document.querySelectorAll(".sidebar-articles__item.sidebar-article");
+    const sidebar_webinar_link_1 = document.querySelectorAll('.tab-gb-events .sidebar-webinar-link-1');
+    const sidebar_webinar_link_2 = document.querySelectorAll('.tab-gb-events .sidebar-webinar-link-2');
+    const sidebar_courses_link_1 = document.querySelectorAll('.tab-best-courses .sidebar-webinar-link-1');
+    const sidebar_courses_link_2 = document.querySelectorAll('.tab-best-courses .sidebar-webinar-link-2');
+
+    if (rLinkBtn) {
+        const LinkRLink = document.getElementById("LinkRLink");
+        const rLinkSvg = document.getElementById("rLinkSvg");
+
+        rLinkBtn.addEventListener("mouseover", () => {
+            LinkRLink.style.color = "#22C993";
+            rLinkSvg.style.fill = "#22C993";
+        })
+
+        rLinkBtn.addEventListener("mouseout", () => {
+            LinkRLink.style.color = "#6654D9";
+            rLinkSvg.style.fill = "#6654D9";
+        })
+    }
+
+    if (SliderBtn) {
+        SliderBtn.forEach(btn => {
+            const LinkSlideMore = btn.querySelector("#LinkSlideMore");
+            const SvgSlideMore = btn.querySelector("#SvgSlideMore");
+
+            btn.addEventListener("mouseover", () => {
+                LinkSlideMore.style.color = "#22C993";
+                SvgSlideMore.style.fill = "#22C993";
+            });
+            btn.addEventListener("mouseout", () => {
+                LinkSlideMore.style.color = "#6654D9";
+                SvgSlideMore.style.fill = "#6654D9";
+            });
+        });
+    }
+
+    if (PopularPostBtn) {
+        PopularPostBtn.forEach(btnPost => {
+            btnPost.addEventListener("mouseover", () => {
+                let rr = btnPost.getElementsByTagName('a')[1].style.color = "#22C993";
+            });
+            btnPost.addEventListener("mouseout", () => {
+                let rr = btnPost.getElementsByTagName('a')[1].style.color = "";
+            });
+        });
+    }
+
+    if (sidebar_webinar_link_1) {
+        let link_counter_1 = 0;
+        const sidebar_webinar_link_1_length = sidebar_webinar_link_1.length;
+        for (link_counter_1; link_counter_1 < sidebar_webinar_link_1_length; link_counter_1++) {
+            sidebar_webinar_link_1[link_counter_1].addEventListener('click', () => {
+                ym(40414440, 'reachGoal', 'blogclicksidebar1');
+            });
+        }
+    }
+
+    if (sidebar_webinar_link_2) {
+        let link_counter_2 = 0;
+        const sidebar_webinar_link_2_length = sidebar_webinar_link_2.length;
+        for (link_counter_2; link_counter_2 < sidebar_webinar_link_2_length; link_counter_2++) {
+            sidebar_webinar_link_2[link_counter_2].addEventListener('click', () => {
+                ym(40414440, 'reachGoal', 'blogclicksidebar2');
+            });
+        }
+    }
+
+    if (sidebar_courses_link_1) {
+        let link_counter_1 = 0;
+        const sidebar_courses_link_1_length = sidebar_courses_link_1.length;
+        for (link_counter_1; link_counter_1 < sidebar_courses_link_1_length; link_counter_1++) {
+            sidebar_courses_link_1[link_counter_1].addEventListener('click', () => {
+                ym(40414440, 'reachGoal', 'blogclicksidebar3');
+            });
+        }
+    }
+
+    if (sidebar_courses_link_2) {
+        let link_counter_2 = 0;
+        const sidebar_courses_link_2_length = sidebar_courses_link_2.length;
+        for (link_counter_2; link_counter_2 < sidebar_courses_link_2_length; link_counter_2++) {
+            sidebar_courses_link_2[link_counter_2].addEventListener('click', () => {
+                ym(40414440, 'reachGoal', 'blogclicksidebar4');
+            });
+        }
+    }
+
+    // Удаление класса active у набора элементов
+    function gb_remove_class(set) {
+        let gbj = 0;
+
+        for (gbj; gbj < set.length; gbj++) {
+            set[gbj].classList.remove('active');
+        }
+
+    }
+
+    // Функционал для переключения табов виджетов
+    function blogWidgets() {
+        const widgets_tab_link = document.getElementById('widgets-tab-link');
+
+        if (widgets_tab_link) {
+            const widgets_tab_link_item = widgets_tab_link.querySelectorAll('li');
+            const length_count = widgets_tab_link_item.length;
+            const widgets_tab_content = document.getElementById('widgets-tab-content');
+            const widgets_tab_content_item = widgets_tab_content.querySelectorAll('.widgets-tab-content');
+            let igb = 0;
+
+            for (igb; igb < length_count; igb++) {
+                widgets_tab_link_item[igb].addEventListener('click', (elem) => {
+
+                    // console.log(elem);
+                    // console.log( Array.prototype.indexOf.call(widgets_tab_link_item, elem.target) );
+                    // console.log(elem.path[0]);
+
+                    const current_elem = elem.target;
+
+                    if (!current_elem.classList.contains('active')) {
+
+                        gb_remove_class(widgets_tab_link_item);
+
+                        current_elem.classList.add('active');
+
+                        gb_remove_class(widgets_tab_content_item);
+
+                        const current_elem_index = Array.prototype.indexOf.call(widgets_tab_link_item, elem.target)
+
+                        widgets_tab_content_item[current_elem_index].classList.add('active');
+                    }
+
+                });
+            }
+        }
+
+    }
+
+    // Ожидаем загрузку блока от внешнего скрипта
+    const envy_interval = setInterval(() => {
+        const envybox_elem = document.querySelector('.cbk-support-new-message');
+        const envy_first_element = document.querySelector('.cbk-support-new-message-avatar');
+        const envy_last_element = document.querySelector('.cbk-support-new-message-copyright');
+
+        // Если есть элемент
+        if (envybox_elem && envy_first_element && envy_last_element) {
+
+            clearInterval(envy_interval);
+
+            const open_tag_noindex = '<!-- noindex -->';
+            const close_tag_noindex = '<!-- /noindex -->';
+
+            // Вставляем открывающий тэг noindex
+            envybox_elem.insertAdjacentHTML('beforebegin', open_tag_noindex);
+
+            // Вставляем закрывающий тэг noindex
+            envybox_elem.insertAdjacentHTML('afterend', close_tag_noindex);
+        }
+    }, 500);
+
+    // Функционал для переключения табов виджетов
+    blogWidgets();
+
+    // Функционал колеса
+    if (document.querySelector('.js-popup-paywall')) {
+        popupPaywall();
+    } else {
+        wheelPopup();
+    }
+
+    // плавность якорей
+    scrollNav();
+
+    // Временно закомментировано. НЕ УДАЛЯТЬ!!!
+    // Вид топ бара IT специалист
+    // файл - /reboot-child/inc/topbar/it-specialist.php
+    // пк - /reboot-child/assets/images/topbar/it-specialist/it-spesialist-2022-11-18_14-59-06.png
+    // mob - /reboot-child/assets/images/topbar/it-specialist/it-spesialist-mob-2022-11-18_15-08-48.png
+    // Связанный c топбаром попап
+    // файл - /reboot-child/inc/popup/it-specialist.php
+    // отображение пк - /reboot-child/assets/images/popup/it-specialist/topbar-popup-it-specialist-2022-11-18_15-08-09.png
+    // отображение mob - /reboot-child/assets/images/popup/it-specialist/topbar-popup-it-specialist-mob-2022-11-18_15-08-32.png
+    // Функция перенесена в файл для хранения, без подключения - wp-content/themes/reboot-child/assets/scripts/temp_custom.js
+    // TopBarItSpecialist();
+
+    // Временно закомментировано. НЕ УДАЛЯТЬ!!!
+    // Вид топ бара IT с Ургантом
+    // файл - /reboot-child/inc/topbar/it-with-urgant.php
+    // пк - /reboot-child/assets/images/topbar/it-with-urgant/it-with-urgant.png
+    // Связанный c топбаром попап
+    // файл - /reboot-child/inc/popup/it-with-urgant.php
+    // пк - /reboot-child/assets/images/popup/it-with-urgant/it-with-urgant.png
+    // Функция перенесена в файл для хранения, без подключения - wp-content/themes/reboot-child/assets/scripts/temp_custom.js
+    // TopBarItWithUrgant();
+
+    // Временно закомментировано. НЕ УДАЛЯТЬ!!!
+    // Функция перенесена в файл для хранения, без подключения - wp-content/themes/reboot-child/assets/scripts/temp_custom.js
+    // topBarItWithSobchak();
+
+    // вид топ бара "Путь в IT. Новое время"
+    // /reboot-child/assets/images/topbar/path-to-it/path-to-it-topbar-2023-01-19_21-34-36.png
+    // файл - /reboot-child/inc/topbar/path-to-it.php
+    // Связанный c топбаром попап
+    // файл - /reboot-child/inc/popup/path-to-it.php
+    // вид - /reboot-child/assets/images/popup/path-to-it/path-to-it-popup-2023-01-19_21-34-12.png
+    // Функция перенесена в файл для хранения, без подключения - wp-content/themes/reboot-child/assets/scripts/temp_custom.js
+    //TopBarPathToIT();
+
+
+    // вид топ бара "Путь в IT" (из админки)
+    // /reboot-child/assets/images/topbar/path-to-it/path-to-it-topbar-2023-01-19_21-34-36.png
+    // файл - /reboot-child/inc/topbar/path-to-it.php
+    // Связанный c топбаром попап
+    // файл - /reboot-child/inc/popup/path-to-it.php
+    // вид - /reboot-child/assets/images/popup/path-to-it/path-to-it-popup-2023-01-19_21-34-12.png
+    TopBarAdmin();
+
+    // Старый вариант, не удалять
+    //TopBarFourCourses();
+
+
+    // Захватчик целей
+    goalCatcher();
+
+    auto_auth();
+
+    // Функционал чеклиста на детальной странице
+    checklist_download();
+
+    // Загрузка только на внутренних странницах блока
+    if (document.getElementsByTagName('body')[0].classList.contains('single')) {
+
+        // Старый вариант попапа карьера
+        // careerIncutFunc();
+
+        // Новый вариант попапа карьера
+        careerTestGipotezIncutFunc();
+
+
+        // НЕ УДАЛЯТЬ!!!
+        // врезка - Профессия в IT
+        // Функционал временно скрыт
+        // Функция перенесена в файл для хранения, без подключения - wp-content/themes/reboot-child/assets/scripts/temp_custom.js
+        // profIncutFunc();
+
+        // новая врезка - Стратегия для новичков вместо "Профессия в IT"
+        // Функция перенесена в файл для хранения, без подключения - wp-content/themes/reboot-child/assets/scripts/temp_custom.js
+        // strategyForBeginners();
+
+        strategyForBeginnersNew();
+
+        banner_two();
+
+        //skillsPopup();
+
+        downloadMaterials();
+
+        popupPaywall();
+
+        ajaxUpdatedRating();
+    }
+
+    // Функционал для страницы - "podarki"
+    pagePodarki();
+
+    // Добавляем обработчик на все формы
+    document.querySelectorAll('form').forEach(
+        function (form) {
+            if (form.querySelector('input[name=email]')) {
+                form.addEventListener('submit', addCookie);
+            }
+        }
+    );
+
+    // Баннер для менеджеров
+    const banner_content_manager = document.querySelector('.banner-content-manager');
+    if (banner_content_manager) {
+        let bannerContentManager = false;
+        document.addEventListener('scroll', () => {
+            if (!bannerContentManager) {
+                ym(40414440, 'reachGoal', 'blogpokazbannerkurs');
+                bannerContentManager = true;
+            }
+        });
+
+        const banner_cm__link = banner_content_manager.querySelector('.banner-cm__link');
+        if (banner_cm__link) {
+            banner_cm__link.addEventListener('click', () => {
+                ym(40414440, 'reachGoal', 'clickbannerkurs');
+            });
+        }
+    }
+
+    // Баннер скидок + сегментация
+    const bn_get_discount = document.getElementById('bn-get-discount');
+    if (bn_get_discount) {
+        if (bn_get_discount.classList.contains('v2')) {
+            bn_get_discount.addEventListener('click', () => {
+                ym(40414440, 'reachGoal', 'clickbannerkursBLOG')
+            })
+        } else {
+            bn_get_discount.addEventListener('click', () => {
+                ym(40414440, 'reachGoal', 'clickblogvrezkafinish');
+            })
+        }
+
+
+        let bannerIsWatch = false;
+        window.addEventListener('scroll', () => {
+            const bannerScroll = bn_get_discount.offsetTop;
+            if (window.pageYOffset >= bannerScroll && !bannerIsWatch) {
+                bannerIsWatch = true;
+
+                if (bn_get_discount.classList.contains('v2')) {
+                    ym(40414440, 'reachGoal', 'pokazbannerkursBLOG')
+                } else {
+                    ym(40414440, 'reachGoal', 'pokazblogvrezkafinish');
+                }
+
+                if (!document.getElementsByTagName('body')[0].classList.contains('logged-in')) {
+                    setTimeout(() => {
+                        bn_get_discount.querySelector('.bn-get-discount__btn').click();
+                    }, 10000);
+                }
+            }
+        });
+    }
+
+    // Таймер обратного отсчета для баннера скидок
+    let countDownDate = set_future_date();
+    const countdoun_date_elem = document.getElementById("bn-get-discount__date-countdown");
+    if (countdoun_date_elem) {
+        countdown(countDownDate, countdoun_date_elem);
+    }
+
+    // Установка целей для тестового баннера - wp-content/themes/reboot-child/inc/insert-bn.php
+    const insert_bn = document.getElementById('insert_bn');
+    if (insert_bn) {
+        let insertBnIsWatch = false;
+        window.addEventListener('scroll', () => {
+            const insertBnScroll = insert_bn.offsetTop;
+            if (window.pageYOffset >= insertBnScroll && !insertBnIsWatch) {
+                insertBnIsWatch = true;
+                ym(40414440, 'reachGoal', 'blogpokazbannerkurs');
+            }
+        });
+
+        const insert_bn_btn = insert_bn.querySelector('.insert-bn__content-btn');
+        if (insert_bn_btn) {
+            insert_bn_btn.addEventListener('click', () => {
+                ym(40414440, 'reachGoal', 'clickbannerkurs');
+            });
+        }
+
+    }
+
+    // форма на главной и статьях
+    initBlogFormMain()
+}
+
+function countdown(fdate, elem) {
+    // Параметр окончания цикла, передаем 'end' или зацикливаем, передаем 'cycle'
+    const final_action = 'cycle';
+
+    const x = setInterval(function () {
+
+        // Get today's date and time
+        const now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        let distance = fdate - now;
+
+        // Останавливаем обратный отсчет или зацикливаем его
+        if (distance < 0) {
+            if ('end' === final_action) {
+                clearInterval(x);
+                elem.innerHTML = "00:00:00 срок истек";
+            }
+
+            // Для зацикливания обновляем будущую дату
+            if ('cycle' === final_action) {
+                cycle = set_future_date();
+                distance = cycle - now;
+            }
+        }
+
+        // Если окончен расчет, то тут distance будет с отрицательными значениями, игнорируем это
+        if (distance > 0) {
+            // Time calculations for days, hours, minutes and seconds
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (hours < 10) hours = '0' + hours;
+            if (minutes < 10) minutes = '0' + minutes;
+            if (seconds < 10) seconds = '0' + seconds;
+
+            // Output the result in an element with id="demo"
+            elem.innerHTML = hours + ":" + minutes + ":" + seconds;
+        }
+
+    }, 1000);
+}
+
+function set_future_date() {
+    let current_date = new Date();
+    return new Date(current_date.getFullYear(), current_date.getMonth(), current_date.getDate() + 1, 0, 0, 0, 0).getTime();
+}
+
+function gbGetCookie(name) {
+    const matches = document.cookie.match(
+        new RegExp(
+            `(?:^|; )${name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1')}=([^;]*)`,
+        ),
+    );
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+function gbSetCookie(name, value, expires, path) {
+    let cookie = `${name}=${value}`;
+    if (expires) cookie = `${cookie}; expires=${expires}`;
+    if (path) cookie = `${cookie}; path=${path}`;
+    document.cookie = cookie;
+}
+
+function addCookie(e) {
+    let form = e.target;
+    if (form.querySelector('input[name=email]')) {
+        let email = form.querySelector('input[name=email]').value;
+        let expire = new Date(Date.now() + 86400000 * 300).toUTCString();
+        // console.log(email);
+        gbSetCookie('gb_land_email', email, expire, '/');
+    }
+}
+
+function auto_auth() {
+    let email = '';
+    let phone = '';
+    let userHash = gbGetCookie('user_id');
+    let gbLandEmail = gbGetCookie('gb_land_email');
+    if (userHash) {
+        fetch(`https://gb.ru/api/v2/users/contact_details/${userHash}`, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }).then((response) => response.json())
+            .then((data) => {
+                email = data.email;
+                phone = data.phone;
+                if (phone[0] === '8' && phone.length === 11) {
+                    phone = '+7' + phone.substr(1)
+                }
+                if (phone[0] !== '+') {
+                    phone = '+' + phone
+                }
+
+                let emailsInp = document.querySelectorAll("input[name='email']");
+                emailsInp.forEach(function (el) {
+                    el.value = email;
+                });
+
+                // Закоментировано при фиксе бага с блокированием маски, задача - 175394
+                // phoneInp = document.querySelectorAll('input[name="tel"]');
+                // phoneInp.forEach(function(el) {
+                //     let phoneFieldItiInstance = window.intlTelInputGlobals.getInstance(el);
+                //     так надо это хак этого плагина
+                // phoneFieldItiInstance.setNumber(phone);
+                // phoneFieldItiInstance.setNumber(phone);
+                // });
+            });
+    } else if (gbLandEmail) {
+        email = gbLandEmail;
+        let emailsInp = document.querySelectorAll("input[name='email']");
+        emailsInp.forEach(function (el) {
+            el.value = email;
+        });
+    }
+}
+
+
+// плавность якорей
+function scrollNav() {
+    jQuery('.header-comment a')
+        .click(function () {
+            jQuery(".active").removeClass("active");
+            jQuery(this).addClass("active");
+
+            jQuery('html, body')
+                .stop()
+                .animate({
+                    scrollTop: jQuery(jQuery(this).attr('href'))
+                        .offset()
+                        .top - 160
+                }, 300);
+            return false;
+        });
+}
+
+
+function careerIncutFunc() {
+    const getGifts = document.getElementById('getGifts');
+    const getGiftsLink = document.getElementById('getGiftsLink');
+    const getGiftsPopup = (document.getElementById('getGiftsPopup-23')) ? document.getElementById('getGiftsPopup-23') : document.getElementById('getGiftsPopup');
+    const careerEmail = getGiftsPopup.querySelector('#careerEmail');
+    const telCareer = getGiftsPopup.querySelector('#telCareer');
+    const getGiftsPopupSuc = document.getElementById('careerPopupSuccess');
+    const suc_career_close = getGiftsPopupSuc.querySelector('.suc-career-close');
+    const career = (document.querySelector('.career-23')) ? document.querySelector('.career-23') : document.querySelector('.career');
+    if (!career) {
+        return
+    }
+    const careerPdf = career.querySelectorAll('.career-pdf-list__item');
+    const careerPdfListItem1 = career.querySelector('#careerPdfListItem1');
+    const careerPdfListItem2 = career.querySelector('#careerPdfListItem2');
+    const careerPdfListItem3 = career.querySelector('#careerPdfListItem3');
+    const formGift = getGiftsPopup.querySelector('#careerForm');
+    const careerWidget = document.querySelector('.career-trigger');
+    // const career = document.querySelector('.career');
+
+    const iti_career = window.intlTelInput(telCareer, {
+        preferredCountries: ["ru", "kz", "by", "de", "ua"], // выбранные флаги стран помещает в начало списка
+        allowDropdown: true,
+        autoPlaceholder: "aggressive", // Будет заменять все установленные плейсхолдеры
+        separateDialCode: true, // Выводит код страны рядом с флагом
+        utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js", // подключает скрипт-маску для телефона
+        dropdownContainer: formGift.querySelector('.input-tel-wrap'),
+    });
+
+    let career_loc = sessionStorage.getItem('user_location');
+    if (career_loc) {
+        iti_career.setCountry(career_loc);
+
+        setTimeout(() => {
+            createPhoneMaskCareer();
+        }, 800);
+    }
+
+    if (careerWidget) {
+        careerWidget.addEventListener('click', () => {
+
+            if (!localStorage.getItem('careerVrezka') || new Date(localStorage.getItem('careerVrezka')) <= new Date()) {
+
+                if (!career_loc) {
+                    getCurrentLocation().done(function (response) {
+
+                        career_loc = response.data.location.id.toLowerCase();
+
+                        iti_career.setCountry(career_loc);
+
+                        sessionStorage.setItem('user_location', career_loc);
+
+                        setTimeout(() => {
+                            createPhoneMaskCareer();
+                        }, 800);
+                    });
+                }
+                if (getGiftsPopup) getGiftsPopup.style.display = 'flex';
+
+            } else {
+                if (getGiftsPopupSuc) getGiftsPopupSuc.style.display = 'flex';
+                if (getGiftsPopup) getGiftsPopup.style.display = 'none';
+            }
+
+            getGiftsPopup.classList.add('career_widget');
+            ym(40414440, 'reachGoal', 'pokazformividjetskachka');
+
+            // Во время открытия попапа блокируем попапы с автовсплытием
+            check_autoload = false;
+
+        });
+    }
+
+
+    if (getGifts) {
+
+        getGifts.addEventListener('click', function () {
+
+            if (!localStorage.getItem('careerVrezka') || new Date(localStorage.getItem('careerVrezka')) <= new Date()) {
+
+                if (!career_loc) {
+                    getCurrentLocation().done(function (response) {
+
+                        career_loc = response.data.location.id.toLowerCase();
+
+                        iti_career.setCountry(career_loc);
+
+                        sessionStorage.setItem('user_location', career_loc);
+
+                        setTimeout(() => {
+                            createPhoneMaskCareer();
+                        }, 800);
+                    });
+                }
+
+
+                if (getGiftsPopup) getGiftsPopup.style.display = 'flex';
+
+            } else {
+                if (getGiftsPopupSuc) getGiftsPopupSuc.style.display = 'flex';
+                if (getGiftsPopup) getGiftsPopup.style.display = 'none';
+            }
+
+            ym(40414440, 'reachGoal', 'ClikVrezkaCareer');
+            ym(40414440, 'reachGoal', 'BLOGpokazformicar\'era');
+
+            // Во время открытия попапа блокируем попапы с автовсплытием
+            check_autoload = false;
+        });
+
+        getGiftsPopup.querySelector('#CareerPopupClose').addEventListener('click', () => {
+            getGiftsPopup.style.display = 'none';
+
+            // После закрытия попапа разрешаем автостарт
+            check_autoload = true;
+        });
+    }
+
+    if (getGiftsLink) {
+        getGiftsLink.addEventListener('click', function () {
+            if (!localStorage.getItem('careerVrezka') || new Date(localStorage.getItem('careerVrezka')) <= new Date()) {
+
+                if (!career_loc) {
+                    getCurrentLocation().done(function (response) {
+
+                        career_loc = response.data.location.id.toLowerCase();
+
+                        iti_career.setCountry(career_loc);
+
+                        sessionStorage.setItem('user_location', career_loc);
+
+                        setTimeout(() => {
+                            createPhoneMaskCareer();
+                        }, 800);
+                    });
+                }
+
+                if (getGiftsPopup) getGiftsPopup.style.display = 'flex';
+
+                // Во время открытия попапа блокируем попапы с автовсплытием
+                check_autoload = false;
+
+            } else {
+                if (getGiftsPopupSuc) getGiftsPopupSuc.style.display = 'flex';
+                if (getGiftsPopup) getGiftsPopup.style.display = 'none';
+            }
+            ym(40414440, 'reachGoal', 'BLOGpokazformicar\'era');
+        })
+    }
+
+    if (suc_career_close) {
+        suc_career_close.addEventListener('click', () => {
+            if (getGiftsPopupSuc) getGiftsPopupSuc.style.display = 'none';
+        });
+    }
+
+    if (careerPdf) {
+        careerPdf.forEach(el => {
+            el.addEventListener('click', () => {
+                if (!localStorage.getItem('careerVrezka') || new Date(localStorage.getItem('careerVrezka')) <= new Date()) {
+
+                    if (!career_loc) {
+                        getCurrentLocation().done(function (response) {
+
+                            career_loc = response.data.location.id.toLowerCase();
+
+                            iti_career.setCountry(career_loc);
+
+                            sessionStorage.setItem('user_location', career_loc);
+
+                            setTimeout(() => {
+                                createPhoneMaskCareer();
+                            }, 800);
+                        });
+                    }
+
+                    getGiftsPopup.style.display = 'flex';
+
+                    ym(40414440, 'reachGoal', 'BLOGpokazformicar\'era');
+
+                } else {
+                    let getGiftsPopupSuc = document.getElementById('careerPopupSuccess');
+                    if (getGiftsPopupSuc) getGiftsPopupSuc.style.display = 'flex';
+                    if (getGiftsPopup) getGiftsPopup.style.display = 'none';
+                }
+
+                // Во время открытия попапа блокируем попапы с автовсплытием
+                check_autoload = false;
+            })
+        });
+    }
+
+    if (careerPdfListItem1) {
+        careerPdfListItem1.addEventListener('click', function () {
+            ym(40414440, 'reachGoal', 'top30professiyvrezkamasterskay');
+        });
+    }
+
+    if (careerPdfListItem2) {
+        careerPdfListItem2.addEventListener('click', function () {
+            ym(40414440, 'reachGoal', 'blogclickpodborka50resyrsov');
+        });
+    }
+
+    if (careerPdfListItem3) {
+        careerPdfListItem3.addEventListener('click', function () {
+            ym(40414440, 'reachGoal', 'blogclickkarieratopservisov');
+        });
+    }
+
+    if (getGiftsPopup) {
+
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function createPhoneMaskCareer() {
+            let str = telCareer.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(telCareer);
+        }
+
+        // Ожидаем пока закончится инициализация международных форматов телефонов и запускаем инициализацию маски для поля телефона
+        // const waitAttribute = setInterval( () => {
+        //     if(typeof (iti) === 'object' && inputPhone.hasAttribute('placeholder')) {
+        //         clearInterval(waitAttribute);
+        //         createPhoneMaskCareer();
+        //     }
+        // }, 500);
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        telCareer.addEventListener("countrychange", function () {
+            // console.log(iti.getSelectedCountryData());
+            createPhoneMaskCareer();
+        });
+
+
+        formGift.addEventListener("submit", ev => {
+            let date = new Date();
+
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            const obj = {
+                entrance_path: integration_data.vrezka_karera.path,
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: integration_data.vrezka_karera.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+                email: careerEmail.value,
+                phone: iti_career.getNumber(),
+                product_id: integration_data.vrezka_karera.id,
+                tranid: Date.now(),
+                formid: "form_vrezka"
+            }
+
+            ev.preventDefault();
+
+            // document.getElementById('popupcareer').style.display = 'none';
+            // document.querySelector('.career-popup__success').style.display = 'flex';
+
+            // Записываем в localStorage дату = текущая дата + 2 дня
+            date.setDate(date.getDate() + 2);
+            localStorage.setItem('careerVrezka', date)
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://gb.ru/api/v2/services/tilda/create_claim", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(obj));
+            xhr.onload = function () {
+                var data = JSON.parse(this.responseText);
+                // console.log(data);
+            }
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-career.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+
+                    if (getGiftsPopup.classList.contains('career_widget')) {
+
+                        // Цель для отправки формы с виджета
+                        ym(40414440, 'reachGoal', 'otpravkaformividjetskachka');
+                    } else {
+
+                        // Цель для отправки формы с врезки
+                        ym(40414440, 'reachGoal', 'ZayavkaVrezkaCareer');
+                    }
+
+                    // решение специально для Safari, чтобы выполнить переход в основном потоке
+                    setTimeout(function () {
+                        // jQuery('#getGiftsPopup').fadeOut(500);
+
+                        // const target = document.getElementById('popupCareerTarget')
+                        // if(target) {
+                        //     target.click();
+                        // }
+
+                        // Если нет куки, то пользователь еще не отправлял анкету
+                        // if( !formCookie ) {
+                        //     location.href = 'https://gb.ru/a/a_blog2'
+                        // } else {
+                        //     location.href = 'https://gb.ru/a/blog_thanks2'
+                        // }
+
+
+                        // Проверка на стороне API сервиса gb.ru, проверяется по адресу email в куке заполнил ли пользователь анкету,
+                        // если да то редирект на страницу в параметре to, если нет проходит анкету
+                        // location.href = 'https://gb.ru/api/marketing/v1/questionnaire/check?anketa_show=a_blog2&to=https://gb.ru/a/blog_thanks2';
+                        location.href = 'https://gb.ru/a/a_blog2';
+
+
+                        // }, 4000);
+                    })
+                }
+            });
+        });
+
+    }
+
+    if (career) {
+        let careerIsWatch = false;
+
+        window.addEventListener('scroll', () => {
+
+            const careerScroll = career.offsetTop;
+
+            if (window.pageYOffset >= careerScroll && !careerIsWatch) {
+                ym(40414440, 'reachGoal', 'ProsmotrVrezkaCareer');
+                careerIsWatch = true;
+            }
+        });
+    }
+
+}
+
+
+function careerTestGipotezIncutFunc() {
+    const getGifts = document.getElementById('getGifts');
+    const getGiftsLink = document.getElementById('getGiftsLink');
+    const getGiftsPopup = (document.getElementById('getGiftsPopup-test-gipotez')) ? document.getElementById('getGiftsPopup-test-gipotez') : document.getElementById('getGiftsPopup');
+    const careerEmail = getGiftsPopup.querySelector('#careerEmail');
+    const telCareer = getGiftsPopup.querySelector('#telCareer');
+    const getGiftsPopupSuc = document.getElementById('careerPopupSuccess');
+    const suc_career_close = getGiftsPopupSuc.querySelector('.suc-career-close');
+    const career = (document.querySelector('.career-23')) ? document.querySelector('.career-23') : document.querySelector('.career');
+    if (!career) {
+        return
+    }
+    const careerPdf = career.querySelectorAll('.career-pdf-list__item');
+    const careerPdfListItem1 = career.querySelector('#careerPdfListItem1');
+    const careerPdfListItem2 = career.querySelector('#careerPdfListItem2');
+    const careerPdfListItem3 = career.querySelector('#careerPdfListItem3');
+    const formGift = getGiftsPopup.querySelector('#careerForm');
+    const careerWidget = document.querySelector('.career-trigger');
+    // const career = document.querySelector('.career');
+
+    const iti_career = window.intlTelInput(telCareer, {
+        preferredCountries: ["ru", "kz", "by", "de", "ua"], // выбранные флаги стран помещает в начало списка
+        allowDropdown: true,
+        autoPlaceholder: "aggressive", // Будет заменять все установленные плейсхолдеры
+        separateDialCode: true, // Выводит код страны рядом с флагом
+        utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js", // подключает скрипт-маску для телефона
+        dropdownContainer: formGift.querySelector('.input-tel-wrap'),
+    });
+
+    let career_loc = sessionStorage.getItem('user_location');
+    if (career_loc) {
+        iti_career.setCountry(career_loc);
+
+        setTimeout(() => {
+            createPhoneMaskCareer();
+        }, 800);
+    }
+
+    if (careerWidget) {
+        careerWidget.addEventListener('click', () => {
+
+            if (!localStorage.getItem('careerVrezka') || new Date(localStorage.getItem('careerVrezka')) <= new Date()) {
+
+                if (!career_loc) {
+                    getCurrentLocation().done(function (response) {
+
+                        career_loc = response.data.location.id.toLowerCase();
+
+                        iti_career.setCountry(career_loc);
+
+                        sessionStorage.setItem('user_location', career_loc);
+
+                        setTimeout(() => {
+                            createPhoneMaskCareer();
+                        }, 800);
+                    });
+                }
+                if (getGiftsPopup) getGiftsPopup.style.display = 'flex';
+
+            } else {
+                if (getGiftsPopupSuc) getGiftsPopupSuc.style.display = 'flex';
+                if (getGiftsPopup) getGiftsPopup.style.display = 'none';
+            }
+
+            getGiftsPopup.classList.add('career_widget');
+            ym(40414440, 'reachGoal', 'pokazformividjetskachka');
+
+            // Во время открытия попапа блокируем попапы с автовсплытием
+            check_autoload = false;
+
+        });
+    }
+
+
+    if (getGifts) {
+
+        getGifts.addEventListener('click', function () {
+
+            if (!localStorage.getItem('careerVrezka') || new Date(localStorage.getItem('careerVrezka')) <= new Date()) {
+
+                if (!career_loc) {
+                    getCurrentLocation().done(function (response) {
+
+                        career_loc = response.data.location.id.toLowerCase();
+
+                        iti_career.setCountry(career_loc);
+
+                        sessionStorage.setItem('user_location', career_loc);
+
+                        setTimeout(() => {
+                            createPhoneMaskCareer();
+                        }, 800);
+                    });
+                }
+
+
+                if (getGiftsPopup) getGiftsPopup.style.display = 'flex';
+
+            } else {
+                if (getGiftsPopupSuc) getGiftsPopupSuc.style.display = 'flex';
+                if (getGiftsPopup) getGiftsPopup.style.display = 'none';
+            }
+
+            ym(40414440, 'reachGoal', 'ClikVrezkaCareer');
+            ym(40414440, 'reachGoal', 'BLOGpokazformicar\'era');
+
+            // Во время открытия попапа блокируем попапы с автовсплытием
+            check_autoload = false;
+        });
+
+        getGiftsPopup.querySelector('#CareerPopupClose').addEventListener('click', () => {
+            getGiftsPopup.style.display = 'none';
+
+            // После закрытия попапа разрешаем автостарт
+            check_autoload = true;
+        });
+    }
+
+    if (getGiftsLink) {
+        getGiftsLink.addEventListener('click', function () {
+            if (!localStorage.getItem('careerVrezka') || new Date(localStorage.getItem('careerVrezka')) <= new Date()) {
+
+                if (!career_loc) {
+                    getCurrentLocation().done(function (response) {
+
+                        career_loc = response.data.location.id.toLowerCase();
+
+                        iti_career.setCountry(career_loc);
+
+                        sessionStorage.setItem('user_location', career_loc);
+
+                        setTimeout(() => {
+                            createPhoneMaskCareer();
+                        }, 800);
+                    });
+                }
+
+                if (getGiftsPopup) getGiftsPopup.style.display = 'flex';
+
+                // Во время открытия попапа блокируем попапы с автовсплытием
+                check_autoload = false;
+
+            } else {
+                if (getGiftsPopupSuc) getGiftsPopupSuc.style.display = 'flex';
+                if (getGiftsPopup) getGiftsPopup.style.display = 'none';
+            }
+            ym(40414440, 'reachGoal', 'BLOGpokazformicar\'era');
+        })
+    }
+
+    if (suc_career_close) {
+        suc_career_close.addEventListener('click', () => {
+            if (getGiftsPopupSuc) getGiftsPopupSuc.style.display = 'none';
+        });
+    }
+
+    if (careerPdf) {
+        careerPdf.forEach(el => {
+            el.addEventListener('click', () => {
+                if (!localStorage.getItem('careerVrezka') || new Date(localStorage.getItem('careerVrezka')) <= new Date()) {
+
+                    if (!career_loc) {
+                        getCurrentLocation().done(function (response) {
+
+                            career_loc = response.data.location.id.toLowerCase();
+
+                            iti_career.setCountry(career_loc);
+
+                            sessionStorage.setItem('user_location', career_loc);
+
+                            setTimeout(() => {
+                                createPhoneMaskCareer();
+                            }, 800);
+                        });
+                    }
+
+                    getGiftsPopup.style.display = 'flex';
+
+                    ym(40414440, 'reachGoal', 'BLOGpokazformicar\'era');
+
+                } else {
+                    let getGiftsPopupSuc = document.getElementById('careerPopupSuccess');
+                    if (getGiftsPopupSuc) getGiftsPopupSuc.style.display = 'flex';
+                    if (getGiftsPopup) getGiftsPopup.style.display = 'none';
+                }
+
+                // Во время открытия попапа блокируем попапы с автовсплытием
+                check_autoload = false;
+            })
+        });
+    }
+
+    if (careerPdfListItem1) {
+        careerPdfListItem1.addEventListener('click', function () {
+            ym(40414440, 'reachGoal', 'top30professiyvrezkamasterskay');
+        });
+    }
+
+    if (careerPdfListItem2) {
+        careerPdfListItem2.addEventListener('click', function () {
+            ym(40414440, 'reachGoal', 'blogclickpodborka50resyrsov');
+        });
+    }
+
+    if (careerPdfListItem3) {
+        careerPdfListItem3.addEventListener('click', function () {
+            ym(40414440, 'reachGoal', 'blogclickkarieratopservisov');
+        });
+    }
+
+    if (getGiftsPopup) {
+
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function createPhoneMaskCareer() {
+            let str = telCareer.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(telCareer);
+        }
+
+        // Ожидаем пока закончится инициализация международных форматов телефонов и запускаем инициализацию маски для поля телефона
+        // const waitAttribute = setInterval( () => {
+        //     if(typeof (iti) === 'object' && inputPhone.hasAttribute('placeholder')) {
+        //         clearInterval(waitAttribute);
+        //         createPhoneMaskCareer();
+        //     }
+        // }, 500);
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        telCareer.addEventListener("countrychange", function () {
+            // console.log(iti.getSelectedCountryData());
+            createPhoneMaskCareer();
+        });
+
+
+        formGift.addEventListener("submit", ev => {
+            let date = new Date();
+
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            const obj = {
+                entrance_path: integration_data.vrezka_karera.path,
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: integration_data.vrezka_karera.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+                email: careerEmail.value,
+                phone: iti_career.getNumber(),
+                product_id: integration_data.vrezka_karera.id,
+                tranid: Date.now(),
+                formid: "form_vrezka"
+            }
+
+            ev.preventDefault();
+
+            // document.getElementById('popupcareer').style.display = 'none';
+            // document.querySelector('.career-popup__success').style.display = 'flex';
+
+            // Записываем в localStorage дату = текущая дата + 2 дня
+            date.setDate(date.getDate() + 2);
+            localStorage.setItem('careerVrezka', date)
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://gb.ru/api/v2/services/tilda/create_claim", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(obj));
+            xhr.onload = function () {
+                var data = JSON.parse(this.responseText);
+                // console.log(data);
+            }
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-career.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+
+                    if (getGiftsPopup.classList.contains('career_widget')) {
+
+                        // Цель для отправки формы с виджета
+                        ym(40414440, 'reachGoal', 'otpravkaformividjetskachka');
+                    } else {
+
+                        // Цель для отправки формы с врезки
+                        ym(40414440, 'reachGoal', 'ZayavkaVrezkaCareer');
+                    }
+
+                    // решение специально для Safari, чтобы выполнить переход в основном потоке
+                    setTimeout(function () {
+                        // jQuery('#getGiftsPopup').fadeOut(500);
+
+                        // const target = document.getElementById('popupCareerTarget')
+                        // if(target) {
+                        //     target.click();
+                        // }
+
+                        // Если нет куки, то пользователь еще не отправлял анкету
+                        // if( !formCookie ) {
+                        //     location.href = 'https://gb.ru/a/a_blog2'
+                        // } else {
+                        //     location.href = 'https://gb.ru/a/blog_thanks2'
+                        // }
+
+
+                        // Проверка на стороне API сервиса gb.ru, проверяется по адресу email в куке заполнил ли пользователь анкету,
+                        // если да то редирект на страницу в параметре to, если нет проходит анкету
+                        // location.href = 'https://gb.ru/api/marketing/v1/questionnaire/check?anketa_show=a_blog2&to=https://gb.ru/a/blog_thanks2';
+                        location.href = 'https://gb.ru/a/a_blog2';
+
+
+                        // }, 4000);
+                    })
+                }
+            });
+        });
+
+    }
+
+    if (career) {
+        let careerIsWatch = false;
+
+        window.addEventListener('scroll', () => {
+
+            const careerScroll = career.offsetTop;
+
+            if (window.pageYOffset >= careerScroll && !careerIsWatch) {
+                ym(40414440, 'reachGoal', 'ProsmotrVrezkaCareer');
+                careerIsWatch = true;
+            }
+        });
+    }
+
+}
+
+function strategyForBeginnersNew() {
+    const profForm = document.querySelector('.strategy-of-beginners-new__form');
+
+    if (profForm) {
+        const prof_popup_success = document.getElementById('strategyForBeginnersPopupSuccess');
+        const prof_popup_success_close = prof_popup_success.querySelector('.strategy-for-beginners-popup__success');
+        const prof_inset = document.querySelector('.strategy-of-beginners-new');
+        const prof_email = profForm.querySelector('#strategyForBeginnersNewEmail');
+        const prof_phone = document.getElementById("strategyForBeginnersNewTel");
+        const prof_list_item = document.querySelectorAll('.strategy-of-beginners-new__list--item');
+        const prof_form_submit = document.querySelector('.strategy-of-beginners-new__submit');
+
+        const iti_str_beg = window.intlTelInput(document.getElementById("strategyForBeginnersNewTel"), {
+            preferredCountries: ["ru", "kz", "by", "de", "ua"], // выбранные флаги стран помещает в начало списка
+            allowDropdown: true,
+            autoPlaceholder: "aggressive", // Будет заменять все установленные плейсхолдеры
+            separateDialCode: true, // Выводит код страны рядом с флагом
+            utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js", // подключает скрипт-маску для телефона
+            dropdownContainer: profForm.querySelector('.input-tel-wrap'),
+        });
+
+        let stfbnew_loc = sessionStorage.getItem('user_location');
+        if (stfbnew_loc) {
+            iti_str_beg.setCountry(stfbnew_loc);
+
+            setTimeout(() => {
+                createPhoneMaskSTFBNew();
+            }, 800);
+        }
+
+        prof_list_item.forEach((el) => {
+            if (el) {
+                el.addEventListener('click', () => {
+                    if (prof_form_submit) prof_form_submit.click();
+                });
+            }
+        });
+
+        if (prof_form_submit) {
+            prof_form_submit.addEventListener('click', () => {
+                ['input', 'focusout', 'keypress'].forEach(ev => {
+                    prof_email.addEventListener(ev, () => {
+                        // Если проверка не пройдена, показываем ошибку
+                        if (prof_email.value === '' || prof_email.value.search('@') === -1) {
+                            prof_email.closest('.strategy-of-beginners-new__form--input').classList.add('error');
+                        }
+
+                        // если проверка пройдена убираем ошибку
+                        if (prof_email.value !== '' && prof_email.value.search('@') !== -1) {
+                            prof_email.closest('.strategy-of-beginners-new__form--input').classList.remove('error');
+                        }
+                    });
+
+                    prof_phone.addEventListener(ev, () => {
+
+                        // Если проверка не пройдена, показываем ошибку
+                        if (prof_phone.value === '' || prof_phone.value.length < 10) {
+                            prof_phone.closest('.strategy-of-beginners-new__form--input').classList.add('error');
+                        }
+
+                        // если проверка пройдена убираем ошибку
+                        if (prof_phone.value !== '' && prof_phone.value.length === 13 && prof_phone.value.search('_') === -1) {
+                            prof_phone.closest('.strategy-of-beginners-new__form--input').classList.remove('error');
+                        }
+                    });
+                });
+            })
+        }
+
+        if (prof_popup_success_close) {
+            prof_popup_success_close.addEventListener('click', () => {
+
+                if (prof_popup_success) prof_popup_success.style.display = 'none';
+
+            })
+        }
+
+        if (prof_phone) {
+
+            // Ожидаем пока закончится инициализация международных форматов телефонов и запускаем инициализацию маски для поля телефона
+            const waitAttribute = setInterval(() => {
+                if (typeof (iti) === 'object' && prof_phone.hasAttribute('placeholder')) {
+                    clearInterval(waitAttribute);
+                    createPhoneMaskSTFBNew();
+                }
+            }, 500);
+
+            let profPhoneIsWatch = false;
+
+            window.addEventListener('scroll', () => {
+
+                let scrolled = window.pageYOffset;
+                let bannerScroll = prof_phone.offsetTop;
+
+                if (scrolled >= bannerScroll && !profPhoneIsWatch) {
+                    profPhoneIsWatch = true;
+                }
+
+                // console.log('scrolled - ', scrolled);
+                // console.log('bannerScroll - ', bannerScroll);
+                // console.log('currentLocation - ', currentLocation);
+
+                if ((scrolled > bannerScroll - 600 && scrolled < bannerScroll)) {
+
+                    if (!stfbnew_loc) {
+                        getCurrentLocation().done(function (response) {
+
+                            stfbnew_loc = response.data.location.id.toLowerCase();
+
+                            iti_str_beg.setCountry(stfbnew_loc);
+
+                            sessionStorage.setItem('user_location', stfbnew_loc);
+
+                            setTimeout(() => {
+                                createPhoneMaskSTFBNew();
+                            }, 800);
+                        });
+                    }
+                }
+            });
+        }
+
+        let profEmail = document.querySelector('.strategy-of-beginners-new__form input[name="email"]');
+        if (profEmail) {
+            Inputmask("email").mask(profEmail);
+        }
+
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function createPhoneMaskSTFBNew() {
+            let str = prof_phone.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(prof_phone);
+        }
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        prof_phone.addEventListener("countrychange", function () {
+            // console.log(iti.getSelectedCountryData());
+            createPhoneMaskSTFBNew();
+        });
+
+        // Функционал прокрутки к загружаемым файлам при клике на виджет "Скачать полезные материалы"
+        const btn_scrollTo = document.getElementById('scrollTo');
+
+        if (btn_scrollTo) {
+            btn_scrollTo.addEventListener('click', () => {
+
+                if (!stfbnew_loc) {
+                    getCurrentLocation().done(function (response) {
+
+                        stfbnew_loc = response.data.location.id.toLowerCase();
+
+                        iti_str_beg.setCountry(stfbnew_loc);
+
+                        sessionStorage.setItem('user_location', stfbnew_loc);
+
+                        setTimeout(() => {
+                            createPhoneMaskSTFBNew();
+                        }, 800);
+                    });
+                }
+
+                prof_inset.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        }
+
+        profForm.addEventListener("submit", ev => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let date = new Date();
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            const obj = {
+                entrance_path: integration_data.banner_vstavka_it.path,
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: integration_data.banner_vstavka_it.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+                email: profForm.elements.namedItem('email').value,
+                phone: iti_str_beg.getNumber(),
+                product_id: integration_data.banner_vstavka_it.id,
+                tranid: Date.now(),
+                formid: "form_profForm"
+            }
+
+            ev.preventDefault();
+
+            ym(40414440, 'reachGoal', 'otpravkaformaIT_Volchek');
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://gb.ru/api/v2/services/tilda/create_claim", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(obj));
+            xhr.onload = function () {
+                let data_responce = JSON.parse(this.responseText);
+                console.log('tilda responce - ', data_responce);
+                // console.log(obj);
+            }
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-professional.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+                    console.log(msg);
+
+                    // professional_popup.style.display = 'none';
+                    // prof_popup_success.style.display = 'flex';
+
+                    // решение специально для Safari, чтобы выполнить переход в основном потоке
+                    setTimeout(function () {
+                        // if(prof_popup_success) prof_popup_success.style.display = 'none';
+
+                        // const target = document.getElementById('popupProfTarget')
+                        // if(target) {
+                        //     target.click();
+                        // }
+
+                        // Если нет куки, то пользователь еще не отправлял анкету
+                        // if( !formCookie ) {
+                        //     location.href = 'https://gb.ru/a/a_blog3';
+                        // } else {
+                        //     location.href = 'https://gb.ru/a/blog_thanks3'
+                        // }
+
+
+                        // Проверка на стороне API сервиса gb.ru, проверяется по адресу email в куке заполнил ли пользователь анкету,
+                        // если да то редирект на страницу в параметре to, если нет проходит анкету
+                        // location.href = 'https://gb.ru/api/marketing/v1/questionnaire/check?anketa_show=a_blog3&to=https://gb.ru/a/blog_thanks3';
+                        location.href = 'https://gb.ru/a/a_blog3';
+
+                        // }, 3000);
+                    });
+
+                    // решение специально для Safari, чтобы выполнить переход в основном потоке
+                    // Скачивание архива временно закомментировано
+                    // setTimeout(() => {
+                    // career_download_file.click();
+                    // })
+                }
+            });
+        });
+    }
+
+    const profession = document.querySelector('.strategy-of-beginners-new');
+    if (profession) {
+        let profIsWatch = false;
+
+        window.addEventListener('scroll', () => {
+
+            let profScroll = profession.offsetTop;
+
+            if (window.pageYOffset >= profScroll && !profIsWatch) {
+                ym(40414440, 'reachGoal', 'pokazvrezkaIT_Volchek');
+                profIsWatch = true;
+            }
+        })
+    }
+
+}
+
+function TopBarFourCourses() {
+    const body = document.getElementsByTagName('body')[0];
+
+    const topBar = document.querySelector('.four-courses-top-bar');
+    const topBarClose = topBar.querySelector('.top-bar__close');
+
+    const fourCoursesPopup = document.getElementById('fourCoursesPopup');
+    const fourCoursesClose = fourCoursesPopup.querySelector('.four-courses-popup__close');
+    const fourCoursesForm = document.getElementById('fourCoursesPopupForm');
+    const email = fourCoursesForm.querySelector('#fourCoursesPopupEmail');
+    const phone = fourCoursesForm.querySelector('#fourCoursesPopupTel');
+    const fourCoursesPopupSuccess = document.getElementById('fourCoursesPopupSuccess');
+    const fourCoursesSuccessClose = fourCoursesPopupSuccess.querySelector('.four-courses-popup__success-close');
+
+    const iti_tb_it = window.intlTelInput(phone, {
+        preferredCountries: ["ru", "kz", "by", "de", "ua"], // выбранные флаги стран помещает в начало списка
+        allowDropdown: true,
+        autoPlaceholder: "aggressive", // Будет заменять все установленные плейсхолдеры
+        separateDialCode: true, // Выводит код страны рядом с флагом
+        utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js", // подключает скрипт-маску для телефона
+        dropdownContainer: fourCoursesForm.querySelector('.input-tel-wrap'),
+    });
+
+    let top_bar_loc = sessionStorage.getItem('user_location');
+    if (top_bar_loc) {
+        iti_tb_it.setCountry(top_bar_loc);
+
+        setTimeout(() => {
+            fourCoursesCreatePhoneMask();
+        }, 800);
+    }
+
+    if (email) {
+        Inputmask("*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]", {
+            greedy: false,
+            definitions: {
+                '*': {
+                    validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~\-]",
+                    casing: "lower"
+                }
+            }
+        }).mask(email);
+    }
+
+
+    if (topBar) {
+
+        ym(40414440, 'reachGoal', 'blogpokaztopbar');
+
+        body.classList.add('four_courses_top_bar');
+
+        topBarClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            topBar.style.display = 'none';
+            topBar.classList.remove('active');
+            document.querySelector('#header-monolit').style.margin = '0';
+            body.classList.remove('four_courses_top_bar');
+        });
+
+        topBar.addEventListener('click', () => {
+
+            ym(40414440, 'reachGoal', 'blogclicktopbar');
+
+            if (!localStorage.getItem('topBarTime') || new Date(localStorage.getItem('topBarTime')) <= new Date()) {
+
+                if (fourCoursesPopup && !topBar.classList.contains('custom_link')) {
+
+                    if (!top_bar_loc) {
+                        getCurrentLocation().done(function (response) {
+
+                            top_bar_loc = response.data.location.id.toLowerCase();
+
+                            iti_tb_it.setCountry(top_bar_loc);
+
+                            sessionStorage.setItem('user_location', top_bar_loc);
+
+                            setTimeout(() => {
+                                fourCoursesCreatePhoneMask();
+                            }, 800);
+                        });
+                    }
+
+                    fourCoursesPopup.style.display = 'flex';
+                    ym(40414440, 'reachGoal', 'blogpokazformitopbar');
+                }
+
+            } else {
+
+                if (fourCoursesPopup && !topBar.classList.contains('custom_link')) {
+                    if (fourCoursesPopupSuccess) {
+                        fourCoursesPopupSuccess.style.display = 'flex';
+                        setTimeout(() => {
+                            // Рабочий вариант для ios устройств
+                            location.assign('https://gb.ru/a/a_blog');
+                        }, 3000);
+                    }
+                    if (fourCoursesPopup) fourCoursesPopup.style.display = 'none';
+                }
+            }
+
+            // Во время открытия попапа блокируем попапы с автовсплытием
+            check_autoload = false;
+        })
+    }
+
+    if (fourCoursesSuccessClose) {
+        fourCoursesSuccessClose.addEventListener('click', () => {
+            if (fourCoursesPopupSuccess) fourCoursesPopupSuccess.style.display = 'none';
+
+            // После закрытия попапа разрешаем автостарт
+            check_autoload = true;
+        })
+    }
+
+
+    // попап Top bar
+    if (fourCoursesPopup) {
+
+        fourCoursesClose.addEventListener('click', () => {
+            fourCoursesPopup.style.display = 'none';
+
+            // После закрытия попапа разрешаем автостарт
+            check_autoload = true;
+        });
+
+
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function fourCoursesCreatePhoneMask() {
+            let str = phone.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(phone);
+        }
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        if (phone) {
+            phone.addEventListener("countrychange", function () {
+                fourCoursesCreatePhoneMask();
+            });
+        }
+
+
+        fourCoursesForm.addEventListener('submit', ev => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let date = new Date();
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            const obj = {
+                entrance_path: 'gb.ru/s/qa/p110723',
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+                email: email.value,
+                phone: iti_tb_it.getNumber(),
+                product_id: 8047,
+                tranid: Date.now(),
+                formid: "form_top_bar"
+            }
+            // const download_file = document.querySelector('.download_file');
+
+            ev.preventDefault();
+
+            const checked_suc = fourCoursesForm.querySelector('.checked-suc');
+            if (checked_suc && !checked_suc.checked) {
+                if (document.querySelector('.control__indicator')) fourCoursesForm.querySelector('.control__indicator').style.border = '1px solid red';
+                return;
+            }
+
+            // Записываем в localStorage дату = текущая дата + 2 дня
+            date.setDate(date.getDate() + 2);
+            localStorage.setItem('topBarTime', date);
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://gb.ru/api/v2/services/tilda/create_claim", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(obj));
+            xhr.onload = function () {
+                let data_responce = JSON.parse(this.responseText);
+            }
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-success.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+
+                    ym(40414440, 'reachGoal', 'blogotpravkaformitopbar');
+
+                    // решение специально для Safari, чтобы выполнить переход в основном потоке
+                    setTimeout(() => {
+
+                        // Проверка на стороне API сервиса gb.ru, проверяется по адресу email в куке заполнил ли пользователь анкету,
+                        // если да то редирект на страницу в параметре to, если нет проходит анкету
+                        // location.href = 'https://gb.ru/api/marketing/v1/questionnaire/check?anketa_show=a_blog&to=https://gb.ru/path-to-it/it_star_08/thanks';
+                        location.href = 'https://gb.ru/a/a_blog';
+
+                    })
+                }
+            });
+        })
+    }
+}
+
+function TopBarAdmin() {
+    const body = document.getElementsByTagName('body')[0];
+
+    const topBar = document.querySelector('.topbar_wrap');
+    const topBarClose = document.querySelector('.topbar_wrap__close');
+
+    const pathToITPopup = document.getElementById('pathToITShowPopup');
+    const pathToITPopupClose = pathToITPopup.querySelector('.path_to_it_show_popup__close');
+    const pathToITPopupForm = document.getElementById('pathToITShowPopupForm');
+    const email = pathToITPopupForm.querySelector('#pathToITShowPopupEmail');
+    const phone = pathToITPopupForm.querySelector('#pathToITShowPopupTel');
+    const pathToITPopupSuccess = document.getElementById('pathToITShowPopupSuccess');
+
+    const iti_tb_it = window.intlTelInput(phone, {
+        preferredCountries: ["ru", "kz", "by", "de", "ua"], // выбранные флаги стран помещает в начало списка
+        allowDropdown: true,
+        autoPlaceholder: "aggressive", // Будет заменять все установленные плейсхолдеры
+        separateDialCode: true, // Выводит код страны рядом с флагом
+        utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js", // подключает скрипт-маску для телефона
+        dropdownContainer: pathToITPopupForm.querySelector('.path_to_it_show_popup__input-tel-wrap'),
+    });
+
+    let top_bar_loc = sessionStorage.getItem('user_location');
+    if (top_bar_loc) {
+        iti_tb_it.setCountry(top_bar_loc);
+
+        setTimeout(() => {
+            pathToITCreatePhoneMask();
+        }, 800);
+    }
+
+    if (email) {
+        Inputmask("email", {
+            greedy: false,
+        }).mask(email);
+    }
+
+
+    if (topBar) {
+
+        topBarClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            topBar.style.display = 'none';
+            topBar.classList.remove('active');
+            document.querySelector('#header-monolit').style.margin = '0'
+        });
+
+        topBar.addEventListener('click', () => {
+
+            if (!localStorage.getItem('topBarTime') || new Date(localStorage.getItem('topBarTime')) <= new Date()) {
+
+                if (pathToITPopup && !topBar.classList.contains('custom_link')) {
+
+                    if (!top_bar_loc) {
+                        getCurrentLocation().done(function (response) {
+
+                            top_bar_loc = response.data.location.id.toLowerCase();
+
+                            iti_tb_it.setCountry(top_bar_loc);
+
+                            sessionStorage.setItem('user_location', top_bar_loc);
+
+                            setTimeout(() => {
+                                pathToITCreatePhoneMask();
+                            }, 800);
+                        });
+                    }
+
+                    pathToITPopup.style.display = 'flex';
+                }
+
+            } else {
+
+                if (pathToITPopup && !topBar.classList.contains('custom_link')) {
+                    if (pathToITPopupSuccess) pathToITPopupSuccess.style.display = 'flex';
+                    if (pathToITPopup) pathToITPopup.style.display = 'none';
+                }
+            }
+
+            // Во время открытия попапа блокируем попапы с автовсплытием
+            check_autoload = false;
+        })
+    }
+
+
+    if (pathToITPopupSuccess) {
+        const pathToITPopupSuccessClose = pathToITPopupSuccess.querySelector('.path_to_it_show_popup__success-close');
+        if (pathToITPopupSuccessClose) {
+            pathToITPopupSuccessClose.addEventListener('click', () => {
+                if (pathToITPopupSuccess) pathToITPopupSuccess.style.display = 'none';
+
+                // После закрытия попапа разрешаем автостарт
+                check_autoload = true;
+            })
+        }
+    }
+
+
+    // попап Top bar
+    if (pathToITPopup) {
+
+        pathToITPopupClose.addEventListener('click', () => {
+            pathToITPopup.style.display = 'none';
+
+            // После закрытия попапа разрешаем автостарт
+            check_autoload = true;
+        });
+
+
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function pathToITCreatePhoneMask() {
+            let str = phone.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(phone);
+        }
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        if (phone) {
+            phone.addEventListener("countrychange", function () {
+                pathToITCreatePhoneMask();
+            });
+        }
+
+
+        pathToITPopupForm.addEventListener('submit', ev => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let date = new Date();
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            const obj = {
+                entrance_path: integration_data.top_bar.path,
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: integration_data.top_bar.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+                email: email.value,
+                phone: iti_tb_it.getNumber(),
+                product_id: integration_data.top_bar.id,
+                tranid: Date.now(),
+                formid: "form_top_bar"
+            }
+            // const download_file = document.querySelector('.download_file');
+
+            ev.preventDefault();
+
+            const checked_suc = pathToITPopupForm.querySelector('.checked-suc');
+            if (checked_suc && !checked_suc.checked) {
+                if (document.querySelector('.control__indicator')) pathToITPopupForm.querySelector('.control__indicator').style.border = '1px solid red';
+                return;
+            }
+
+            // Записываем в localStorage дату = текущая дата + 2 дня
+            date.setDate(date.getDate() + 2);
+            localStorage.setItem('topBarTime', date);
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://gb.ru/api/v2/services/tilda/create_claim", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(obj));
+            xhr.onload = function () {
+                let data_responce = JSON.parse(this.responseText);
+            }
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-success.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+
+                    // Цель только от клика по кнопке баннера - insert_bn_content_btn
+                    if (pathToITPopup.classList.contains('insert-bn-action')) {
+                        ym(40414440, 'reachGoal', 'blogotpravkaformitopbar');
+                    }
+
+                    // решение специально для Safari, чтобы выполнить переход в основном потоке
+                    setTimeout(() => {
+
+                        // Проверка на стороне API сервиса gb.ru, проверяется по адресу email в куке заполнил ли пользователь анкету,
+                        // если да то редирект на страницу в параметре to, если нет проходит анкету
+                        // location.href = 'https://gb.ru/api/marketing/v1/questionnaire/check?anketa_show=a_blog&to=https://gb.ru/path-to-it/it_star_08/thanks';
+                        location.href = 'https://gb.ru/a/a_blog';
+
+                    })
+                }
+            });
+        })
+    }
+}
+
+function goalCatcher() {
+
+    const goalCatcherPopup = document.getElementById('goalCatcherPopup');
+    const goalCatcherWidget = document.querySelector('.widget-dynamic__link');
+    const goalCatcherPopupClose = document.getElementById('goalCatcherPopupClose');
+    const goalCatcherForm = document.getElementById('goalCatcherForm');
+    const popupGoalCatcherThankyou = document.getElementById('popup_goal_catcher');
+    const popupGoalCatcherThankyouClose = popupGoalCatcherThankyou.querySelector('.popup-close');
+
+    const iti_goal_catcher = window.intlTelInput(goalCatcherForm.querySelector('input[name="tel"]'), {
+        preferredCountries: ["ru", "kz", "by", "de", "ua"], // выбранные флаги стран помещает в начало списка
+        allowDropdown: true,
+        autoPlaceholder: "aggressive", // Будет заменять все установленные плейсхолдеры
+        separateDialCode: true, // Выводит код страны рядом с флагом
+        utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js", // подключает скрипт-маску для телефона
+        dropdownContainer: goalCatcherForm.querySelector('.input-tel-wrap'),
+    });
+
+    let goal_catcher_loc = sessionStorage.getItem('user_location');
+    if (goal_catcher_loc) {
+        iti_goal_catcher.setCountry(goal_catcher_loc);
+
+        setTimeout(() => {
+            createGoalCatcherPhoneMask();
+        }, 800);
+    }
+
+    // Установка маски на поле телефона
+    // Маска обновляется динамически при смене страны
+    function createGoalCatcherPhoneMask() {
+        let goalCatcherTel = goalCatcherForm.querySelector('input[name="tel"]');
+        let str = goalCatcherTel.getAttribute('placeholder');
+        str = str.replace(/[0-9]/g, '9');
+        Inputmask(str, {clearIncomplete: true, greedy: false}).mask(goalCatcherTel);
+    }
+
+    if (goalCatcherWidget) {
+
+        goalCatcherWidget.addEventListener('click', () => {
+
+            if (!localStorage.getItem('goalCatcherDate') || new Date(localStorage.getItem('goalCatcherDate')) <= new Date()) {
+
+                if (!goal_catcher_loc) {
+                    getCurrentLocation().done(function (response) {
+
+                        goal_catcher_loc = response.data.location.id.toLowerCase();
+
+                        iti_goal_catcher.setCountry(goal_catcher_loc);
+
+                        sessionStorage.setItem('user_location', goal_catcher_loc);
+
+                        setTimeout(() => {
+                            createGoalCatcherPhoneMask();
+                        }, 800);
+                    });
+                }
+
+                if (goalCatcherPopup) {
+                    goalCatcherPopup.style.display = 'flex';
+
+                    ym(40414440, 'reachGoal', 'blogpokazformazahvatchika');
+                }
+
+                ym(40414440, 'reachGoal', 'blogclickzahvatchik');
+
+            } else {
+
+                if (popupGoalCatcherThankyou) popupGoalCatcherThankyou.style.display = 'flex';
+                if (goalCatcherPopup) goalCatcherPopup.style.display = 'none';
+            }
+
+            // Во время открытия попапа блокируем попапы с автовсплытием
+            check_autoload = false;
+        })
+    }
+
+    // попап goal catcher
+    if (goalCatcherPopup) {
+        let goalCatcherEmail = goalCatcherForm.querySelector('input[name="email"]');
+        let goalCatcherTel = goalCatcherForm.querySelector('input[name="tel"]');
+
+        if (goalCatcherPopup) {
+            goalCatcherPopupClose.addEventListener('click', () => {
+                goalCatcherPopup.style.display = 'none';
+
+                // После закрытия попапа разрешаем автостарт
+                check_autoload = true;
+            });
+        }
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        goalCatcherTel.addEventListener("countrychange", function () {
+            createGoalCatcherPhoneMask();
+        });
+
+        goalCatcherForm.addEventListener('submit', ev => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let date = new Date();
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            const obj = {
+                entrance_path: integration_data.zahvatchik.path,
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: integration_data.zahvatchik.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+                email: goalCatcherEmail.value,
+                phone: iti_goal_catcher.getNumber(),
+                product_id: integration_data.zahvatchik.id,
+                tranid: Date.now(),
+                formid: "form_goal_catcher"
+            }
+            // const download_file = document.querySelector('.download_file');
+
+            ev.preventDefault();
+
+            // Записываем в localStorage дату = текущая дата + 3 дня
+            date.setDate(date.getDate() + 3);
+            localStorage.setItem('goalCatcherDate', date);
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://gb.ru/api/v2/services/tilda/create_claim", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(obj));
+            xhr.onload = function () {
+                let data_responce = JSON.parse(this.responseText);
+            }
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-goal-catcher.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+
+                    ym(40414440, 'reachGoal', 'blogotpravkaformazahvatchika');
+
+                    // решение специально для Safari, чтобы выполнить переход в основном потоке
+                    setTimeout(() => {
+
+                        // Проверка на стороне API сервиса gb.ru, проверяется по адресу email в куке заполнил ли пользователь анкету,
+                        // если да то редирект на страницу в параметре to, если нет проходит анкету
+                        // location.href = 'https://gb.ru/api/marketing/v1/questionnaire/check?anketa_show=a_blog4&to=https://gb.ru/path-to-it/it_star_08/thanks';
+                        location.href = 'https://gb.ru/a/a_blog4';
+
+                    })
+                }
+            });
+        })
+
+    }
+
+    if (popupGoalCatcherThankyou) {
+        popupGoalCatcherThankyouClose.addEventListener('click', () => {
+            popupGoalCatcherThankyou.style.display = 'none';
+        })
+    }
+
+}
+
+
+function banner_two() {
+
+    const banner = document.querySelector('.banner-2__wrap');
+    const bannerTwoEmail = document.getElementById("bannerTwoEmail");
+    const bannerTwoSucWrap = document.querySelector('.banner-2__suc-wrap');
+    const bannerTwoSucClose = document.querySelector('.banner-2__suc-close');
+    const bannerTwoForm = document.querySelector('.banner-2__input-wrap');
+    const bannerTwoDownloadFile = document.querySelector('.banner-2__download_file');
+    const bannerTwoPhone = document.getElementById("bannerTwoTel");
+
+    if (bannerTwoForm) {
+
+        const iti_bn_t = window.intlTelInput(bannerTwoPhone, {
+            preferredCountries: ["ru", "kz", "by", "de", "ua"], // выбранные флаги стран помещает в начало списка
+            allowDropdown: true,
+            autoPlaceholder: "aggressive", // Будет заменять все установленные плейсхолдеры
+            separateDialCode: true, // Выводит код страны рядом с флагом
+            utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js", // подключает скрипт-маску для телефона
+            dropdownContainer: bannerTwoForm.querySelector('.input-tel-wrap'),
+        });
+
+        if (banner) {
+
+            let bn_loc = sessionStorage.getItem('user_location');
+            if (bn_loc) {
+                iti_bn_t.setCountry(bn_loc);
+
+                setTimeout(() => {
+                    createPhoneMaskBN();
+                }, 800);
+            }
+
+            let bannerIsWatch = false;
+
+            window.addEventListener('scroll', () => {
+
+                let scrolled = window.pageYOffset;
+                let bannerScroll = banner.offsetTop;
+
+                if (scrolled >= bannerScroll && !bannerIsWatch) {
+                    ym(40414440, 'reachGoal', 'blogpokazbannervstavka');
+                    bannerIsWatch = true;
+                }
+
+                // console.log('scrolled - ', scrolled);
+                // console.log('bannerScroll - ', bannerScroll);
+
+                if ((scrolled > bannerScroll - 200 && scrolled < bannerScroll)) {
+
+                    if (!bn_loc) {
+                        getCurrentLocation().done(function (response) {
+
+                            bn_loc = response.data.location.id.toLowerCase();
+
+                            iti_bn_t.setCountry(bn_loc);
+
+                            sessionStorage.setItem('user_location', bn_loc);
+
+                            setTimeout(() => {
+                                createPhoneMaskBN();
+                            }, 800);
+                        });
+                    }
+                }
+            });
+
+
+        }
+
+
+        if (bannerTwoSucWrap) {
+            bannerTwoSucClose.addEventListener('click', () => {
+                bannerTwoSucWrap.style.display = 'none';
+            });
+        }
+
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function createPhoneMaskBN() {
+            let str = bannerTwoPhone.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(bannerTwoPhone);
+        }
+
+        // Ожидаем пока закончится инициализация международных форматов телефонов и запускаем инициализацию маски для поля телефона
+        // const waitAttribute = setInterval( () => {
+        //     if(typeof (iti) === 'object' && bannerTwoPhone.hasAttribute('placeholder')) {
+        //         clearInterval(waitAttribute);
+        //         createPhoneMaskBN();
+        //     }
+        // }, 500);
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        bannerTwoPhone.addEventListener("countrychange", function () {
+            // console.log(iti.getSelectedCountryData());
+            createPhoneMaskBN();
+        });
+
+        bannerTwoForm.addEventListener('submit', ev => {
+            let urlParams = new URLSearchParams(window.location.search);
+
+            ev.preventDefault();
+
+            if (!localStorage.getItem('bannerVrezka') || new Date(localStorage.getItem('bannerVrezka')) <= new Date()) {
+
+                // integration_data - объект, в который передаются данные из админки
+                // содержит название интеграционного элемента, например - banner_vstavka
+                // с параметрами - id, path
+                // структура объекта
+                // integration_data = {
+                //      banner_vstavka: {
+                //          id: 7860,
+                //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+                //      },
+                //      ...
+                //  }
+                let obj = {
+                    entrance_path: integration_data.banner_vstavka.path,
+                    utm_term: urlParams.get('utm_term'),
+                    utm_source: 'blog',
+                    utm_medium: 'organic',
+                    utm_content: integration_data.banner_vstavka.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                    utm_campaign: 'sales-generator',
+                    email: bannerTwoEmail.value,
+                    phone: iti_bn_t.getNumber(),
+                    product_id: integration_data.banner_vstavka.id,
+                    tranid: Date.now(),
+                    formid: "form_banner_2"
+                }
+
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "https://gb.ru/api/v2/services/tilda/create_claim", true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify(obj));
+                xhr.onload = function () {
+                    let data_responce = JSON.parse(this.responseText);
+                    console.log(data_responce);
+                    // console.log(obj);
+                }
+
+                jQuery.ajax({
+                    type: "POST",
+                    url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-banner.php", // здесь указываем путь к второму файлу
+                    data: obj,
+                    success: function (msg) {
+
+                        ym(40414440, 'reachGoal', 'blogotpravkabannervstavka');
+
+                        // решение специально для Safari, чтобы выполнить переход в основном потоке
+                        setTimeout(() => {
+
+                            // bannerTwoDownloadFile.click();
+                            // bannerTwoSucWrap.style.display = 'flex';
+
+                            // setTimeout(function() {
+                            // const target = document.getElementById('bannerTarget')
+                            // if(target) {
+                            //     target.click();
+                            // }
+
+                            bannerTwoEmail.value = '';
+                            bannerTwoPhone.value = '';
+                            // bannerTwoSucWrap.style.display = 'none';
+
+                            // Записываем в localStorage дату = текущая дата + 2 дня
+                            let date = new Date();
+                            date.setDate(date.getDate() + 2);
+                            localStorage.setItem('bannerVrezka', date)
+
+                            // if (!formCookie) {
+                            //     location.href = 'https://gb.ru/a/a_blog1';
+                            // } else {
+                            //     location.href = 'https://gb.ru/a/blog_thanks1'
+                            // }
+
+                            // Проверка на стороне API сервиса gb.ru, проверяется по адресу email в куке заполнил ли пользователь анкету,
+                            // если да то редирект на страницу в параметре to, если нет проходит анкету
+                            //location.href = 'https://gb.ru/api/marketing/v1/questionnaire/check?anketa_show=a_blog1&to=https://gb.ru/a/blog_thanks1';
+                            location.href = 'https://gb.ru/a/a_blog1';
+
+
+                            // }, 5000);
+
+                            // решение специально для Safari, чтобы выполнить переход в основном потоке
+                            // setTimeout(() => {
+                            //     window.open('https://gb.ru/blog/wp-content/themes/reboot-child/kak-stabilno-zarabatyvat-v-krizis.pdf', '_blank');
+                            //     ym(40414440, 'reachGoal', 'clickmodalkabannervstavka');
+                            // },2000);
+                        })
+                    }
+                });
+
+            } else {
+                bannerTwoSucWrap.style.display = 'flex';
+            }
+        })
+    }
+}
+
+function pagePodarki() {
+    const podarki_wrapper = document.querySelector('.podarki-wrapper');
+
+    if (podarki_wrapper) {
+
+        const form = document.getElementById('podarkiForm');
+        const phone = form.querySelector('#telPodarki');
+
+        const podarkiWin = document.querySelector('.podarki-win');
+
+        const iti_page_present = window.intlTelInput(phone, {
+            preferredCountries: ["ru", "kz", "by", "de", "ua"], // выбранные флаги стран помещает в начало списка
+            allowDropdown: true,
+            autoPlaceholder: "aggressive", // Будет заменять все установленные плейсхолдеры
+            separateDialCode: true, // Выводит код страны рядом с флагом
+            utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js", // подключает скрипт-маску для телефона
+            dropdownContainer: form.querySelector('.input-tel-wrap'),
+        });
+
+        let page_present_loc = sessionStorage.getItem('user_location');
+        if (page_present_loc) {
+            iti_page_present.setCountry(page_present_loc);
+
+            setTimeout(() => {
+                createPhoneMaskPagePresent();
+            }, 800);
+        }
+
+
+        if (!gbGetCookie('winPagePodarki')) {
+
+            if (!page_present_loc) {
+                getCurrentLocation().done(function (response) {
+
+                    page_present_loc = response.data.location.id.toLowerCase();
+
+                    iti_page_present.setCountry(page_present_loc);
+
+                    sessionStorage.setItem('user_location', page_present_loc);
+
+                    setTimeout(() => {
+                        createPhoneMaskPagePresent();
+                    }, 800);
+                });
+            }
+
+        } else {
+            podarkiWin.style.display = 'flex';
+        }
+
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function createPhoneMaskPagePresent() {
+            let str = phone.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(phone);
+        }
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        phone.addEventListener("countrychange", function () {
+            // console.log(iti.getSelectedCountryData());
+            createPhoneMaskPagePresent();
+        });
+
+        // отправка формы
+        form.addEventListener('submit', ev => {
+            let date = new Date();
+            const inputEmailWheel = form.elements.namedItem('podarki_email');
+            const urlParams = new URLSearchParams(window.location.search);
+
+            ev.preventDefault();
+
+            gbSetCookie('winPagePodarki', date);
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            let obj = {
+                entrance_path: integration_data.forma_na_stranice_podarki.path,
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: integration_data.forma_na_stranice_podarki.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+                email: inputEmailWheel.value,
+                phone: iti_page_present.getNumber(),
+                product_id: integration_data.forma_na_stranice_podarki.id,
+                tranid: Date.now(),
+                formid: "form_page_podarki"
+            }
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://gb.ru/api/v2/services/tilda/create_claim", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(obj));
+            xhr.onload = function () {
+                let data_responce = JSON.parse(this.responseText);
+            }
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-podarki.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+
+                    ym(40414440, 'reachGoal', 'otpravkastranitsapodarki');
+
+                    location.href = 'https://gb.ru/a/a_blog6';
+                }
+            });
+        });
+
+        // document.querySelector('.podarki-win-close').addEventListener('click', () => {
+        //     podarkiWin.style.display = 'none';
+        // });
+    }
+}
+
+
+function checklist_download() {
+
+    const checklist_download = document.querySelector('.checklist-download');
+    const checklistDownloadPopupThankyou = document.querySelector('.checklist-download-popup-thankyou');
+
+    if (checklist_download) {
+
+        const checklistDownloadPopup = document.getElementById('checklistDownload');
+        const checklistDownloadPopupClose = document.getElementById('checklistDownloadPopupClose');
+        const checklistDownloadForm = document.getElementById('checklistDownloadForm');
+
+        if (checklistDownloadPopup && checklistDownloadForm) {
+
+            const iti_ch_list = window.intlTelInput(document.getElementById("checklistDownloadTel"), {
+                preferredCountries: ["ru", "kz", "by", "de", "ua"], // выбранные флаги стран помещает в начало списка
+                allowDropdown: true,
+                autoPlaceholder: "aggressive", // Будет заменять все установленные плейсхолдеры
+                separateDialCode: true, // Выводит код страны рядом с флагом
+                utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js", // подключает скрипт-маску для телефона
+                dropdownContainer: checklistDownloadForm.querySelector('.input-tel-wrap'),
+            });
+
+            let ch_list_loc = sessionStorage.getItem('user_location');
+            if (ch_list_loc) {
+                iti_ch_list.setCountry(ch_list_loc);
+
+                setTimeout(() => {
+                    createPhoneMaskCheckList();
+                }, 800);
+            }
+
+            const checklistDownloadEmail = document.getElementById("checklistDownloadEmail");
+            const checklistDownloadTel = document.getElementById("checklistDownloadTel");
+
+            ym(40414440, 'reachGoal', 'pokazdokvsoderganii');
+
+            // Установка маски на поле телефона
+            // Маска обновляется динамически при смене страны
+            function createPhoneMaskCheckList() {
+                if (checklistDownloadTel) {
+                    let str = checklistDownloadTel.getAttribute('placeholder');
+                    str = str.replace(/[0-9]/g, '9');
+                    Inputmask(str, {clearIncomplete: true, greedy: false}).mask(checklistDownloadTel);
+                }
+            }
+
+            checklist_download.addEventListener('click', () => {
+
+                ym(40414440, 'reachGoal', 'clickdokvsoderganii');
+
+                // console.log('dokvsoderganii');
+                if (!localStorage.getItem('dokvsoderganii') || new Date(localStorage.getItem('dokvsoderganii')) <= new Date()) {
+
+                    if (!ch_list_loc) {
+                        getCurrentLocation().done(function (response) {
+
+                            ch_list_loc = response.data.location.id.toLowerCase();
+
+                            iti_ch_list.setCountry(ch_list_loc);
+
+                            sessionStorage.setItem('user_location', ch_list_loc);
+
+                            setTimeout(() => {
+                                createPhoneMaskCheckList();
+                            }, 800);
+                        });
+                    }
+
+
+                    ym(40414440, 'reachGoal', 'pokazformaizsodergania');
+                    checklistDownloadPopup.style.display = 'flex';
+                } else {
+                    // Показываем попап спасибо
+                    if (checklistDownloadPopupThankyou) checklistDownloadPopupThankyou.style.display = 'flex';
+                }
+
+                // Во время открытия попапа блокируем попапы с автовсплытием
+                check_autoload = false;
+            });
+
+            checklistDownloadPopupClose.addEventListener('click', () => {
+                checklistDownloadPopup.style.display = 'none';
+
+                // После закрытия попапа разрешаем автостарт
+                check_autoload = true;
+            })
+
+            // Запускаем переинициализацию маски для поля телефона при смене страны
+            checklistDownloadTel.addEventListener("countrychange", function () {
+                createPhoneMaskCheckList();
+            });
+
+            checklistDownloadForm.addEventListener('submit', ev => {
+                let urlParams = new URLSearchParams(window.location.search);
+                let date = new Date();
+
+                ev.preventDefault();
+
+                // integration_data - объект, в который передаются данные из админки
+                // содержит название интеграционного элемента, например - banner_vstavka
+                // с параметрами - id, path
+                // структура объекта
+                // integration_data = {
+                //      banner_vstavka: {
+                //          id: 7860,
+                //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+                //      },
+                //      ...
+                //  }
+                let obj = {
+                    entrance_path: integration_data.document_v_soderganii.path,
+                    utm_term: urlParams.get('utm_term'),
+                    utm_source: 'blog',
+                    utm_medium: 'organic',
+                    utm_content: integration_data.document_v_soderganii.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                    utm_campaign: 'sales-generator',
+                    email: checklistDownloadEmail.value,
+                    phone: iti_ch_list.getNumber(),
+                    product_id: integration_data.document_v_soderganii.id,
+                    tranid: Date.now(),
+                    formid: "form_checklist_download"
+                }
+
+                // Записываем в localStorage дату = текущая дата + 2 дня
+                date.setDate(date.getDate() + 2);
+                localStorage.setItem('dokvsoderganii', date);
+
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "https://gb.ru/api/v2/services/tilda/create_claim", true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify(obj));
+                xhr.onload = function () {
+                    let data_responce = JSON.parse(this.responseText);
+                }
+
+                jQuery.ajax({
+                    type: "POST",
+                    url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-banner.php", // здесь указываем путь к второму файлу
+                    data: obj,
+                    success: function (msg) {
+
+                        // решение специально для Safari, чтобы выполнить переход в основном потоке
+                        setTimeout(() => {
+
+                            checklistDownloadEmail.value = '';
+                            checklistDownloadTel.value = '';
+
+                            // if( !formCookie ) {
+                            //
+                            // } else {
+                            //     // location.href = 'https://gb.ru/a/blog_thanks6';
+                            //     // Показываем попап спасибо
+                            //     if(checklistDownloadPopupThankyou) checklistDownloadPopupThankyou.style.display = 'flex';
+                            // }
+
+                            // location.href = 'https://gb.ru/api/marketing/v1/questionnaire/check?anketa_show=a_blog5&to=https://gb.ru/a/blog_thanks6';
+                            location.href = 'https://gb.ru/a/a_blog5';
+
+                        })
+                    }
+                });
+
+                ym(40414440, 'reachGoal', 'otpravkaformaizsodergania');
+            })
+        }
+    }
+
+    if (checklistDownloadPopupThankyou) {
+        const checklistDownloadPopupThankyouClose = document.querySelector('.checklist-download-popup-thankyou__close');
+
+        checklistDownloadPopupThankyouClose.addEventListener('click', () => {
+            checklistDownloadPopupThankyou.style.display = 'none';
+        });
+    }
+}
+
+
+// адаптив
+if (isMobile) {
+    document.querySelectorAll(".mn-menu__mobile-slide").forEach(el => el.style.display = "none")
+    // document.querySelector('.mn-header-nav-line').style.display = "none";
+}
+
+let popupMenu = document.querySelector("#mobileMenuOpen")
+let menuHeader = document.querySelector(".mn-header-nav-line")
+let popupMenuOpen = false
+
+let mnTriggerMenu = document.querySelector(".mn-trigger-menu")
+if (mnTriggerMenu) {
+    mnTriggerMenu.addEventListener("click", e => {
+
+        if (popupMenuOpen) {
+            popupMenu.style.display = "none";
+            menuHeader.style.display = "block";
+            popupMenuOpen = false
+            document.getElementsByTagName('header')[0].classList.remove('mn-header_is-opened-menu')
+            return
+        }
+
+        document.getElementsByTagName('header')[0].classList.add('mn-header_is-opened-menu')
+        popupMenu.style.display = "block";
+        menuHeader.style.display = "none";
+        popupMenuOpen = true
+    })
+}
+
+let headerNavOpenModal = document.querySelector("#header-nav-open-modal")
+if (headerNavOpenModal) {
+    headerNavOpenModal.addEventListener("click", e => {
+
+        if (popupMenuOpen) {
+            popupMenu.style.display = "none";
+            menuHeader.style.display = "block";
+            popupMenuOpen = false
+            document.getElementsByTagName('header')[0].classList.remove('mn-header_is-opened-menu')
+            return
+        }
+
+        document.getElementsByTagName('header')[0].classList.add('mn-header_is-opened-menu')
+        popupMenu.style.display = "block";
+        menuHeader.style.display = "none";
+        popupMenuOpen = true
+    })
+}
+
+
+//открытие/закрытие моб меню
+let mobileMenu = document.querySelector("#mobileMenuOpen")
+let mobileTrigMenu = document.querySelector("#mobileTriggerMenu")
+
+if (mobileTrigMenu) {
+    mobileTrigMenu.addEventListener("click", e => {
+
+        if (popupMenuOpen) {
+            mobileMenu.style.display = "none";
+            popupMenuOpen = false
+            document.getElementsByTagName('header')[0].classList.remove('mn-header_is-opened-menu')
+            document.querySelector('.mn-header__magnifier-mobile').style.display = "none"
+            mobileTrigMenu.querySelector('.mn-trigger-menu__text').style.display = "block"
+            return
+        }
+        document.getElementsByTagName('header')[0].classList.add('mn-header_is-opened-menu')
+        mobileMenu.style.display = "block";
+        popupMenuOpen = true
+        document.querySelector('.mn-header__magnifier-mobile').style.display = "block"
+        mobileTrigMenu.querySelector('.mn-trigger-menu__text').style.display = "none"
+    })
+}
+
+
+let menuNavItem = document.querySelectorAll('.mn-menu__nav-item')
+let menuNavItemContent = document.querySelectorAll('.mn-menu__box')
+
+if (!isMobile) {
+    menuNavItem.forEach((element, number) => {
+        element.addEventListener('mouseover', () => {
+            if (menuNavItemContent[number]) {
+                menuNavItemContent.forEach(el => {
+                    el.classList.remove('mn-menu__box_active')
+                })
+                menuNavItemContent[number].classList.add('mn-menu__box_active')
+            }
+
+        })
+    })
+} else {
+    menuNavItem.forEach((element, number) => {
+        element.addEventListener('click', () => {
+            if (menuNavItemContent[number]) {
+                menuNavItemContent.forEach(el => {
+                    el.classList.remove('mn-menu__box_active')
+                })
+                document.querySelector('.mn-menu__right').style.display = 'block'
+                menuNavItemContent[number].classList.add('mn-menu__box_active')
+                document.querySelector('.mn-menu-mobile-header__title').textContent = element.getElementsByTagName('span')[0].textContent
+            }
+            document.querySelector('.mn-menu').classList.add('mn-menu_with-active-box')
+
+        })
+    })
+}
+
+let searchOverlay = document.querySelector('.search-overlay')
+let searchMenuOpen = false
+
+let headerSearchBtn = document.querySelector(".header-search-btn")
+if (headerSearchBtn) {
+    headerSearchBtn.addEventListener("click", e => {
+
+        if (searchMenuOpen) {
+            searchOverlay.style.display = "none";
+            document.querySelector('.search-panel').classList.remove('visible')
+            searchMenuOpen = false
+            return
+        }
+
+        document.querySelector('.search-panel').classList.add('visible')
+        searchOverlay.style.display = "block";
+        searchMenuOpen = true
+
+    })
+
+}
+if (searchOverlay) {
+    searchOverlay.addEventListener("click", ev => {
+        if (!document.querySelector('.search-panel').contains(ev.target)) {
+            searchOverlay.style.display = "none";
+            document.querySelector('.search-panel').classList.remove('visible')
+            searchMenuOpen = false
+        }
+    })
+    document.querySelector('.search-panel__search-reset').addEventListener("click", ev => {
+        searchOverlay.style.display = "none";
+        document.querySelector('.search-panel').classList.remove('visible')
+        searchMenuOpen = false
+    })
+}
+
+
+// кнопка назад в mobile меню
+if (isMobile) {
+    let mnMenuMobileHeaderBack = document.querySelector('.mn-menu-mobile-header__back')
+    if (mnMenuMobileHeaderBack) {
+        document.querySelector('.mn-menu-mobile-header__back').addEventListener("click", () => {
+            document.querySelectorAll(".mn-menu__mobile-slide").forEach(el => el.style.display = "none")
+            if (document.querySelector('.mn-menu__right').style.display === "none") {
+                document.querySelector('.mn-menu').classList.remove('mn-menu_with-active-box')
+            }
+        })
+    }
+    let mobileHeadTriggerMenu = document.querySelector('#mobileHeadTriggerMenu')
+    if (mobileHeadTriggerMenu) {
+        mobileHeadTriggerMenu.querySelector('#mobileHeadTriggerMenu').addEventListener('click', () => {
+            if (popupMenuOpen) {
+                mobileMenu.style.display = "none";
+                popupMenuOpen = false
+                document.querySelector('.mn-header__magnifier-mobile').style.display = "none"
+                mobileTrigMenu.querySelector('.mn-trigger-menu__text').style.display = "block"
+                document.getElementsByTagName('header')[0].classList.remove('mn-header_is-opened-menu')
+                document.querySelectorAll(".mn-menu__mobile-slide").forEach(el => el.style.display = "none")
+                if (document.querySelector('.mn-menu__right').style.display === "none") {
+                    document.querySelector('.mn-menu').classList.remove('mn-menu_with-active-box')
+                }
+            }
+        })
+    }
+
+}
+
+document.querySelectorAll('.mn-nav-item').forEach(element => {
+    if (element.querySelector('.with-arrow-right')) {
+        element.addEventListener('click', ev => {
+            let ms = element.querySelector('.mn-menu__mobile-slide')
+            ms.style.display = "block"
+            ev.stopPropagation()
+            ms.querySelector('.mn-menu-mobile-header__back').addEventListener('click', e => {
+                ms.style.display = "none"
+                e.stopPropagation()
+            })
+            ms.querySelector('.mn-trigger-menu').addEventListener('click', e => {
+                popupMenu.style.display = "none"
+                popupMenuOpen = false
+                document.querySelector('.mn-header__magnifier-mobile').style.display = "none"
+                mobileTrigMenu.querySelector('.mn-trigger-menu__text').style.display = "block"
+                document.getElementsByTagName('header')[0].classList.remove('mn-header_is-opened-menu')
+                ms.style.display = "none"
+                document.querySelectorAll(".mn-menu__mobile-slide").forEach(el => el.style.display = "none")
+                if (document.querySelector('.mn-menu__right').style.display === "none") {
+                    document.querySelector('.mn-menu').classList.remove('mn-menu_with-active-box')
+                }
+                e.stopPropagation()
+            })
+        })
+    }
+})
+let mnHeaderMagnifierMobile = document.querySelector('.mn-header__magnifier-mobile')
+if (mnHeaderMagnifierMobile) {
+    mnHeaderMagnifierMobile.addEventListener('click', () => {
+        document.querySelector('.search-panel').classList.add('visible')
+        searchOverlay.style.display = "block";
+        searchMenuOpen = true
+    })
+
+}
+
+// плавность всех якорей
+jQuery(document).ready(function () {
+    jQuery('a[href^="#"], *[data-href^="#"]').on('click', function (e) {
+        e.preventDefault();
+        let t = 1000;
+        let d = jQuery(this).attr('data-href') ? jQuery(this).attr('data-href') : jQuery(this).attr('href');
+        jQuery('html,body').stop().animate({scrollTop: jQuery(d).offset().top}, t);
+    });
+});
+
+// плавность якорей врезки
+jQuery(document).ready(function () {
+    jQuery('a[href^="#vrezkaProfession"]').on('click', function (e) {
+        e.preventDefault();
+        let t = 1000;
+        let topVrezka = jQuery('#vrezkaProfession').offset().top;
+        let hightVrezka = jQuery('#vrezkaProfession').height();
+        let windowHeight = window.screen.height;
+        jQuery('html,body').stop().animate({scrollTop: topVrezka + hightVrezka - windowHeight + 200}, t);
+    });
+});
+
+let bannerInsertBtn = document.querySelector('.banner-insert-btn')
+if (bannerInsertBtn) {
+    bannerInsertBtn.addEventListener('click', function () {
+        ym(40414440, 'reachGoal', 'ClikBaner');
+    });
+}
+
+// Функция перенесена в файл для хранения, без подключения - wp-content/themes/reboot-child/assets/scripts/temp_custom.js
+// profVrezka();
+
+function wheelPopup() {
+    const popupWheel = document.querySelector('.popup-wheel-overlay');
+
+    if (popupWheel) {
+        const widgetWheel = document.querySelector('.wheel-widget');
+        const widgetWheelClose = document.querySelector('.js-popup-wheel-close');
+        const wheelWin = document.querySelector('.wheel-win');
+        const popupPointerImg = document.getElementById('pointer');
+
+        const formWheel = document.getElementById('popup_wheel_form');
+
+        const email = formWheel.querySelector('input[name="email"]');
+        const phone = formWheel.querySelector('input[name="phone"]');
+
+        const wheelRedirectLink = document.querySelector('.wheel-redirect-link');
+
+        const iti_wheel = window.intlTelInput(phone, {
+            preferredCountries: ["ru", "kz", "by", "de", "ua"], // выбранные флаги стран помещает в начало списка
+            allowDropdown: true,
+            autoPlaceholder: "aggressive", // Будет заменять все установленные плейсхолдеры
+            separateDialCode: true, // Выводит код страны рядом с флагом
+            utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js", // подключает скрипт-маску для телефона
+            dropdownContainer: formWheel.querySelector('.input-tel-wrap'),
+        });
+
+        let wheel_loc = sessionStorage.getItem('user_location');
+        if (wheel_loc) {
+            iti_wheel.setCountry(wheel_loc);
+        }
+
+        if (widgetWheel) {
+            ym(40414440, 'reachGoal', 'pokazvidjetkolesaBLOG');
+        }
+
+        widgetWheel.addEventListener('click', () => {
+
+            if (!localStorage.getItem('winPopupTime') || new Date(localStorage.getItem('winPopupTime')) <= new Date()) {
+
+                if (!wheel_loc) {
+                    getCurrentLocation().done(function (response) {
+
+                        wheel_loc = response.data.location.id.toLowerCase();
+
+                        iti_wheel.setCountry(wheel_loc);
+
+                        sessionStorage.setItem('user_location', wheel_loc);
+
+                        setTimeout(() => {
+                            createPhoneMaskWheel();
+                        }, 800);
+                    });
+                } else {
+                    createPhoneMaskWheel();
+                }
+
+                popupWheel.style.display = 'flex';
+
+                ym(40414440, 'reachGoal', 'pokazkolesavidjet');
+
+                formWheel.classList.add('clickWidget');
+
+            } else {
+
+                wheelWin.style.display = 'flex';
+                popupWheel.style.display = 'none';
+
+                // if (wheelRedirectLink) {
+                //     // решение специально для Safari, чтобы выполнить переход в основном потоке
+                //     setTimeout(function () {
+                //         window.open('https://gb.ru/a/a_blog4', '_self');
+                //     }, 3000);
+                //
+                // }
+            }
+
+            // Во время открытия попапа блокируем попапы с автовсплытием
+            check_autoload = false;
+        });
+
+        widgetWheelClose.addEventListener('click', () => {
+            popupWheel.style.display = 'none';
+
+            // После закрытия попапа разрешаем автостарт
+            check_autoload = true;
+        });
+
+        document.querySelector('.wheel-win-close').addEventListener('click', () => {
+            wheelWin.style.display = 'none';
+
+            // После закрытия попапа разрешаем автостарт
+            check_autoload = true;
+        });
+
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function createPhoneMaskWheel() {
+            let str = phone.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(phone);
+        }
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        phone.addEventListener("countrychange", function () {
+            // console.log(iti.getSelectedCountryData());
+            createPhoneMaskWheel();
+        });
+
+        // таймер появления попапа
+        if (!document.querySelector('body').classList.contains('logged-in')) {
+            setTimeout(() => {
+
+                const wheel_interval = setInterval(() => {
+                    if (check_autoload) {
+
+                        if (!localStorage.getItem('winPopupTime') || new Date(localStorage.getItem('winPopupTime')) <= new Date()) {
+
+                            clearInterval(wheel_interval);
+
+                            if (!wheel_loc) {
+                                getCurrentLocation().done(function (response) {
+
+                                    wheel_loc = response.data.location.id.toLowerCase();
+
+                                    iti_wheel.setCountry(wheel_loc);
+
+                                    sessionStorage.setItem('user_location', wheel_loc);
+
+                                    setTimeout(() => {
+                                        createPhoneMaskWheel();
+                                    }, 800);
+                                });
+                            } else {
+                                createPhoneMaskWheel();
+                            }
+
+                            popupWheel.style.display = 'flex';
+                            formWheel.classList.add('autopopup');
+                            ym(40414440, 'reachGoal', 'pokazkolesaBLOG');
+
+                            // Во время открытия попапа блокируем попапы с автовсплытием
+                            check_autoload = false;
+                        } else {
+                            clearInterval(wheel_interval);
+                        }
+                    }
+
+                }, 500);
+
+
+                // } else {
+                //
+                //     wheelWin.style.display = 'flex';
+                //     popupWheel.style.display = 'none';
+                // }
+
+            }, 30000);
+        }
+
+        // отправка формы
+        formWheel.addEventListener('submit', ev => {
+
+            let date = new Date();
+            const inputPhone = formWheel.elements.namedItem('phone');
+            const inputEmailWheel = formWheel.elements.namedItem('email');
+            const urlParams = new URLSearchParams(window.location.search);
+
+            ev.preventDefault();
+
+            popupPointerImg.classList.remove('slow');
+            popupPointerImg.classList.add('fast');
+
+
+            if (popupWheel.classList.contains('wheel-happy-new-year')) {
+                // Новогодняя версия
+                popupPointerImg.style.transform = `rotate(2turn) rotate(45deg)`;
+            } else {
+                // Обычная версия
+                popupPointerImg.style.transform = `rotate(2turn) rotate(150deg)`;
+            }
+
+            setTimeout(function () {
+
+                popupPointerImg.classList.remove('fast');
+
+                // popupWheel.style.display = 'none';
+                // wheelWin.style.display = 'block';
+
+                // setTimeout(function () {
+                //     popupWheel.style.display = 'none';
+                //     wheelWin.style.display = 'block';
+                // }, 2000)
+
+            }, 2000);
+
+            date.setDate(date.getDate() + 3);
+            localStorage.setItem('winPopupTime', date);
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            let obj = {
+                entrance_path: integration_data.wheel.path,
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: integration_data.wheel.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+                email: inputEmailWheel.value,
+                phone: iti_wheel.getNumber(),
+                product_id: integration_data.wheel.id,
+                tranid: Date.now(),
+                formid: "form_wheel"
+            }
+
+            return;
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://gb.ru/api/v2/services/tilda/create_claim", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(obj));
+            xhr.onload = function () {
+                let data_responce = JSON.parse(this.responseText);
+                console.log(data_responce);
+                // console.log(obj);
+            }
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-wheel.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+
+                    setTimeout(() => {
+                        popupWheel.style.display = 'none';
+                        wheelWin.style.display = 'flex';
+
+                        // Проверяем наличие куки, если нет, то показываем анкету
+                        if (wheelRedirectLink) {
+
+                            // решение специально для Safari, чтобы выполнить переход в основном потоке
+                            setTimeout(function () {
+                                // wheelWin.style.display = 'none';
+
+                                // wheelRedirectLink.click();
+
+                                // Если нет куки, то пользователь еще не отправлял анкету
+                                // if( !formCookie ) {
+                                //     location.href = 'https://gb.ru/a/a_blog4';
+                                // } else {
+                                //     location.href = 'https://gb.ru/a/blog_thanks4'
+                                // }
+
+                                // Проверка на стороне API сервиса gb.ru, проверяется по адресу email в куке заполнил ли пользователь анкету,
+                                // если да то редирект на страницу в параметре to, если нет проходит анкету
+                                // location.href = 'https://gb.ru/api/marketing/v1/questionnaire/check?anketa_show=a_blog4&to=https://gb.ru/a/blog_thanks4';
+                                // location.href = 'https://gb.ru/a/a_blog4';
+
+                                window.open('https://gb.ru/a/a_blog4', '_self');
+                            }, 3000);
+
+                        }
+                    }, 5000);
+
+                    // Цель только после клика
+                    if (formWheel.classList.contains('clickWidget')) {
+                        ym(40414440, 'reachGoal', 'otpravkakolesavidjet');
+                        formWheel.classList.remove('clickWidget');
+                    } else {
+                        // Цель только с авто появления колеса
+                        ym(40414440, 'reachGoal', 'otpravkaformikolesoBLOG');
+                    }
+
+                }
+            });
+        })
+    }
+}
+
+
+function showPopupInTime(showAfter, showEvery, callbacks, clickSelector = null, name = "one") {
+
+    let func = () => {
+        let date = new Date();
+        date.setDate(date.getDate() + showEvery);
+        localStorage.setItem('showTimePopup_' + name, date);
+        callbacks.apply()
+    }
+
+    if (check_autoload) {
+        runTimer();
+    } else {
+        const runTimerInterval = setInterval(() => {
+            if (check_autoload) {
+                clearInterval(runTimerInterval);
+                runTimer('clear');
+            }
+        }, 2000);
+    }
+
+    function runTimer(param) {
+        const time_daley = ((param) ? 0 : showAfter);
+
+        setTimeout(() => {
+            if (check_autoload) {
+                if (!localStorage.getItem('showTimePopup_' + name) || new Date(localStorage.getItem('showTimePopup_' + name)) <= new Date()) {
+                    func()
+                }
+            } else {
+                showPopupInTime(showAfter, showEvery, callbacks, clickSelector = null, name = "one");
+            }
+        }, time_daley)
+    }
+
+    if (clickSelector) {
+        document.querySelector(clickSelector.toString()).addEventListener("click", () => {
+            func()
+        })
+    }
+}
+
+function showPopupInTimeOriginal(showAfter, showEvery, callbacks, clickSelector = null, name = "one") {
+
+    let func = () => {
+        if (showEvery === -1) {
+            localStorage.setItem('showTimePopup' + name, 'never');
+        } else {
+            let date = new Date();
+            date.setDate(date.getDate() + showEvery);
+            localStorage.setItem('showTimePopup' + name, date);
+        }
+        callbacks.apply()
+    }
+
+    setTimeout(() => {
+        let storageData = localStorage.getItem('showTimePopup' + name)
+        if (!storageData || new Date(storageData) <= new Date() || storageData === 'never') {
+            func()
+        }
+    }, showAfter)
+
+    if (clickSelector) {
+        document.querySelector(clickSelector.toString()).addEventListener("click", () => {
+            func()
+        })
+    }
+}
+
+// фиксированный топ-бар при сколле
+jQuery(window).on("scroll", function () {
+    let scrolled = jQuery(this).scrollTop();
+    const widget_wrap = document.querySelector('.widget-wrap');
+    const topLine = document.querySelector('.top-line');
+
+    if (widget_wrap) {
+        if (scrolled > 300) {
+            widget_wrap.style.display = 'flex';
+        } else {
+            widget_wrap.style.display = 'none';
+        }
+    }
+
+    if (scrolled > 1) {
+        if (jQuery('.offer-top')) jQuery('.offer-top').addClass('header-fixed');
+        if (jQuery('.topbar')) jQuery('.topbar').addClass('header-fixed');
+        if (topLine) topLine.classList.add('top-line--fixed');
+    }
+    if (scrolled <= 1) {
+        if (jQuery('.offer-top')) jQuery('.offer-top').removeClass('header-fixed');
+        if (jQuery('.topbar')) jQuery('.topbar').removeClass('header-fixed');
+        if (topLine) topLine.classList.remove('top-line--fixed');
+    }
+});
+
+function getCurrentLocation(currentLocation) {
+
+    return jQuery.ajax({
+        "url": "https://gb.ru/api/location/v1/regions/location",
+        "method": "GET",
+        "timeout": 0
+    });
+}
+
+// Наведение на Популярные статьи в контенте моб
+function popularArticles() {
+    let popularArticlesBtn = document.querySelectorAll(".popular-articles__item")
+    if (popularArticlesBtn) {
+        popularArticlesBtn.forEach(btnPost => {
+            btnPost.addEventListener("mouseover", () => {
+                let a = btnPost.getElementsByTagName('a')[1].style.color = "#22C993"
+            });
+            btnPost.addEventListener("mouseout", () => {
+                let a = btnPost.getElementsByTagName('a')[1].style.color = ""
+            });
+        });
+    }
+
+}
+
+popularArticles();
+
+function skillsPopup() {
+
+    const popup = document.querySelector('.skills-popup');
+
+    if (popup) {
+        const close = document.querySelector('.js-skills-close');
+        const form = document.querySelector('.skills-popup__form');
+        const email = form.elements.namedItem('email');
+        const phone = form.elements.namedItem('tel');
+
+        const iti_skill = window.intlTelInput(phone, {
+            preferredCountries: ["ru", "kz", "by", "de", "ua"],
+            allowDropdown: true,
+            autoPlaceholder: "aggressive",
+            separateDialCode: true,
+            utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js",
+            dropdownContainer: form.querySelector('.input-tel-wrap'),
+        });
+
+        let skill_loc = sessionStorage.getItem('user_location');
+        if (skill_loc) {
+            iti_skill.setCountry(skill_loc);
+
+            setTimeout(() => {
+                createPhoneMaskSkill();
+            }, 800);
+        }
+
+        if (email) {
+            Inputmask("*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]", {
+                greedy: false,
+                definitions: {
+                    '*': {
+                        validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~\-]",
+                        casing: "lower"
+                    }
+                }
+            }).mask(email);
+        }
+
+        close.addEventListener('click', (e) => {
+            popup.style.display = 'none';
+
+            // После закрытия попапа разрешаем автостарт
+            check_autoload = true;
+        });
+
+        const widget_el = document.querySelector('.career-trigger');
+        if (widget_el) {
+            widget_el.addEventListener('click', () => {
+                if (!skill_loc) {
+                    getCurrentLocation().done(function (response) {
+
+                        skill_loc = response.data.location.id.toLowerCase();
+
+                        iti_skill.setCountry(skill_loc);
+
+                        sessionStorage.setItem('user_location', skill_loc);
+
+                        setTimeout(() => {
+                            createPhoneMaskSkill();
+                        }, 800);
+                    });
+                }
+
+                popup.style.display = 'flex';
+                ym(40414440, 'reachGoal', 'pokazformividjetskachka');
+
+
+                // Во время открытия попапа блокируем попапы с автовсплытием
+                check_autoload = false;
+
+            });
+        }
+
+
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function createPhoneMaskSkill() {
+            let str = phone.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(phone);
+        }
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        if (phone) {
+            phone.addEventListener("countrychange", function () {
+                createPhoneMaskSkill();
+            });
+        }
+
+        form.addEventListener('submit', ev => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let date = new Date();
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            const obj = {
+                entrance_path: integration_data.vidget_podarki.path,
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: integration_data.vidget_podarki.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+                email: email.value,
+                phone: iti_skill.getNumber(),
+                product_id: integration_data.vidget_podarki.id,
+                tranid: Date.now(),
+                formid: "form_popup_skills"
+            }
+            ev.preventDefault();
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-success.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+                    ym(40414440, 'reachGoal', 'otpravkaformividjetskachka');
+                    // решение специально для Safari, чтобы выполнить переход в основном потоке
+                    setTimeout(() => {
+                        location.href = ' https://gb.ru/a/a_blog3';
+                    })
+                }
+            });
+        })
+    }
+}
+
+function downloadMaterials() {
+
+    const popup = document.querySelector('.download-materials-popup');
+    if (popup) {
+        const close = document.querySelector('.js-download-materials-close');
+        const form = document.querySelector('.download-materials-popup__form');
+        const email = form.elements.namedItem('email');
+        const phone = form.elements.namedItem('tel');
+
+        const iti_dmat = window.intlTelInput(phone, {
+            preferredCountries: ["ru", "kz", "by", "de", "ua"],
+            allowDropdown: true,
+            autoPlaceholder: "aggressive",
+            separateDialCode: true,
+            utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js",
+            dropdownContainer: form.querySelector('.input-tel-wrap'),
+        });
+
+        let dmat_loc = sessionStorage.getItem('user_location');
+        if (dmat_loc) {
+            iti_dmat.setCountry(dmat_loc);
+
+            setTimeout(() => {
+                createPhoneMaskDMat();
+            }, 800);
+        }
+
+        if (email) {
+            Inputmask("*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]", {
+                greedy: false,
+                definitions: {
+                    '*': {
+                        validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~\-]",
+                        casing: "lower"
+                    }
+                }
+            }).mask(email);
+        }
+
+
+        close.addEventListener('click', (e) => {
+            popup.style.display = 'none';
+
+            // После закрытия попапа разрешаем автостарт
+            check_autoload = true;
+        });
+
+        const widget_el = document.querySelector('.career-trigger');
+        if (widget_el) {
+            widget_el.addEventListener('click', () => {
+                if (!dmat_loc) {
+                    getCurrentLocation().done(function (response) {
+
+                        dmat_loc = response.data.location.id.toLowerCase();
+
+                        iti_dmat.setCountry(dmat_loc);
+
+                        sessionStorage.setItem('user_location', dmat_loc);
+
+                        setTimeout(() => {
+                            createPhoneMaskDMat();
+                        }, 800);
+                    });
+                }
+
+                popup.style.display = 'flex';
+                ym(40414440, 'reachGoal', 'pokazformividjetskachka');
+
+
+                // Во время открытия попапа блокируем попапы с автовсплытием
+                check_autoload = false;
+
+            });
+        }
+
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function createPhoneMaskDMat() {
+            let str = phone.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(phone);
+        }
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        if (phone) {
+            phone.addEventListener("countrychange", function () {
+                createPhoneMaskDMat();
+            });
+        }
+
+        form.addEventListener('submit', ev => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let date = new Date();
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            const obj = {
+                entrance_path: integration_data.vidget_podarki.path,
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: integration_data.vidget_podarki.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+                email: email.value,
+                phone: iti_dmat.getNumber(),
+                product_id: integration_data.vidget_podarki.id,
+                tranid: Date.now(),
+                formid: "form_popup_skills"
+            }
+            ev.preventDefault();
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-success.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+                    ym(40414440, 'reachGoal', 'otpravkaformividjetskachka');
+                    // решение специально для Safari, чтобы выполнить переход в основном потоке
+                    setTimeout(() => {
+                        location.href = ' https://gb.ru/a/a_blog3';
+                    })
+                }
+            });
+        })
+    }
+}
+
+function popupPaywall() {
+    let popup = document.querySelector('.js-popup-paywall');
+    if (popup) {
+
+        let popupSuc = document.querySelector('.popup-paywall__suc');
+        let popupSucClose = document.querySelector('.popup-paywall__suc-close');
+        let form = document.querySelector('.popup-paywall__form');
+        let email = form.elements.namedItem('email');
+        let phone = form.elements.namedItem('tel');
+
+        const iti_paywall = window.intlTelInput(phone, {
+            preferredCountries: ["ru", "kz", "by", "de", "ua"],
+            allowDropdown: true,
+            autoPlaceholder: "aggressive",
+            separateDialCode: true,
+            utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js",
+            dropdownContainer: form.querySelector('.input-tel-wrap'),
+        });
+
+        let paywall_loc = sessionStorage.getItem('user_location');
+        if (paywall_loc) {
+            iti_paywall.setCountry(paywall_loc);
+
+            setTimeout(() => {
+                createPhoneMaskPayWall();
+            }, 800);
+        }
+
+        if (email) {
+            Inputmask("*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]", {
+                greedy: false,
+                definitions: {
+                    '*': {
+                        validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~\-]",
+                        casing: "lower"
+                    }
+                }
+            }).mask(email);
+        }
+
+        showPopupInTimeOriginal(30000, -1, () => {
+
+            const wheel_interval = setInterval(() => {
+                if (check_autoload) {
+
+                    clearInterval(wheel_interval);
+
+                    popup.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    ym(40414440, 'reachGoal', 'pokazpaywall');
+
+                    // Во время открытия попапа блокируем попапы с автовсплытием
+                    check_autoload = false;
+
+                }
+            });
+        }, null, 'paywall')
+
+
+        popupSucClose.addEventListener('click', (e) => {
+            popupSuc.style.display = 'none';
+
+            // После закрытия попапа разрешаем автостарт
+            check_autoload = true;
+
+        });
+
+        if (!paywall_loc) {
+            getCurrentLocation().done(function (response) {
+
+                paywall_loc = response.data.location.id.toLowerCase();
+
+                iti_paywall.setCountry(paywall_loc);
+
+                sessionStorage.setItem('user_location', paywall_loc);
+
+                setTimeout(() => {
+                    createPhoneMaskPayWall();
+                }, 800);
+            });
+        }
+
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function createPhoneMaskPayWall() {
+            let str = phone.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(phone);
+        }
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        if (phone) {
+            phone.addEventListener("countrychange", function () {
+                createPhoneMaskPayWall();
+            });
+        }
+
+        form.addEventListener("submit", ev => {
+            // console.log('t-1');
+            ev.preventDefault();
+            const urlParams = new URLSearchParams(window.location.search);
+            let date = new Date();
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            const obj = {
+                email: email.value,
+                phone: iti_paywall.getNumber(),
+                entrance_path: integration_data.paywall.path,
+                product_id: integration_data.paywall.id,
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: integration_data.paywall.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+            }
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-success.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+                    ym(40414440, 'reachGoal', 'otpravkapaywall');
+                    popupSuc.style.display = 'flex';
+                    popup.style.display = 'none'
+                    document.body.style.overflow = '';
+                }
+            });
+        })
+    }
+}
+
+function ajaxUpdatedRating() {
+    const stars_block = document.getElementById('blog_comments_rating');
+    if (stars_block) {
+        const stars = stars_block.querySelectorAll('.js-star-rating-item');
+        if (stars) {
+            stars.forEach((el) => {
+                el.addEventListener('click', () => {
+
+                    const post_id = parseInt(stars_block.getAttribute('data-post_id'));
+
+                    setTimeout(() => {
+                        rating_resp(post_id, stars_block);
+                    }, 500);
+
+                });
+            });
+        }
+    }
+}
+
+async function rating_resp(post_id, stars_block) {
+    let data_body = 'action=GetRating&nonce_js=' + gbajax.nonce + '&post_id=' + post_id;
+
+    let response = await fetch(gbajax.url, {
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        method: "POST",
+        body: data_body,
+        headers: {
+            "content-type": "application/x-www-form-urlencoded",
+            "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Methods": 'POST',
+        }
+    })
+
+    let json = '';
+    if (response.ok) {
+        json = await response.json();
+    } else {
+        console.log("Ошибка HTTP: " + response.status);
+    }
+
+    if (json.data === 'already') {
+        let span = document.createElement('span');
+        span.textContent = 'Вы уже проголосовали';
+        span.classList.add('already');
+        stars_block.querySelector('.blog-comments-estimate').appendChild(span);
+    } else {
+        const rating_block = stars_block.querySelector('.js-star-rating');
+        rating_block.setAttribute('data-rating-count', json.data.rating_count);
+        rating_block.setAttribute('data-rating-value', json.data.rating_value);
+
+        const rating_box_count = stars_block.querySelector('.rating-box__count');
+        rating_box_count.innerHTML = '<span>Рейтинг:</span>\n' +
+            json.data.rating_value + '\n' +
+            '<div class="rating-box__count-votes">\n' +
+            '<span>(&nbsp;голосов </span>\n' +
+            json.data.rating_count +
+            '<span>)</span>\n' +
+            '</div>';
+    }
+    console.log('result - ', json);
+}
+
+function initCommentSort() {
+    let btn_publish = document.querySelector('.comment-sort__publish')
+    let btn_rating = document.querySelector('.comment-sort__rating')
+    if (!btn_publish && !btn_rating) {
+        return
+    }
+    btn_publish.addEventListener('click', () => {
+        url = new URL(window.location.href);
+        if (url.searchParams.has('sort_field') && url.searchParams.get('sort_field') === 'publish_date') {
+            url.searchParams.set('sort_order', url.searchParams.get('sort_order') === 'ASC' ? 'DESC' : 'ASC')
+        } else {
+            url.searchParams.set('sort_order', 'ASC')
+            url.searchParams.set('sort_field', 'publish_date')
+        }
+        url.hash = 'comments'
+        window.location.href = url.href
+    })
+    btn_rating.addEventListener('click', () => {
+        url = new URL(window.location.href);
+        if (url.searchParams.has('sort_field') && url.searchParams.get('sort_field') === 'rating') {
+            url.searchParams.set('sort_order', url.searchParams.get('sort_order') === 'ASC' ? 'DESC' : 'ASC')
+        } else {
+            url.searchParams.set('sort_order', 'DESC')
+            url.searchParams.set('sort_field', 'rating')
+        }
+        url.hash = 'comments'
+        window.location.href = url.href
+    })
+}
+
+function initBlogFormMain() {
+    const form = document.querySelector('#blogFormMain');
+    if (!form) {
+        return
+    }
+    const email = form.querySelector('input[type=email]');
+    const phone = form.querySelector('input[type=tel]');
+
+    const iti_form = window.intlTelInput(phone, {
+        preferredCountries: ["ru", "kz", "by", "de", "ua"], // выбранные флаги стран помещает в начало списка
+        allowDropdown: true,
+        autoPlaceholder: "aggressive", // Будет заменять все установленные плейсхолдеры
+        separateDialCode: true, // Выводит код страны рядом с флагом
+        utilsScript: "https://gb.ru/blog/wp-content/themes/reboot-child/assets/scripts/utils.min.js", // подключает скрипт-маску для телефона
+        dropdownContainer: form.querySelector('.input-tel-wrap'),
+    });
+
+    let form_loc = sessionStorage.getItem('user_location');
+    if (form_loc) {
+        iti_form.setCountry(form_loc);
+
+        setTimeout(() => {
+            createPhoneMask();
+        }, 800);
+    }
+
+    if (form) {
+        // Установка маски на поле телефона
+        // Маска обновляется динамически при смене страны
+        function createPhoneMask() {
+            let str = phone.getAttribute('placeholder');
+            str = str.replace(/[0-9]/g, '9');
+            Inputmask(str, {clearIncomplete: true, greedy: false}).mask(phone);
+        }
+
+        // Запускаем переинициализацию маски для поля телефона при смене страны
+        phone.addEventListener("countrychange", function () {
+            // console.log(iti.getSelectedCountryData());
+            createPhoneMask();
+        });
+
+
+        form.addEventListener("submit", ev => {
+            let date = new Date();
+
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // integration_data - объект, в который передаются данные из админки
+            // содержит название интеграционного элемента, например - banner_vstavka
+            // с параметрами - id, path
+            // структура объекта
+            // integration_data = {
+            //      banner_vstavka: {
+            //          id: 7860,
+            //          path: gb.ru/besplatnye-onlajn-kursy/put-v-it
+            //      },
+            //      ...
+            //  }
+            const obj = {
+                entrance_path: integration_data.form_main.path,
+                utm_term: urlParams.get('utm_term'),
+                utm_source: 'blog',
+                utm_medium: 'organic',
+                utm_content: integration_data.form_main.utm + ((urlParams.get('utm_content')) ? (',' + urlParams.get('utm_content')) : ''),
+                utm_campaign: 'sales-generator',
+                email: email.value,
+                phone: iti_form.getNumber(),
+                product_id: integration_data.form_main.id,
+                tranid: Date.now(),
+                formid: document.querySelector('body').classList.contains('single') ? "form_single" : "form_main"
+            }
+
+            ev.preventDefault();
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://gb.ru/api/v2/services/tilda/create_claim", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(obj));
+            xhr.onload = function () {
+                var data = JSON.parse(this.responseText);
+                // console.log(data);
+            }
+
+            jQuery.ajax({
+                type: "POST",
+                url: "https://gb.ru/blog/wp-content/themes/reboot-child/mail-main-form.php", // здесь указываем путь к второму файлу
+                data: obj,
+                success: function (msg) {
+
+                }
+            });
+        });
+
+    }
+
+}

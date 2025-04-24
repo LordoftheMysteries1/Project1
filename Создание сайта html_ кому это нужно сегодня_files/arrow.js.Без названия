@@ -1,0 +1,27 @@
+jQuery(document).ready(function($){
+
+    $('body').append('<style>\
+		.scrollTop{\
+			display:none; z-index:999; position:fixed; bottom:30px; right:2%; width:70px; height:40px;transition: 0.6s;\
+			background:url(../wp-content/themes/reboot-child/assets/images/arrow-article.svg) 0 0 no-repeat;\
+		}\
+		.scrollTop:hover{ background-position:0 -76px; transition: 0.6s; background:url(../wp-content/themes/reboot-child/assets/images/arrow-article-active.svg) 0 0 no-repeat;}\
+	</style>');
+
+    var speed      = 500,
+        $scrollTop = $('<div class="scrollTop"></div>').appendTo('body');
+
+    $scrollTop.click(function(e){
+        e.preventDefault();
+
+        $( 'html:not(:animated),body:not(:animated)' ).animate({ scrollTop: 0}, speed );
+    });
+
+    //появление
+    function show_scrollTop(){
+        ( $(window).scrollTop() > 300 ) ? $scrollTop.stop().fadeIn(600) : $scrollTop.stop().fadeOut(600);
+    }
+    $(window).scroll( function(){ show_scrollTop(); } );
+    show_scrollTop();
+
+});
